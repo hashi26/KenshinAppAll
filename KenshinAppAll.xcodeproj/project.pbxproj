@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		933AD02F2206F84600952615 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933AD02E2206F84600952615 /* Launch Screen.storyboard */; };
+		933AD0312206FDCD00952615 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933AD0302206FDCD00952615 /* Sample.swift */; };
 		934D061321E83E95002EF183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061221E83E95002EF183 /* AppDelegate.swift */; };
 		934D061521E83E95002EF183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061421E83E95002EF183 /* ViewController.swift */; };
 		934D061821E83E95002EF183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934D061621E83E95002EF183 /* Main.storyboard */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		933AD02E2206F84600952615 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		933AD0302206FDCD00952615 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sample.swift; path = KenshinAppAll/Sample.swift; sourceTree = SOURCE_ROOT; };
 		934D060F21E83E95002EF183 /* KenshinAppAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinAppAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934D061221E83E95002EF183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934D061421E83E95002EF183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				934D061621E83E95002EF183 /* Main.storyboard */,
+				933AD02E2206F84600952615 /* Launch Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -52,6 +57,7 @@
 		933AD02D2206F68900952615 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				933AD0302206FDCD00952615 /* Sample.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933AD02F2206F84600952615 /* Launch Screen.storyboard in Resources */,
 				934D061A21E83E96002EF183 /* Assets.xcassets in Resources */,
 				934D061821E83E95002EF183 /* Main.storyboard in Resources */,
 			);
@@ -156,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				934D061521E83E95002EF183 /* ViewController.swift in Sources */,
+				933AD0312206FDCD00952615 /* Sample.swift in Sources */,
 				934D061321E83E95002EF183 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
