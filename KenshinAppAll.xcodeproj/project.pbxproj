@@ -17,7 +17,7 @@
 
 /* Begin PBXFileReference section */
 		933AD02E2206F84600952615 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		933AD0302206FDCD00952615 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sample.swift; path = KenshinAppAll/Sample.swift; sourceTree = SOURCE_ROOT; };
+		933AD0302206FDCD00952615 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sample.swift; path = Sample.swift; sourceTree = "<group>"; };
 		934D060F21E83E95002EF183 /* KenshinAppAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinAppAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934D061221E83E95002EF183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934D061421E83E95002EF183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,8 +48,8 @@
 		933AD02C2206F67E00952615 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				934D061621E83E95002EF183 /* Main.storyboard */,
 				933AD02E2206F84600952615 /* Launch Screen.storyboard */,
+				934D061621E83E95002EF183 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
