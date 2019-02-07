@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="-45" y="-59"/>
         </scene>
-        <!--Map-->
+        <!--Tab-->
         <scene sceneID="jUv-9f-EtT">
             <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="xQV-c8-oEc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Tab" id="xQV-c8-oEc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5d0-Yg-FuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="100"/>
