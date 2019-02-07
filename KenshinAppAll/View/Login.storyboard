@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mh6-7M-cHi">
-                                <rect key="frame" x="168" y="497" width="38" height="30"/>
+                                <rect key="frame" x="161" y="506" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="ToHello"/>
                                 <connections>
                                     <segue destination="MoV-Hg-DhP" kind="show" identifier="ToHello" id="Muf-Xf-osc"/>
                                 </connections>
