@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Entity1" representedClassName="Entity1" syncable="YES" codeGenerationType="class"/>
+    <entity name="Customers" representedClassName="Customers" syncable="YES" codeGenerationType="class">
+        <attribute name="adrs_banchi" optional="YES" syncable="YES"/>
+        <attribute name="adrs_chou" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gmt_set_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="kaiheisen_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="knsn_method_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="knsn_tnt_emp_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="meter_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teirei_date" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Goh" representedClassName="Goh" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="gou_ban" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,6 +20,6 @@
     </entity>
     <elements>
         <element name="Goh" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="Entity1" positionX="-54" positionY="-9" width="128" height="45"/>
+        <element name="Customers" positionX="-54" positionY="-9" width="128" height="163"/>
     </elements>
 </model>
