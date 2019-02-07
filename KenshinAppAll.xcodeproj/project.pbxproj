@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 739C07F5220C4BDB008697C1 /* KenshinCD.xcdatamodeld */; };
+		739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */; };
+		739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */; };
 		934D061321E83E95002EF183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061221E83E95002EF183 /* AppDelegate.swift */; };
 		934D061521E83E95002EF183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061421E83E95002EF183 /* ViewController.swift */; };
 		934D061A21E83E96002EF183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934D061921E83E96002EF183 /* Assets.xcassets */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		739C07F6220C4BDB008697C1 /* KenshinCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KenshinCD.xcdatamodel; sourceTree = "<group>"; };
+		739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Goh+CoreDataClass.swift"; path = "../Goh+CoreDataClass.swift"; sourceTree = "<group>"; };
+		739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Goh+CoreDataProperties.swift"; path = "../Goh+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		934D060F21E83E95002EF183 /* KenshinAppAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinAppAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934D061221E83E95002EF183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934D061421E83E95002EF183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,11 +74,14 @@
 		933AD02B2206F66700952615 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */,
+				739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */,
 				934D061421E83E95002EF183 /* ViewController.swift */,
 				EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */,
 				EF2B9DFE220C3F5F0087124C /* ContactViewController.swift */,
 				EF2B9DFD220C3F5F0087124C /* NotificationViewController.swift */,
 				EF2B9DFF220C3F5F0087124C /* SettingViewController.swift */,
+				739C07F5220C4BDB008697C1 /* KenshinCD.xcdatamodeld */,
 				EF2B9DEC220C3F3E0087124C /* HelloViewController.swift */,
 				EF2B9DEB220C3F3E0087124C /* KenshinReportViewController.swift */,
 				EF2B9DF5220C3F4C0087124C /* MapViewController.swift */,
@@ -203,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */,
 				EF2B9DF1220C3F3E0087124C /* LoginViewController.swift in Sources */,
 				EF2B9E02220C3F5F0087124C /* SettingViewController.swift in Sources */,
 				934D061521E83E95002EF183 /* ViewController.swift in Sources */,
@@ -210,6 +220,8 @@
 				EF2B9DEF220C3F3E0087124C /* KenshinReportViewController.swift in Sources */,
 				EF2B9E00220C3F5F0087124C /* NotificationViewController.swift in Sources */,
 				934D061321E83E95002EF183 /* AppDelegate.swift in Sources */,
+				739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */,
+				739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */,
 				EF2B9DF2220C3F3E0087124C /* CustomerViewController.swift in Sources */,
 				EF2B9DF6220C3F4C0087124C /* MapViewController.swift in Sources */,
 				EF2B9E01220C3F5F0087124C /* ContactViewController.swift in Sources */,
@@ -391,6 +403,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		739C07F5220C4BDB008697C1 /* KenshinCD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				739C07F6220C4BDB008697C1 /* KenshinCD.xcdatamodel */,
+			);
+			currentVersion = 739C07F6220C4BDB008697C1 /* KenshinCD.xcdatamodel */;
+			path = KenshinCD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 934D060721E83E95002EF183 /* Project object */;
 }
