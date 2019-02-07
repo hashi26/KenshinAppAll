@@ -7,23 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		933AD02F2206F84600952615 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933AD02E2206F84600952615 /* Launch Screen.storyboard */; };
-		933AD0312206FDCD00952615 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933AD0302206FDCD00952615 /* Sample.swift */; };
 		934D061321E83E95002EF183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061221E83E95002EF183 /* AppDelegate.swift */; };
 		934D061521E83E95002EF183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061421E83E95002EF183 /* ViewController.swift */; };
-		934D061821E83E95002EF183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934D061621E83E95002EF183 /* Main.storyboard */; };
 		934D061A21E83E96002EF183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934D061921E83E96002EF183 /* Assets.xcassets */; };
+		EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */; };
+		EF2B9DE7220C3F160087124C /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE3220C3F160087124C /* Customer.storyboard */; };
+		EF2B9DE8220C3F160087124C /* Hello.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE4220C3F160087124C /* Hello.storyboard */; };
+		EF2B9DE9220C3F160087124C /* KenshinReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE5220C3F160087124C /* KenshinReport.storyboard */; };
+		EF2B9DEA220C3F160087124C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE6220C3F160087124C /* Login.storyboard */; };
+		EF2B9DEF220C3F3E0087124C /* KenshinReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DEB220C3F3E0087124C /* KenshinReportViewController.swift */; };
+		EF2B9DF0220C3F3E0087124C /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DEC220C3F3E0087124C /* HelloViewController.swift */; };
+		EF2B9DF1220C3F3E0087124C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DED220C3F3E0087124C /* LoginViewController.swift */; };
+		EF2B9DF2220C3F3E0087124C /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */; };
+		EF2B9DF4220C3F460087124C /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DF3220C3F460087124C /* Map.storyboard */; };
+		EF2B9DF6220C3F4C0087124C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DF5220C3F4C0087124C /* MapViewController.swift */; };
+		EF2B9DFA220C3F530087124C /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DF7220C3F530087124C /* Setting.storyboard */; };
+		EF2B9DFB220C3F530087124C /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DF8220C3F530087124C /* Notification.storyboard */; };
+		EF2B9DFC220C3F530087124C /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DF9220C3F530087124C /* Contact.storyboard */; };
+		EF2B9E00220C3F5F0087124C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DFD220C3F5F0087124C /* NotificationViewController.swift */; };
+		EF2B9E01220C3F5F0087124C /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DFE220C3F5F0087124C /* ContactViewController.swift */; };
+		EF2B9E02220C3F5F0087124C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DFF220C3F5F0087124C /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		933AD02E2206F84600952615 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		933AD0302206FDCD00952615 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sample.swift; path = Sample.swift; sourceTree = "<group>"; };
 		934D060F21E83E95002EF183 /* KenshinAppAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinAppAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934D061221E83E95002EF183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934D061421E83E95002EF183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		934D061721E83E95002EF183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		934D061921E83E96002EF183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		934D061E21E83E96002EF183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF2B9DE3220C3F160087124C /* Customer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
+		EF2B9DE4220C3F160087124C /* Hello.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hello.storyboard; sourceTree = "<group>"; };
+		EF2B9DE5220C3F160087124C /* KenshinReport.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KenshinReport.storyboard; sourceTree = "<group>"; };
+		EF2B9DE6220C3F160087124C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		EF2B9DEB220C3F3E0087124C /* KenshinReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KenshinReportViewController.swift; sourceTree = "<group>"; };
+		EF2B9DEC220C3F3E0087124C /* HelloViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
+		EF2B9DED220C3F3E0087124C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
+		EF2B9DF3220C3F460087124C /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		EF2B9DF5220C3F4C0087124C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		EF2B9DF7220C3F530087124C /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		EF2B9DF8220C3F530087124C /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		EF2B9DF9220C3F530087124C /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
+		EF2B9DFD220C3F5F0087124C /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		EF2B9DFE220C3F5F0087124C /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		EF2B9DFF220C3F5F0087124C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +69,14 @@
 			isa = PBXGroup;
 			children = (
 				934D061421E83E95002EF183 /* ViewController.swift */,
+				EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */,
+				EF2B9DFE220C3F5F0087124C /* ContactViewController.swift */,
+				EF2B9DFD220C3F5F0087124C /* NotificationViewController.swift */,
+				EF2B9DFF220C3F5F0087124C /* SettingViewController.swift */,
+				EF2B9DEC220C3F3E0087124C /* HelloViewController.swift */,
+				EF2B9DEB220C3F3E0087124C /* KenshinReportViewController.swift */,
+				EF2B9DF5220C3F4C0087124C /* MapViewController.swift */,
+				EF2B9DED220C3F3E0087124C /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -48,18 +84,17 @@
 		933AD02C2206F67E00952615 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				933AD02E2206F84600952615 /* Launch Screen.storyboard */,
-				934D061621E83E95002EF183 /* Main.storyboard */,
+				EF2B9DE3220C3F160087124C /* Customer.storyboard */,
+				EF2B9DE4220C3F160087124C /* Hello.storyboard */,
+				EF2B9DF9220C3F530087124C /* Contact.storyboard */,
+				EF2B9DF8220C3F530087124C /* Notification.storyboard */,
+				EF2B9DF7220C3F530087124C /* Setting.storyboard */,
+				EF2B9DF3220C3F460087124C /* Map.storyboard */,
+				EF2B9DE5220C3F160087124C /* KenshinReport.storyboard */,
+				EF2B9DE6220C3F160087124C /* Login.storyboard */,
+				EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		933AD02D2206F68900952615 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				933AD0302206FDCD00952615 /* Sample.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		934D060621E83E95002EF183 = {
@@ -82,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				933AD02B2206F66700952615 /* Controller */,
-				933AD02D2206F68900952615 /* Model */,
 				933AD02C2206F67E00952615 /* View */,
 				934D061221E83E95002EF183 /* AppDelegate.swift */,
 				934D061921E83E96002EF183 /* Assets.xcassets */,
@@ -149,9 +183,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933AD02F2206F84600952615 /* Launch Screen.storyboard in Resources */,
+				EF2B9DE9220C3F160087124C /* KenshinReport.storyboard in Resources */,
+				EF2B9DF4220C3F460087124C /* Map.storyboard in Resources */,
+				EF2B9DFB220C3F530087124C /* Notification.storyboard in Resources */,
+				EF2B9DE7220C3F160087124C /* Customer.storyboard in Resources */,
+				EF2B9DEA220C3F160087124C /* Login.storyboard in Resources */,
 				934D061A21E83E96002EF183 /* Assets.xcassets in Resources */,
-				934D061821E83E95002EF183 /* Main.storyboard in Resources */,
+				EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */,
+				EF2B9DE8220C3F160087124C /* Hello.storyboard in Resources */,
+				EF2B9DFA220C3F530087124C /* Setting.storyboard in Resources */,
+				EF2B9DFC220C3F530087124C /* Contact.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,25 +203,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2B9DF1220C3F3E0087124C /* LoginViewController.swift in Sources */,
+				EF2B9E02220C3F5F0087124C /* SettingViewController.swift in Sources */,
 				934D061521E83E95002EF183 /* ViewController.swift in Sources */,
-				933AD0312206FDCD00952615 /* Sample.swift in Sources */,
+				EF2B9DF0220C3F3E0087124C /* HelloViewController.swift in Sources */,
+				EF2B9DEF220C3F3E0087124C /* KenshinReportViewController.swift in Sources */,
+				EF2B9E00220C3F5F0087124C /* NotificationViewController.swift in Sources */,
 				934D061321E83E95002EF183 /* AppDelegate.swift in Sources */,
+				EF2B9DF2220C3F3E0087124C /* CustomerViewController.swift in Sources */,
+				EF2B9DF6220C3F4C0087124C /* MapViewController.swift in Sources */,
+				EF2B9E01220C3F5F0087124C /* ContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		934D061621E83E95002EF183 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				934D061721E83E95002EF183 /* Base */,
-			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		934D061F21E83E96002EF183 /* Debug */ = {
