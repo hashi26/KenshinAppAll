@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEW-Fo-JaU">
-                                <rect key="frame" x="170" y="475" width="35" height="30"/>
+                                <rect key="frame" x="168" y="475" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Hello"/>
+                                <state key="normal" title="ToTab"/>
                                 <connections>
-                                    <segue destination="xQV-c8-oEc" kind="show" identifier="ToMap" id="AbO-37-vrr"/>
+                                    <segue destination="xQV-c8-oEc" kind="show" identifier="ToTab" id="AbO-37-vrr"/>
                                 </connections>
                             </button>
                         </subviews>

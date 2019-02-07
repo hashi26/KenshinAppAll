@@ -42,6 +42,14 @@
             </objects>
             <point key="canvasLocation" x="-482" y="-1000"/>
         </scene>
+        <!--Customer-->
+        <scene sceneID="yQO-Di-Mn7">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="KenshinReport" storyboardName="Customer" id="rIg-n8-NfU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U5R-hY-LZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2237" y="-1769"/>
+        </scene>
         <!--Map-->
         <scene sceneID="1LB-Ou-iq2">
             <objects>
@@ -49,6 +57,16 @@
                     <view key="view" contentMode="scaleToFill" id="Lc4-db-N2g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXJ-fT-rl1">
+                                <rect key="frame" x="146" y="512" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ToCustomer"/>
+                                <connections>
+                                    <segue destination="rIg-n8-NfU" kind="show" identifier="ToCustomer" id="Hho-S7-Lll"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BEU-N2-UoS"/>
                     </view>
