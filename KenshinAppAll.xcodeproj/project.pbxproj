@@ -8,20 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		934D061321E83E95002EF183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061221E83E95002EF183 /* AppDelegate.swift */; };
-		934D061521E83E95002EF183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061421E83E95002EF183 /* ViewController.swift */; };
-		934D061821E83E95002EF183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934D061621E83E95002EF183 /* Main.storyboard */; };
 		934D061A21E83E96002EF183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934D061921E83E96002EF183 /* Assets.xcassets */; };
 		934D061D21E83E96002EF183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934D061B21E83E96002EF183 /* LaunchScreen.storyboard */; };
+		EF2B9DC2220316F60087124C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DC1220316F60087124C /* Login.storyboard */; };
+		EF2B9DC42203175C0087124C /* Hello.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DC32203175C0087124C /* Hello.storyboard */; };
+		EF2B9DC6220317AF0087124C /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DC5220317AF0087124C /* Customer.storyboard */; };
+		EF2B9DC8220318610087124C /* KenshinReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DC7220318610087124C /* KenshinReport.storyboard */; };
+		EF2B9DCA22031B130087124C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DC922031B130087124C /* LoginViewController.swift */; };
+		EF2B9DCC22031C410087124C /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DCB22031C410087124C /* HelloViewController.swift */; };
+		EF2B9DCE22031C990087124C /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DCD22031C990087124C /* CustomerViewController.swift */; };
+		EF2B9DD022031CCB0087124C /* KenshinReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DCF22031CCB0087124C /* KenshinReportViewController.swift */; };
+		EF2B9DD2220C38B50087124C /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DD1220C38B50087124C /* Map.storyboard */; };
+		EF2B9DD4220C39010087124C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DD3220C39010087124C /* MapViewController.swift */; };
+		EF2B9DD6220C3B0B0087124C /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DD5220C3B0B0087124C /* Contact.storyboard */; };
+		EF2B9DD8220C3B340087124C /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DD7220C3B340087124C /* Notification.storyboard */; };
+		EF2B9DDA220C3B460087124C /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DD9220C3B460087124C /* Setting.storyboard */; };
+		EF2B9DDC220C3BF40087124C /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DDB220C3BF40087124C /* ContactViewController.swift */; };
+		EF2B9DDE220C3C1F0087124C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DDD220C3C1F0087124C /* NotificationViewController.swift */; };
+		EF2B9DE0220C3C560087124C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B9DDF220C3C560087124C /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		934D060F21E83E95002EF183 /* KenshinAppAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinAppAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934D061221E83E95002EF183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		934D061421E83E95002EF183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		934D061721E83E95002EF183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		934D061921E83E96002EF183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		934D061C21E83E96002EF183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		934D061E21E83E96002EF183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF2B9DC1220316F60087124C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		EF2B9DC32203175C0087124C /* Hello.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Hello.storyboard; sourceTree = "<group>"; };
+		EF2B9DC5220317AF0087124C /* Customer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
+		EF2B9DC7220318610087124C /* KenshinReport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KenshinReport.storyboard; sourceTree = "<group>"; };
+		EF2B9DC922031B130087124C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF2B9DCB22031C410087124C /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
+		EF2B9DCD22031C990087124C /* CustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
+		EF2B9DCF22031CCB0087124C /* KenshinReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KenshinReportViewController.swift; sourceTree = "<group>"; };
+		EF2B9DD1220C38B50087124C /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		EF2B9DD3220C39010087124C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		EF2B9DD5220C3B0B0087124C /* Contact.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
+		EF2B9DD7220C3B340087124C /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		EF2B9DD9220C3B460087124C /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		EF2B9DDB220C3BF40087124C /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		EF2B9DDD220C3C1F0087124C /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		EF2B9DDF220C3C560087124C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +83,25 @@
 			isa = PBXGroup;
 			children = (
 				934D061221E83E95002EF183 /* AppDelegate.swift */,
-				934D061421E83E95002EF183 /* ViewController.swift */,
-				934D061621E83E95002EF183 /* Main.storyboard */,
 				934D061921E83E96002EF183 /* Assets.xcassets */,
 				934D061B21E83E96002EF183 /* LaunchScreen.storyboard */,
 				934D061E21E83E96002EF183 /* Info.plist */,
+				EF2B9DC1220316F60087124C /* Login.storyboard */,
+				EF2B9DC32203175C0087124C /* Hello.storyboard */,
+				EF2B9DC5220317AF0087124C /* Customer.storyboard */,
+				EF2B9DC7220318610087124C /* KenshinReport.storyboard */,
+				EF2B9DC922031B130087124C /* LoginViewController.swift */,
+				EF2B9DCB22031C410087124C /* HelloViewController.swift */,
+				EF2B9DCD22031C990087124C /* CustomerViewController.swift */,
+				EF2B9DCF22031CCB0087124C /* KenshinReportViewController.swift */,
+				EF2B9DD1220C38B50087124C /* Map.storyboard */,
+				EF2B9DD3220C39010087124C /* MapViewController.swift */,
+				EF2B9DD5220C3B0B0087124C /* Contact.storyboard */,
+				EF2B9DD7220C3B340087124C /* Notification.storyboard */,
+				EF2B9DD9220C3B460087124C /* Setting.storyboard */,
+				EF2B9DDB220C3BF40087124C /* ContactViewController.swift */,
+				EF2B9DDD220C3C1F0087124C /* NotificationViewController.swift */,
+				EF2B9DDF220C3C560087124C /* SettingViewController.swift */,
 			);
 			path = KenshinAppAll;
 			sourceTree = "<group>";
@@ -122,9 +164,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2B9DC6220317AF0087124C /* Customer.storyboard in Resources */,
+				EF2B9DD2220C38B50087124C /* Map.storyboard in Resources */,
+				EF2B9DC8220318610087124C /* KenshinReport.storyboard in Resources */,
+				EF2B9DC2220316F60087124C /* Login.storyboard in Resources */,
+				EF2B9DD8220C3B340087124C /* Notification.storyboard in Resources */,
+				EF2B9DC42203175C0087124C /* Hello.storyboard in Resources */,
+				EF2B9DD6220C3B0B0087124C /* Contact.storyboard in Resources */,
+				EF2B9DDA220C3B460087124C /* Setting.storyboard in Resources */,
 				934D061D21E83E96002EF183 /* LaunchScreen.storyboard in Resources */,
 				934D061A21E83E96002EF183 /* Assets.xcassets in Resources */,
-				934D061821E83E95002EF183 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934D061521E83E95002EF183 /* ViewController.swift in Sources */,
+				EF2B9DCC22031C410087124C /* HelloViewController.swift in Sources */,
+				EF2B9DDC220C3BF40087124C /* ContactViewController.swift in Sources */,
+				EF2B9DDE220C3C1F0087124C /* NotificationViewController.swift in Sources */,
+				EF2B9DD4220C39010087124C /* MapViewController.swift in Sources */,
+				EF2B9DD022031CCB0087124C /* KenshinReportViewController.swift in Sources */,
+				EF2B9DE0220C3C560087124C /* SettingViewController.swift in Sources */,
+				EF2B9DCA22031B130087124C /* LoginViewController.swift in Sources */,
+				EF2B9DCE22031C990087124C /* CustomerViewController.swift in Sources */,
 				934D061321E83E95002EF183 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,14 +199,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		934D061621E83E95002EF183 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				934D061721E83E95002EF183 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		934D061B21E83E96002EF183 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
