@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Customers" representedClassName="Customers" syncable="YES" codeGenerationType="class">
-        <attribute name="adrs_banchi" optional="YES" syncable="YES"/>
+    <entity name="Customers" representedClassName="Customers" syncable="YES">
+        <attribute name="adrs_banchi" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="adrs_chou" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="adrs_goh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="apart_heya_ban_cana" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b1_kikan" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b1_ryo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="bb1_kikan" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bb1_ryo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="bb2_kikan" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bb2_ryo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="constract_started_at" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="customer_name_cana" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="customer_name_kanzi" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flyer_refused" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gmt_set_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="goh_ban" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="heya_ban_cana" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ichi_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="in_dog" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="in_dog_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="kaiheisen_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ken_seq" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="knsn_method_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="knsn_tnt_emp_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="meter_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mune_ban_cana" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name_j" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="next_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="old_gas_shizi" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="opened_at" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="out_dog" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="out_dog_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="service_info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tatemono_cana" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tatemono_kanzi" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="teirei_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tel_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="wireless_used" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yago_cana" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yago_kanzi" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yuso_setted" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Goh" representedClassName="Goh" syncable="YES">
+        <attribute name="attribute" optional="YES" syncable="YES"/>
+        <attribute name="attribute1" optional="YES" syncable="YES"/>
+        <attribute name="attribute2" optional="YES" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="gou_ban" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locations_code" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,8 +57,52 @@
         <attribute name="towns_name_j" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
+    <entity name="Notifications" representedClassName="Notifications" syncable="YES" codeGenerationType="class">
+        <attribute name="contact_tel_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contents" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="delete_flg" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="from_base_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="from_branch_office_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="from_sales_office_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notification_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sender_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="supervisor_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="to_base_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="to_branch_office_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="to_sales_office_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="Reading_person" representedClassName="Reading_person" syncable="YES" codeGenerationType="class">
+        <attribute name="base_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="branch_office_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="knsn_tnt_emp_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="knsn_tnt_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="knsn_tnt_pass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="knsn_tnt_tel_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sales_office_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="Reading_results" representedClassName="Reading_results" syncable="YES" codeGenerationType="class">
+        <attribute name="constract_started_at" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="gas_usage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="gmt_set_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gmt_sizi_su" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="is_opend" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="knsn_method" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="knsn_tnt_emp_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="knsn_ymd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="readed_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Goh" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="Customers" positionX="-54" positionY="-9" width="128" height="163"/>
+        <element name="Goh" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Customers" positionX="-54" positionY="-9" width="128" height="703"/>
+        <element name="Reading_results" positionX="-36" positionY="153" width="128" height="210"/>
+        <element name="Reading_person" positionX="-18" positionY="162" width="128" height="180"/>
+        <element name="Notifications" positionX="0" positionY="171" width="128" height="270"/>
     </elements>
 </model>
