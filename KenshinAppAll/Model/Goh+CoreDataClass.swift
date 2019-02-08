@@ -13,4 +13,5 @@ import CoreData
 @objc(Goh)
 public class Goh: NSManagedObject {
 
+    
 }

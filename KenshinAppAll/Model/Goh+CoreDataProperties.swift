@@ -23,5 +23,6 @@ extension Goh {
     @NSManaged public var towns_name_c: String?
     @NSManaged public var gou_ban: String?
     @NSManaged public var locations_code: String?
+    
 
 }
