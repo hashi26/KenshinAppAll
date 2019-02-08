@@ -47,9 +47,6 @@
         <attribute name="yuso_setted" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Goh" representedClassName="Goh" syncable="YES">
-        <attribute name="attribute" optional="YES" syncable="YES"/>
-        <attribute name="attribute1" optional="YES" syncable="YES"/>
-        <attribute name="attribute2" optional="YES" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="gou_ban" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locations_code" optional="YES" attributeType="String" syncable="YES"/>
@@ -99,7 +96,7 @@
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Goh" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Goh" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="Customers" positionX="-54" positionY="-9" width="128" height="703"/>
         <element name="Reading_results" positionX="-36" positionY="153" width="128" height="210"/>
         <element name="Reading_person" positionX="-18" positionY="162" width="128" height="180"/>
