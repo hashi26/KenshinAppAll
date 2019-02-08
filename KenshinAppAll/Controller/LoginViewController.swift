@@ -35,10 +35,13 @@ class LoginViewController: UIViewController {
         }
         */
         //Goh情報をJsonファイルから読み出す
+        print(Date())
         
         guard let data1 = try? getJSONData1() else { return }
-        print(data1)
-        goh2 = try! JSONDecoder().decode([GohClass].self, from: data1!)
+        //print(data1)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        goh2 = try! decoder.decode([GohClass].self, from: data1!)
         
         print("読み込んだgohデータの値")
         print(goh2.count)
