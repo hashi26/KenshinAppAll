@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class LoginViewController: UIViewController {
+    
+    var goh: [GohClass] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,13 @@ class LoginViewController: UIViewController {
         }
  */
         
+        //Goh情報をJsonファイルから読み出す
+        guard let data1 = try? getJSONData1() else { return }
+        print(data1)
+        goh = try! JSONDecoder().decode([GohClass].self, from: data1!)
         
+        print("読み込んだgohデータの値")
+        print(goh.count)
         
         // Do any additional setup after loading the view.
     }
@@ -48,5 +56,13 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // GohInfo.json変換用
+    func getJSONData1() throws -> Data? {
+        guard let path = Bundle.main.path(forResource: "goh", ofType: "json") else { return nil }
+        let url = URL(fileURLWithPath: path)
+        
+        return try Data(contentsOf: url)
+    }
 
 }

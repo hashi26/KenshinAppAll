@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:KenshinAppAll.xcodeproj">
+      location = "group:/Users/harada/Documents/20190206KenshinAppAll/KenshinAppAll/Controller/GohClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/harada/Documents/20190206KenshinAppAll/KenshinAppAll/Controller/goh.json">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
