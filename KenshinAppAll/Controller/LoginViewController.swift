@@ -11,13 +11,13 @@ import CoreData
 
 class LoginViewController: UIViewController {
     
-    var goh: [GohClass] = []
+    var goh2: [GohClass] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //下記は原田CoreDataテストのため記述
-        
+        /*
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context:NSManagedObjectContext = appDelegate.managedObjectContext
         let entity = NSEntityDescription.entity(forEntityName: "Goh", in: context)
@@ -33,16 +33,15 @@ class LoginViewController: UIViewController {
         }catch{
             print(error)
         }
-        
+        */
         //Goh情報をJsonファイルから読み出す
-        /*
+        
         guard let data1 = try? getJSONData1() else { return }
         print(data1)
-        goh = try! JSONDecoder().decode([GohClass].self, from: data1!)
+        goh2 = try! JSONDecoder().decode([GohClass].self, from: data1!)
         
         print("読み込んだgohデータの値")
-        print(goh.count)
-        */
+        print(goh2.count)
         
         // Do any additional setup after loading the view.
     }
