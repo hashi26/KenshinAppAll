@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3FE9F2220D864800FD4F37 /* ReadingResultClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3FE9F1220D864800FD4F37 /* ReadingResultClass.swift */; };
 		739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 739C07F5220C4BDB008697C1 /* KenshinCD.xcdatamodeld */; };
 		739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */; };
 		739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D3FE9F1220D864800FD4F37 /* ReadingResultClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingResultClass.swift; sourceTree = "<group>"; };
 		739C07F6220C4BDB008697C1 /* KenshinCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KenshinCD.xcdatamodel; sourceTree = "<group>"; };
 		739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataClass.swift"; sourceTree = "<group>"; };
 		739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */,
 				739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */,
 				739C080E220D7435008697C1 /* GohClass.swift */,
+				0D3FE9F1220D864800FD4F37 /* ReadingResultClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */,
 				EF2B9DF2220C3F3E0087124C /* CustomerViewController.swift in Sources */,
 				739C080F220D7435008697C1 /* GohClass.swift in Sources */,
+				0D3FE9F2220D864800FD4F37 /* ReadingResultClass.swift in Sources */,
 				EF2B9DF6220C3F4C0087124C /* MapViewController.swift in Sources */,
 				EF2B9E01220C3F5F0087124C /* ContactViewController.swift in Sources */,
 			);
