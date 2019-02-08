@@ -21,9 +21,9 @@ class GohClass: Codable {
     //登録日時
     let created_at: Date
     //更新日時
-    let updated_at: Date
+    let updated_at: Date?
     
-    init(locations_code: String, gou_ban: String,towns_name_c:String,towns_name_j:String,created_at:Date,updated_at:Date){
+    init(locations_code: String, gou_ban: String,towns_name_c:String,towns_name_j:String,created_at:Date,updated_at:Date?){
         self.locations_code = locations_code
         self.gou_ban = gou_ban
         self.towns_name_c = towns_name_c

@@ -11,6 +11,7 @@
 		739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */; };
 		739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */; };
 		739C080F220D7435008697C1 /* GohClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C080E220D7435008697C1 /* GohClass.swift */; };
+		739C0811220D790B008697C1 /* goh.json in Resources */ = {isa = PBXBuildFile; fileRef = 739C0810220D790B008697C1 /* goh.json */; };
 		934D061321E83E95002EF183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061221E83E95002EF183 /* AppDelegate.swift */; };
 		934D061521E83E95002EF183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061421E83E95002EF183 /* ViewController.swift */; };
 		934D061A21E83E96002EF183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934D061921E83E96002EF183 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataClass.swift"; sourceTree = "<group>"; };
 		739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		739C080E220D7435008697C1 /* GohClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohClass.swift; sourceTree = "<group>"; };
+		739C0810220D790B008697C1 /* goh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goh.json; sourceTree = "<group>"; };
 		934D060F21E83E95002EF183 /* KenshinAppAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinAppAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934D061221E83E95002EF183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934D061421E83E95002EF183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		739C0805220D431C008697C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				739C0810220D790B008697C1 /* goh.json */,
 				739C07F5220C4BDB008697C1 /* KenshinCD.xcdatamodeld */,
 				739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */,
 				739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */,
@@ -200,6 +203,7 @@
 				EF2B9DEA220C3F160087124C /* Login.storyboard in Resources */,
 				934D061A21E83E96002EF183 /* Assets.xcassets in Resources */,
 				EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */,
+				739C0811220D790B008697C1 /* goh.json in Resources */,
 				EF2B9DE8220C3F160087124C /* Hello.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
