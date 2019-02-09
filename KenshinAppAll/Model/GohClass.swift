@@ -19,11 +19,14 @@ class GohClass: Codable {
     //町名・漢字
     let towns_name_j: String
     //登録日時
-    let created_at: Date
+    let created_at: String
+    //let created_at: Date
     //更新日時
-    let updated_at: Date?
+    let updated_at: String
+    //let updated_at: Date?
     
-    init(locations_code: String, gou_ban: String,towns_name_c:String,towns_name_j:String,created_at:Date,updated_at:Date?){
+    init(locations_code: String, gou_ban: String,towns_name_c:String,towns_name_j:String,created_at:String,updated_at:String
+        ){
         self.locations_code = locations_code
         self.gou_ban = gou_ban
         self.towns_name_c = towns_name_c
