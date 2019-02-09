@@ -44,12 +44,15 @@ class LoginViewController: UIViewController {
         decoder.dateDecodingStrategy = .iso8601
         goh2 = try! decoder.decode([GohClass].self, from: data1!)
  */
-        goh2 = readGohClass()
+        goh2 = readGohClassJson()
         
         print("読み込んだgohデータの値")
         print(goh2[0].towns_name_c)
         print(goh2[1].towns_name_j)
         print(goh2[2].locations_code)
+        
+        //goh2 = readGohClass()
+        
         
         // Do any additional setup after loading the view.
     }
