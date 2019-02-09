@@ -35,3 +35,20 @@ class GohClass: Codable {
         self.updated_at = updated_at
     }
 }
+
+func readGohClass() -> [GohClass]{
+    var goh2: [GohClass] = []
+    guard let data1 = try? getJSONData1() else { return goh2}
+    //print(data1)
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601
+    goh2 = try! decoder.decode([GohClass].self, from: data1!)
+    return goh2
+}
+
+func getJSONData1() throws -> Data? {
+    guard let path = Bundle.main.path(forResource: "goh", ofType: "json") else { return nil }
+    let url = URL(fileURLWithPath: path)
+    
+    return try Data(contentsOf: url)
+}

@@ -37,14 +37,19 @@ class LoginViewController: UIViewController {
         //Goh情報をJsonファイルから読み出す
         print(Date())
         
+        /*
         guard let data1 = try? getJSONData1() else { return }
         //print(data1)
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         goh2 = try! decoder.decode([GohClass].self, from: data1!)
+ */
+        goh2 = readGohClass()
         
         print("読み込んだgohデータの値")
-        print(goh2.count)
+        print(goh2[0].towns_name_c)
+        print(goh2[1].towns_name_j)
+        print(goh2[2].locations_code)
         
         // Do any additional setup after loading the view.
     }
@@ -60,6 +65,7 @@ class LoginViewController: UIViewController {
     }
     */
     
+    /*
     // GohInfo.json変換用
     func getJSONData1() throws -> Data? {
         guard let path = Bundle.main.path(forResource: "goh", ofType: "json") else { return nil }
@@ -67,5 +73,6 @@ class LoginViewController: UIViewController {
         
         return try Data(contentsOf: url)
     }
+ */
 
 }
