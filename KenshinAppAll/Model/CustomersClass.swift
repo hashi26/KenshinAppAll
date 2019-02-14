@@ -26,6 +26,7 @@ class CustomersClass {
         context = persistentContainer.viewContext
     }
     
+    
     // 全件検索
     func selectCustomers() -> [Customers] {
         let customersFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Customers")
