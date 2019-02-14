@@ -6,6 +6,8 @@
 //  Copyright © 2019年 KenshinT. All rights reserved.
 //
 
+import CoreData
+import UIKit
 import Foundation
 
 class ReadingResultClass: Codable {
@@ -14,11 +16,11 @@ class ReadingResultClass: Codable {
     //検針年月日
     let knsn_ymd : String
     //メーター指示数
-    let gmt_siji_su : Int
+    let gmt_sizi_su : Int16
     //開閉栓状態
     let is_opend : String
     //ガス使用量
-    let gas_usage : Int
+    let gas_usage : Int16
     //検針担当者番号
     let knsn_tnt_emp_no : String
     //契約開始年月日
@@ -34,9 +36,9 @@ class ReadingResultClass: Codable {
     
     init(gmt_set_no : String ,
          knsn_ymd : String ,
-         gmt_siji_su : Int ,
+         gmt_sizi_su : Int16 ,
          is_opend : String ,
-         gas_usage : Int ,
+         gas_usage : Int16 ,
          knsn_tnt_emp_no : String ,
          constract_started_at : String ,
          knsn_method : String ,
@@ -46,7 +48,7 @@ class ReadingResultClass: Codable {
         ){
         self.gmt_set_no = gmt_set_no
         self.knsn_ymd = knsn_ymd
-        self.gmt_siji_su = gmt_siji_su
+        self.gmt_sizi_su = gmt_sizi_su
         self.is_opend = is_opend
         self.gas_usage = gas_usage
         self.knsn_tnt_emp_no = knsn_tnt_emp_no
@@ -56,4 +58,60 @@ class ReadingResultClass: Codable {
         self.created_at = created_at
         self.updated_at = updated_at
     }
+}
+
+
+//ReadingResultClass用のJCLを読み込むメソッド
+func readReadingResultClassJson() -> [ReadingResultClass]{
+    var readingResult: [ReadingResultClass] = []
+    guard let data1 = try? getJSONData1() else { return readingResult}
+    //print(data1)
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601
+    readingResult = try! decoder.decode([ReadingResultClass].self, from: data1!)
+    return readingResult
+}
+
+//GohClassテーブルからデータを全件取得するメソッド
+func readReadingResultClass() -> [Reading_results]{
+    
+    let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context:NSManagedObjectContext = appDelegate.managedObjectContext
+    
+    var readingResult: [Reading_results] = []
+    let fetchRequest:NSFetchRequest<Reading_results> = Reading_results.fetchRequest()
+    let fetchData = try! context.fetch(fetchRequest)
+    if(!fetchData.isEmpty){
+        for i in 0..<fetchData.count{
+            readingResult.append(fetchData[i])
+        }
+    }
+    return readingResult
+}
+
+//GohClassのjsonを読み込むための処理
+//forResource:jsonのファイル名
+func getReadingResultJSONData1() throws -> Data? {
+    guard let path = Bundle.main.path(forResource: "readingResult", ofType: "json") else { return nil }
+    let url = URL(fileURLWithPath: path)
+    
+    return try Data(contentsOf: url)
+}
+
+//GohClassからGohへ変換するためのメソッド
+func readingResultClassToReadingResult(readingResultClass:ReadingResultClass) -> Reading_results{
+    let readingResult = Reading_results()
+    readingResult.gmt_set_no = readingResultClass.gmt_set_no
+    readingResult.knsn_ymd = readingResultClass.knsn_ymd
+    readingResult.gmt_sizi_su = readingResultClass.gmt_sizi_su
+    readingResult.is_opend = readingResultClass.is_opend
+    readingResult.gas_usage = readingResultClass.gas_usage
+    readingResult.knsn_tnt_emp_no = readingResultClass.knsn_tnt_emp_no
+    readingResult.constract_started_at = readingResultClass.constract_started_at
+    readingResult.knsn_method = readingResultClass.knsn_method
+    readingResult.readed_at = Date() as NSDate
+    readingResult.created_at = Date() as NSDate
+    readingResult.updated_at = Date() as NSDate
+    
+    return readingResult
 }
