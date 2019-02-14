@@ -26,6 +26,7 @@ class NotificationsClass {
 //    @NSManaged public var to_sales_office_code: String?
 //    @NSManaged public var updated_at: NSDate?
     
+    
     var persistentContainer:NSPersistentContainer!
     let context:NSManagedObjectContext!
 
