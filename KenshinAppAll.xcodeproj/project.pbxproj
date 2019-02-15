@@ -16,6 +16,9 @@
 		734689062215887F00D10124 /* Notifications+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689042215887F00D10124 /* Notifications+CoreDataProperties.swift */; };
 		734689092215889C00D10124 /* Customers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689072215889C00D10124 /* Customers+CoreDataClass.swift */; };
 		7346890B2215895D00D10124 /* Customers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689082215889C00D10124 /* Customers+CoreDataProperties.swift */; };
+		7346890E22158CA500D10124 /* Reading_person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346890C22158CA500D10124 /* Reading_person+CoreDataClass.swift */; };
+		7346890F22158CA500D10124 /* Reading_person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346890D22158CA500D10124 /* Reading_person+CoreDataProperties.swift */; };
+		7346891122158CF800D10124 /* ReadingPersonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346891022158CF800D10124 /* ReadingPersonClass.swift */; };
 		739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 739C07F5220C4BDB008697C1 /* KenshinCD.xcdatamodeld */; };
 		739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */; };
 		739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */; };
@@ -50,6 +53,9 @@
 		734689042215887F00D10124 /* Notifications+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		734689072215889C00D10124 /* Customers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Customers+CoreDataClass.swift"; sourceTree = "<group>"; };
 		734689082215889C00D10124 /* Customers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Customers+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7346890C22158CA500D10124 /* Reading_person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reading_person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7346890D22158CA500D10124 /* Reading_person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reading_person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7346891022158CF800D10124 /* ReadingPersonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingPersonClass.swift; sourceTree = "<group>"; };
 		739C07F6220C4BDB008697C1 /* KenshinCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KenshinCD.xcdatamodel; sourceTree = "<group>"; };
 		739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataClass.swift"; sourceTree = "<group>"; };
 		739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -92,6 +98,10 @@
 			children = (
 				734689072215889C00D10124 /* Customers+CoreDataClass.swift */,
 				734689082215889C00D10124 /* Customers+CoreDataProperties.swift */,
+				734688FF2215884F00D10124 /* CustomersClass.swift */,
+				7346891022158CF800D10124 /* ReadingPersonClass.swift */,
+				7346890C22158CA500D10124 /* Reading_person+CoreDataClass.swift */,
+				7346890D22158CA500D10124 /* Reading_person+CoreDataProperties.swift */,
 				734689032215887F00D10124 /* Notifications+CoreDataClass.swift */,
 				734689042215887F00D10124 /* Notifications+CoreDataProperties.swift */,
 				0D401DF3221577EF00FA3F22 /* Reading_results+CoreDataClass.swift */,
@@ -101,7 +111,6 @@
 				739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */,
 				739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */,
 				734689012215885C00D10124 /* NotificationsClass.swift */,
-				734688FF2215884F00D10124 /* CustomersClass.swift */,
 				739C080E220D7435008697C1 /* GohClass.swift */,
 				0D3FE9F1220D864800FD4F37 /* ReadingResultClass.swift */,
 			);
@@ -250,16 +259,19 @@
 				734689062215887F00D10124 /* Notifications+CoreDataProperties.swift in Sources */,
 				934D061521E83E95002EF183 /* ViewController.swift in Sources */,
 				EF2B9DF0220C3F3E0087124C /* HelloViewController.swift in Sources */,
+				7346890F22158CA500D10124 /* Reading_person+CoreDataProperties.swift in Sources */,
 				0D401DF5221577EF00FA3F22 /* Reading_results+CoreDataClass.swift in Sources */,
 				EF2B9DEF220C3F3E0087124C /* KenshinReportViewController.swift in Sources */,
 				734689022215885C00D10124 /* NotificationsClass.swift in Sources */,
 				EF2B9E00220C3F5F0087124C /* NotificationViewController.swift in Sources */,
 				734689002215884F00D10124 /* CustomersClass.swift in Sources */,
+				7346890E22158CA500D10124 /* Reading_person+CoreDataClass.swift in Sources */,
 				934D061321E83E95002EF183 /* AppDelegate.swift in Sources */,
 				739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */,
 				739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */,
 				EF2B9DF2220C3F3E0087124C /* CustomerViewController.swift in Sources */,
 				739C080F220D7435008697C1 /* GohClass.swift in Sources */,
+				7346891122158CF800D10124 /* ReadingPersonClass.swift in Sources */,
 				0D3FE9F2220D864800FD4F37 /* ReadingResultClass.swift in Sources */,
 				EF2B9DF6220C3F4C0087124C /* MapViewController.swift in Sources */,
 				0D401DF6221577EF00FA3F22 /* Reading_results+CoreDataProperties.swift in Sources */,

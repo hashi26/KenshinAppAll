@@ -72,7 +72,7 @@ func readReadingResultClassJson() -> [ReadingResultClass]{
     return readingResult
 }
 
-//GohClassテーブルからデータを全件取得するメソッド
+//Reading_resultテーブルからデータを全件取得するメソッド
 func readReadingResultClass() -> [Reading_results]{
     
     let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -89,7 +89,7 @@ func readReadingResultClass() -> [Reading_results]{
     return readingResult
 }
 
-//GohClassのjsonを読み込むための処理
+//ReadingResultClassのjsonを読み込むための処理
 //forResource:jsonのファイル名
 func getReadingResultJSONData1() throws -> Data? {
     guard let path = Bundle.main.path(forResource: "readingResult", ofType: "json") else { return nil }
@@ -98,7 +98,7 @@ func getReadingResultJSONData1() throws -> Data? {
     return try Data(contentsOf: url)
 }
 
-//GohClassからGohへ変換するためのメソッド
+//ReadingResultClassからGohへ変換するためのメソッド
 func readingResultClassToReadingResult(readingResultClass:ReadingResultClass) -> Reading_results{
     let readingResult = Reading_results()
     readingResult.gmt_set_no = readingResultClass.gmt_set_no
