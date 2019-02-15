@@ -71,7 +71,7 @@
         <attribute name="to_sales_office_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
-    <entity name="Reading_person" representedClassName="Reading_person" syncable="YES" codeGenerationType="class">
+    <entity name="Reading_person" representedClassName="Reading_person" syncable="YES">
         <attribute name="base_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="branch_office_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
