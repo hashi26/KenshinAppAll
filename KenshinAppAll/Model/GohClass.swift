@@ -10,47 +10,16 @@ import Foundation
 import CoreData //NSManagedObjectContext利用のため
 import UIKit  //UIApplication利用のため
 
-class GohClass: Codable {
-    //所在地行政区画CD
-    let locations_code: String
-    //号番号
-    let gou_ban: String
-    
-    //町名・カナ
-    let towns_name_c: String
-    //町名・漢字
-    let towns_name_j: String
-    //登録日時
-    let created_at: String
-    //let created_at: Date
-    //更新日時
-    let updated_at: String
-    //let updated_at: Date?
-    
-    init(locations_code: String, gou_ban: String,towns_name_c:String,towns_name_j:String,created_at:String,updated_at:String
-        ){
-        self.locations_code = locations_code
-        self.gou_ban = gou_ban
-        self.towns_name_c = towns_name_c
-        self.towns_name_j = towns_name_j
-        self.created_at = created_at
-        self.updated_at = updated_at
-    }
-}
 
 //GohClass用のJCLを読み込むメソッド
-func readGohClassJson() -> [GohClass]{
-    var goh: [GohClass] = []
+func readGohClassJson() -> [GohJsonInsert]{
+    var goh: [GohJsonInsert] = []
     guard let data1 = try? getJSONData1() else { return goh}
     //print(data1)
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601
-    goh = try! decoder.decode([GohClass].self, from: data1!)
+    goh = try! decoder.decode([GohJsonInsert].self, from: data1!)
     return goh
-}
-
-func sampleFunc() {
-    print("sample")
 }
 
 //GohClassテーブルからデータを全件取得するメソッド
@@ -80,7 +49,7 @@ func getJSONData1() throws -> Data? {
 }
 
 //GohClassからGohへ変換するためのメソッド
-func gohClassToGoh(gohClass:GohClass) -> Goh{
+func gohClassToGoh(gohClass:GohJsonInsert) -> Goh{
     let goh = Goh()
     goh.created_at = Date() as NSDate
     goh.gou_ban = gohClass.gou_ban
