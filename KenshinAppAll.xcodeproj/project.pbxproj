@@ -20,6 +20,7 @@
 		7346890E22158CA500D10124 /* Reading_person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346890C22158CA500D10124 /* Reading_person+CoreDataClass.swift */; };
 		7346890F22158CA500D10124 /* Reading_person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346890D22158CA500D10124 /* Reading_person+CoreDataProperties.swift */; };
 		7346891122158CF800D10124 /* ReadingPersonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346891022158CF800D10124 /* ReadingPersonClass.swift */; };
+		734689152217BFDA00D10124 /* GohJsonInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689142217BFDA00D10124 /* GohJsonInsert.swift */; };
 		739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 739C07F5220C4BDB008697C1 /* KenshinCD.xcdatamodeld */; };
 		739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */; };
 		739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */; };
@@ -58,6 +59,7 @@
 		7346890C22158CA500D10124 /* Reading_person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reading_person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7346890D22158CA500D10124 /* Reading_person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reading_person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7346891022158CF800D10124 /* ReadingPersonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingPersonClass.swift; sourceTree = "<group>"; };
+		734689142217BFDA00D10124 /* GohJsonInsert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohJsonInsert.swift; sourceTree = "<group>"; };
 		739C07F6220C4BDB008697C1 /* KenshinCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KenshinCD.xcdatamodel; sourceTree = "<group>"; };
 		739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataClass.swift"; sourceTree = "<group>"; };
 		739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */,
 				734689012215885C00D10124 /* NotificationsClass.swift */,
 				739C080E220D7435008697C1 /* GohClass.swift */,
+				734689142217BFDA00D10124 /* GohJsonInsert.swift */,
 				0D3FE9F1220D864800FD4F37 /* ReadingResultClass.swift */,
 				0D7E71D6221682C60088C0AA /* ReadingResultJsonInsert.swift */,
 			);
@@ -277,6 +280,7 @@
 				739C080F220D7435008697C1 /* GohClass.swift in Sources */,
 				7346891122158CF800D10124 /* ReadingPersonClass.swift in Sources */,
 				0D3FE9F2220D864800FD4F37 /* ReadingResultClass.swift in Sources */,
+				734689152217BFDA00D10124 /* GohJsonInsert.swift in Sources */,
 				EF2B9DF6220C3F4C0087124C /* MapViewController.swift in Sources */,
 				0D401DF6221577EF00FA3F22 /* Reading_results+CoreDataProperties.swift in Sources */,
 				734689052215887F00D10124 /* Notifications+CoreDataClass.swift in Sources */,

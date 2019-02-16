@@ -11,7 +11,7 @@ import CoreData
 
 class LoginViewController: UIViewController {
     
-    var goh2: [GohClass] = []
+    var goh2: [GohJsonInsert] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
