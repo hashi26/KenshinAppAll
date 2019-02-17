@@ -8,13 +8,42 @@
 
 import UIKit
 
-class ContactViewController: UIViewController {
-
+class ContactViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // TableViewオブジェクトの宣言
+    @IBOutlet weak var contactTableView: UITableView!
+    var contactList: [readingPerson] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // TableViewの高さを100にする
+        contactTableView.rowHeight = 100
+        
+        contactTableView.register (UINib(nibName: "ContactCell", bundle: nil),forCellReuseIdentifier:"ContactCell")
+
     }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contactList.count
+
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ 
+        print("セルの取得実行")
+        // セルを取得する
+        let contactCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
+        // セルに表示する値を設定する
+        if let cell = contactCell as? ContactCell {
+            cell.setupCell(model: contactList[indexPath.row])
+        }
+        return contactCell
+    }
+    
+
+    
+    
     
 
     /*
