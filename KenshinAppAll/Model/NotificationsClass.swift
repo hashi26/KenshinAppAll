@@ -39,7 +39,7 @@ class NotificationsClass {
         }
         context = persistentContainer.viewContext
     }
-    
+
     // 全件検索
     func selectNotifications() -> [Notifications] {
         let notificationsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Notifications")
@@ -53,27 +53,23 @@ class NotificationsClass {
         return []
     }
     
-//    // ガスメータ設置場所番号を指定して検索
-//    func selectNotificationsByGmtSetNo(gmt_set_no:String) -> [Notifications] {
-//        let notificationsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Notifications")
-//
-//        // 条件指定
-//        notificationsFetch.predicate = NSPredicate(format: "gmt_set_no = ’\(gmt_set_no)’")
-//
-//        do {
-//            let fetchedCustomers = try context.fetch(notificationsFetch) as! [Notifications]
-//            return fetchedNotifications
-//        } catch {
-//            fatalError("NotificationsClass.selectNotificationsByGmtSetNo()が失敗しました: \(error)")
-//        }
-//        return []
-//    }
-    
     // 追加
-    func insertNotifications() -> Notifications{
-        let notifications = NSEntityDescription.insertNewObject(forEntityName: "Notifications", into: context) as! Notifications
+    func insertNotifications(otifications : Notifications) {
+        NSEntityDescription.insertNewObject(forEntityName: "Notifications", into: context)
         saveNotifications()
-        return notifications
+    }
+    
+    // 初期データ追加
+    // アプリ起動時にjsonからお知らせ一覧を作成し、CoreDataにinsertする
+    func initInsertNotifications(otifications : Notifications) {
+        do {
+            let notificationsInsertData = try InitNotifications.getInitNotificationsData()
+            for obj in notificationsInsertData! {
+                insertNotifications(otifications: obj)
+            }
+        } catch {
+            fatalError("NotificationsClass.initInsetNotifications()が失敗しました : \(error)")
+        }
     }
     
     // 保存
@@ -87,4 +83,7 @@ class NotificationsClass {
             }
         }
     }
+    
+    
+    
 }
