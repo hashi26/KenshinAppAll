@@ -12,11 +12,12 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // TableViewオブジェクトの宣言
     @IBOutlet weak var contactTableView: UITableView!
-    var contactList: [readingPerson] = []
+    //var contactList: [readingPerson] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // TableViewの高さを100にする
         contactTableView.rowHeight = 100
         
@@ -25,6 +26,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        let contactList = readingPersonClassToReadingPerson
         return contactList.count
 
     }

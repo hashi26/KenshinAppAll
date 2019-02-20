@@ -44,18 +44,18 @@ class ReadingPersonClass: Codable {
     }
 }
 
-//ReadingPersonClass用のJCLを読み込むメソッド
-func readReadingResultClassJson() -> [ReadingPersonClass]{
-    var readingPerson: [ReadingPersonClass] = []
-    guard let data1 = try? getJSONData1() else { return readingPerson}
+//ReadingPersonClass用のJsonを読み込むメソッド
+func readReadingPersonClassJson() -> [ReadingPersonClass]{
+    var readingPersonData: [ReadingPersonClass] = []
+    guard let data1 = try? getJSONData1() else { return readingPersonData}
     //print(data1)
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601
-    readingPerson = try! decoder.decode([ReadingPersonClass].self, from: data1!)
-    return readingPerson
+    readingPersonData = try! decoder.decode([ReadingPersonClass].self, from: data1!)
+    return readingPersonData
 }
 
-//Reading_resultテーブルからデータを全件取得するメソッド
+//Reading_personテーブルからデータを全件取得するメソッド
 func readReadingPersonClass() -> [Reading_person]{
     
     let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -72,7 +72,7 @@ func readReadingPersonClass() -> [Reading_person]{
     return readingPerson
 }
 
-//ReadingResultClassのjsonを読み込むための処理
+//ReadingPersonClassのjsonを読み込むための処理
 //forResource:jsonのファイル名
 func getReadingPersonJSONData1() throws -> Data? {
     guard let path = Bundle.main.path(forResource: "readingPerson", ofType: "json") else { return nil }
@@ -81,7 +81,7 @@ func getReadingPersonJSONData1() throws -> Data? {
     return try Data(contentsOf: url)
 }
 
-//ReadingResultClassからGohへ変換するためのメソッド
+//ReadingPersonClassからReadingPersonへ変換するためのメソッド
 func readingPersonClassToReadingPerson(readingPersonClass:ReadingPersonClass) -> Reading_person{
     let readingPerson = Reading_person()
     readingPerson.base_code = readingPersonClass.base_code
