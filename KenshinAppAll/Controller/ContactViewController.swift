@@ -9,7 +9,19 @@
 import UIKit
 
 class ContactViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let TableViewCell : UITableViewCell? = nil
+        return TableViewCell!
+    }
+    
+/*ß
     // TableViewオブジェクトの宣言
     @IBOutlet weak var contactTableView: UITableView!
     //var contactList: [readingPerson] = []
@@ -28,7 +40,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         let contactList = readingPersonClassToReadingPerson
-        return contactList.count
+//        return contactList.count
 
     }
     
@@ -38,11 +50,11 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         // セルを取得する
         let contactCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
         // セルに表示する値を設定する
-        if let cell = contactCell as? ContactCell {
-            cell.setupCell(model: contactList[indexPath.row])
+//        if let cell = contactCell as? ContactCell {
+//            cell.setupCell(model: contactList[indexPath.row])
         }
-        return contactCell
-    }
+//        return contactCell
+ */
     
 
     
