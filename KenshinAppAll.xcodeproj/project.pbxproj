@@ -26,6 +26,7 @@
 		739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */; };
 		739C080F220D7435008697C1 /* GohClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C080E220D7435008697C1 /* GohClass.swift */; };
 		739C0811220D790B008697C1 /* goh.json in Resources */ = {isa = PBXBuildFile; fileRef = 739C0810220D790B008697C1 /* goh.json */; };
+		8A3F8979221D22C900338CD7 /* initReadingPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F8978221D22C800338CD7 /* initReadingPerson.swift */; };
 		934D061321E83E95002EF183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061221E83E95002EF183 /* AppDelegate.swift */; };
 		934D061521E83E95002EF183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061421E83E95002EF183 /* ViewController.swift */; };
 		934D061A21E83E96002EF183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934D061921E83E96002EF183 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		739C080E220D7435008697C1 /* GohClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohClass.swift; sourceTree = "<group>"; };
 		739C0810220D790B008697C1 /* goh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goh.json; sourceTree = "<group>"; };
+		8A3F8978221D22C800338CD7 /* initReadingPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initReadingPerson.swift; sourceTree = "<group>"; };
 		934D060F21E83E95002EF183 /* KenshinAppAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinAppAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934D061221E83E95002EF183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934D061421E83E95002EF183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				734689142217BFDA00D10124 /* GohJsonInsert.swift */,
 				0D3FE9F1220D864800FD4F37 /* ReadingResultClass.swift */,
 				0D7E71D6221682C60088C0AA /* ReadingResultJsonInsert.swift */,
+				8A3F8978221D22C800338CD7 /* initReadingPerson.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				EF2B9DF2220C3F3E0087124C /* CustomerViewController.swift in Sources */,
 				0D7E71D7221682C60088C0AA /* ReadingResultJsonInsert.swift in Sources */,
 				739C080F220D7435008697C1 /* GohClass.swift in Sources */,
+				8A3F8979221D22C900338CD7 /* initReadingPerson.swift in Sources */,
 				7346891122158CF800D10124 /* ReadingPersonClass.swift in Sources */,
 				0D3FE9F2220D864800FD4F37 /* ReadingResultClass.swift in Sources */,
 				734689152217BFDA00D10124 /* GohJsonInsert.swift in Sources */,
