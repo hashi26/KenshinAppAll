@@ -26,22 +26,6 @@
             </objects>
             <point key="canvasLocation" x="-482" y="-276"/>
         </scene>
-        <!--Notification-->
-        <scene sceneID="toI-S4-bhY">
-            <objects>
-                <viewController storyboardIdentifier="Notification" id="RoC-Be-spb" customClass="NotificationViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6BE-bf-Wcr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="yg2-0e-T9O"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Notification" id="FuO-7e-jwc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iPL-fd-5jN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-482" y="-1000"/>
-        </scene>
         <!--Customer-->
         <scene sceneID="yQO-Di-Mn7">
             <objects>
@@ -124,13 +108,23 @@
                     <connections>
                         <segue destination="XBZ-4T-MnY" kind="relationship" relationship="viewControllers" id="ebe-Yj-LiV"/>
                         <segue destination="5va-0b-UAN" kind="relationship" relationship="viewControllers" id="6xT-mo-xxi"/>
-                        <segue destination="RoC-Be-spb" kind="relationship" relationship="viewControllers" id="vgk-sD-jDW"/>
                         <segue destination="08E-Fk-KUY" kind="relationship" relationship="viewControllers" id="hhZ-pl-Mgi"/>
+                        <segue destination="nPl-BM-Kit" kind="relationship" relationship="viewControllers" id="q7B-zm-ifX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3y-VV-mih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1410" y="-962"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="Wix-EI-pTw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notifications" id="nPl-BM-Kit" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="通知一覧" id="sEe-qL-gkA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96G-zh-BUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-651" y="-1130"/>
         </scene>
         <!--Map-->
         <scene sceneID="8iq-XO-VvA">
