@@ -63,9 +63,16 @@ class NotificationsClass {
     // アプリ起動時にjsonからお知らせ一覧を作成し、CoreDataにinsertする
     func initInsertNotifications(otifications : Notifications) {
         do {
-            let notificationsInsertData = try InitNotifications.getInitNotificationsData()
-            for obj in notificationsInsertData! {
-                insertNotifications(otifications: obj)
+            // Insert前にCoreData内にデータが存在するかを確認し、
+            // データが存在する場合　：何もしない
+            // データが存在しない場合：データをInsertする
+            let resultSelectNotifications = selectNotifications()
+            if resultSelectNotifications.isEmpty {}
+            else {
+                let notificationsInsertData = try InitNotifications.getInitNotificationsData()
+                for obj in notificationsInsertData! {
+                    insertNotifications(otifications: obj)
+                }
             }
         } catch {
             fatalError("NotificationsClass.initInsetNotifications()が失敗しました : \(error)")
