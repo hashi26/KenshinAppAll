@@ -9,22 +9,22 @@
 import UIKit
 
 class CustomerViewController: UIViewController {
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var serviceContainer: UIView!
+    @IBOutlet weak var dogContainer: UIView!
+    @IBOutlet weak var otherContainer: UIView!
+    var containers: Array<UIView> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        containers = [serviceContainer,dogContainer,otherContainer]
+        containerView.bringSubviewToFront(serviceContainer)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func changeContainerView(_ sender: UISegmentedControl) {
+        let currentContainerView = containers[sender.selectedSegmentIndex]
+        containerView.bringSubviewToFront(currentContainerView)
     }
-    */
 
 }
