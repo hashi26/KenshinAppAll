@@ -31,6 +31,11 @@
 		934D061521E83E95002EF183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D061421E83E95002EF183 /* ViewController.swift */; };
 		934D061A21E83E96002EF183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934D061921E83E96002EF183 /* Assets.xcassets */; };
 		9E22532B22228E1000EA166C /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E22532A22228E1000EA166C /* Notifications.storyboard */; };
+		9E22532D22229D2500EA166C /* NotificationsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E22532C22229D2500EA166C /* NotificationsDetailViewController.swift */; };
+		9E4485B422237C0400E74FD4 /* customers.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E4485B022237C0400E74FD4 /* customers.json */; };
+		9E4485B522237C0400E74FD4 /* notifications.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E4485B122237C0400E74FD4 /* notifications.json */; };
+		9E4485B622237C0400E74FD4 /* reading_person.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E4485B222237C0400E74FD4 /* reading_person.json */; };
+		9E4485B722237C0400E74FD4 /* ReadingPersonJsonInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4485B322237C0400E74FD4 /* ReadingPersonJsonInsert.swift */; };
 		9E50A17D221BFB5000100525 /* InitNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50A17B221BFB5000100525 /* InitNotifications.swift */; };
 		9E50A17E221BFB5000100525 /* NotificationsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50A17C221BFB5000100525 /* NotificationsClass.swift */; };
 		EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */; };
@@ -76,6 +81,11 @@
 		934D061921E83E96002EF183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		934D061E21E83E96002EF183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E22532A22228E1000EA166C /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		9E22532C22229D2500EA166C /* NotificationsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsDetailViewController.swift; sourceTree = "<group>"; };
+		9E4485B022237C0400E74FD4 /* customers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = customers.json; sourceTree = "<group>"; };
+		9E4485B122237C0400E74FD4 /* notifications.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notifications.json; sourceTree = "<group>"; };
+		9E4485B222237C0400E74FD4 /* reading_person.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reading_person.json; sourceTree = "<group>"; };
+		9E4485B322237C0400E74FD4 /* ReadingPersonJsonInsert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingPersonJsonInsert.swift; sourceTree = "<group>"; };
 		9E50A17B221BFB5000100525 /* InitNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitNotifications.swift; sourceTree = "<group>"; };
 		9E50A17C221BFB5000100525 /* NotificationsClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsClass.swift; sourceTree = "<group>"; };
 		EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,6 +118,10 @@
 		739C0805220D431C008697C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9E4485B022237C0400E74FD4 /* customers.json */,
+				9E4485B122237C0400E74FD4 /* notifications.json */,
+				9E4485B222237C0400E74FD4 /* reading_person.json */,
+				9E4485B322237C0400E74FD4 /* ReadingPersonJsonInsert.swift */,
 				9E50A17B221BFB5000100525 /* InitNotifications.swift */,
 				9E50A17C221BFB5000100525 /* NotificationsClass.swift */,
 				734689072215889C00D10124 /* Customers+CoreDataClass.swift */,
@@ -137,6 +151,7 @@
 		933AD02B2206F66700952615 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9E22532C22229D2500EA166C /* NotificationsDetailViewController.swift */,
 				934D061421E83E95002EF183 /* ViewController.swift */,
 				EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */,
 				EF2B9DFE220C3F5F0087124C /* ContactViewController.swift */,
@@ -256,10 +271,13 @@
 				EF2B9DE7220C3F160087124C /* Customer.storyboard in Resources */,
 				EF2B9DEA220C3F160087124C /* Login.storyboard in Resources */,
 				934D061A21E83E96002EF183 /* Assets.xcassets in Resources */,
+				9E4485B422237C0400E74FD4 /* customers.json in Resources */,
 				EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */,
 				9E22532B22228E1000EA166C /* Notifications.storyboard in Resources */,
+				9E4485B522237C0400E74FD4 /* notifications.json in Resources */,
 				739C0811220D790B008697C1 /* goh.json in Resources */,
 				EF2B9DE8220C3F160087124C /* Hello.storyboard in Resources */,
+				9E4485B622237C0400E74FD4 /* reading_person.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,9 +302,11 @@
 				734689022215885C00D10124 /* NotificationsClass.swift in Sources */,
 				EF2B9E00220C3F5F0087124C /* NotificationViewController.swift in Sources */,
 				9E50A17D221BFB5000100525 /* InitNotifications.swift in Sources */,
+				9E22532D22229D2500EA166C /* NotificationsDetailViewController.swift in Sources */,
 				734689002215884F00D10124 /* CustomersClass.swift in Sources */,
 				7346890E22158CA500D10124 /* Reading_person+CoreDataClass.swift in Sources */,
 				934D061321E83E95002EF183 /* AppDelegate.swift in Sources */,
+				9E4485B722237C0400E74FD4 /* ReadingPersonJsonInsert.swift in Sources */,
 				739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */,
 				739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */,
 				EF2B9DF2220C3F3E0087124C /* CustomerViewController.swift in Sources */,
