@@ -6,6 +6,7 @@
 //  Copyright © 2019年 KenshinT. All rights reserved.
 //
 
+/*
 import Foundation
 
 class ReadingResultJsonInsert: Codable {
@@ -58,4 +59,4 @@ class ReadingResultJsonInsert: Codable {
     }
 }
 
-
+*/
