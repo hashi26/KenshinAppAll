@@ -15,6 +15,8 @@ class CustomerViewController: UIViewController {
     @IBOutlet weak var dogContainer: UIView!
     @IBOutlet weak var otherContainer: UIView!
     var containers: Array<UIView> = []
+    
+    //Slack通知テスト
 
     override func viewDidLoad() {
         super.viewDidLoad()
