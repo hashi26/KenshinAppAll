@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Kenshin Report View Controller-->
+        <!--Title-->
         <scene sceneID="vGr-IX-MjP">
             <objects>
                 <viewController storyboardIdentifier="KenshinReport" id="RhP-4o-i5R" customClass="KenshinReportViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
@@ -151,10 +151,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="＞号選択画面"/>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvU-hY-J5e">
+                                <rect key="frame" x="-91" y="44" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="V2p-rv-axs"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GZu-xz-drc"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="SJP-pv-O6k"/>
+                    <connections>
+                        <outlet property="b1Ryo" destination="WF1-fq-Tws" id="M8L-4z-3eN"/>
+                        <outlet property="gasUsage" destination="zVj-DH-Niz" id="rLl-Lf-Bmx"/>
+                        <outlet property="gmtSijiSu" destination="W0M-sA-deQ" id="Ya3-u0-saR"/>
+                        <outlet property="meterNo" destination="jas-9M-MaG" id="c8O-zW-mxW"/>
+                        <outlet property="oldGasSiji" destination="1h1-aW-B58" id="Iit-av-9tK"/>
+                        <outlet property="resultCancel" destination="cpc-0O-1lp" id="6Qg-pY-Hjj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bdo-J3-2ME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import Foundation
+import AudioToolbox
+import AVFoundation
 
-class KenshinReportViewController: UIViewController {
+class KenshinReportViewController: UIViewController,UINavigationControllerDelegate {
+    
+    @IBOutlet weak var meterNo: UILabel!
+    @IBOutlet weak var oldGasSiji: UILabel!
+    @IBOutlet weak var b1Ryo: UILabel!
+    @IBOutlet weak var gmtSijiSu: UITextField!
+    @IBOutlet weak var gasUsage: UILabel!
+    @IBOutlet weak var resultCancel: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
