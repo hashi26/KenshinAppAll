@@ -8,9 +8,73 @@
 
 import Foundation
 import CoreData //NSManagedObjectContext利用のため
-import UIKit  //UIApplication利用のため
 
+class GohClass{
+    var persistentContainer:NSPersistentContainer!
+    let context:NSManagedObjectContext!
+    
+    //初期化
+    init(completionClosure: @escaping () -> ()) {
+        persistentContainer = NSPersistentContainer(name: "KenshinCD")
+        persistentContainer.loadPersistentStores() { (description, error) in
+            if let error = error {
+                fatalError("GohClass.init()が失敗しました: \(error)")
+            }
+            completionClosure()
+        }
+        context = persistentContainer.viewContext
+    }
+    
+    // 全件検索
+    func selectCustomers() -> [Goh] {
+        let customersFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Goh")
+        
+        do {
+            let fetchedGoh = try context.fetch(customersFetch) as! [Goh]
+            return fetchedGoh
+        } catch {
+            fatalError("CustomerGoh.selectGoh()が失敗しました: \(error)")
+        }
+        return []
+    }
+    
+    // 号番号を指定して検索
+    func selectGohByGohBan(gou_ban:String) -> [Goh] {
+        let gohFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Goh")
+        
+        // 条件指定
+        gohFetch.predicate = NSPredicate(format: "gou_ban = ’\(gou_ban)’")
+        
+        do {
+            let fetchedGoh = try context.fetch(gohFetch) as! [Goh]
+            return fetchedGoh
+        } catch {
+            fatalError("GohClass.selectGohByGohBan()が失敗しました: \(error)")
+        }
+        return []
+    }
+    
+    // 追加
+    func insertCustomers() -> Goh{
+        let goh = NSEntityDescription.insertNewObject(forEntityName: "Goh", into: context) as! Goh
+        saveGoh()
+        return goh
+    }
+    
+    // 保存
+    func saveGoh() {
+        if context.hasChanges {
+            do {
+                try context.save();
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+}
 
+/*
 //GohClass用のJCLを読み込むメソッド
 func readGohClassJson() -> [GohJsonInsert]{
     var goh: [GohJsonInsert] = []
@@ -38,7 +102,7 @@ func readGohClass() -> [Goh]{
     }
    return goh
 }
-
+*/
 //GohClassのjsonを読み込むための処理
 //forResource:jsonのファイル名
 func getJSONData1() throws -> Data? {
@@ -49,7 +113,7 @@ func getJSONData1() throws -> Data? {
 }
 
 //GohClassからGohへ変換するためのメソッド
-func gohClassToGoh(gohClass:GohJsonInsert) -> Goh{
+/*func gohClassToGoh(gohClass:GohJsonInsert) -> Goh{
     let goh = Goh()
     goh.created_at = Date() as NSDate
     goh.gou_ban = gohClass.gou_ban
@@ -59,4 +123,4 @@ func gohClassToGoh(gohClass:GohJsonInsert) -> Goh{
     goh.updated_at = Date() as NSDate
     
     return goh
-}
+}*/

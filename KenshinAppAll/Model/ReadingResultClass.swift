@@ -10,6 +10,82 @@ import CoreData
 import UIKit
 import Foundation
 
+class ReadingResultClass {
+    
+    var persistentContainer:NSPersistentContainer!
+    let context:NSManagedObjectContext!
+    
+    init(completionClosure: @escaping () -> ()) {
+        persistentContainer = NSPersistentContainer(name: "KenshinCD")
+        persistentContainer.loadPersistentStores() { (description, error) in
+            if let error = error {
+                fatalError("ReadingResultClass.init()が失敗しました: \(error)")
+            }
+            completionClosure()
+        }
+        context = persistentContainer.viewContext
+    }
+    
+    // 全件検索
+    func selectReadingResult() -> [Reading_results] {
+        let readingResultFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadingResult")
+        
+        do {
+            let fetchedReadingResult = try context.fetch(readingResultFetch) as! [Reading_results]
+            return fetchedReadingResult
+        } catch {
+            fatalError("ReadingResultClass.selectReadingResult()が失敗しました: \(error)")
+        }
+        return []
+    }
+    
+    // 追加
+    func insertReadingResult(readingResult : Reading_results) {
+        NSEntityDescription.insertNewObject(forEntityName: "ReadingResult", into: context)
+        saveReadingResult()
+    }
+    
+    // 初期データ追加
+    // アプリ起動時にjsonからお知らせ一覧を作成し、CoreDataにinsertする
+    func initInsertReadingResult(readingResult : Reading_results) {
+        do {
+            // Insert前にCoreData内にデータが存在するかを確認し、
+            // データが存在する場合　：何もしない
+            // データが存在しない場合：データをInsertする
+            let resultSelectReadingResult = selectReadingResult()
+            if resultSelectReadingResult.isEmpty {}
+            else {
+                let readingResultInsertData = try InitReadingResult.getInitReadingResultData()
+                for obj in readingResultInsertData! {
+                    insertReadingResult(readingResult: obj)
+                }
+            }
+        } catch {
+            fatalError("ReadingResultClass.initInsetReadingResult()が失敗しました : \(error)")
+        }
+    }
+    
+    // 保存
+    func saveReadingResult() {
+        if context.hasChanges {
+            do {
+                try context.save();
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
+    
+    
+}
+
+
+
+
+
+/*
 //ReadingResultClass用のJCLを読み込むメソッド
 func readReadingResultClassJson() -> [ReadingResultJsonInsert]{
     var readingResult: [ReadingResultJsonInsert] = []
@@ -47,7 +123,7 @@ func getReadingResultJSONData1() throws -> Data? {
     return try Data(contentsOf: url)
 }
 
-//ReadingResultClassからGohへ変換するためのメソッド
+//ReadingResultClassからReadingResultへ変換するためのメソッド
 func readingResultClassToReadingResult(readingResultClass:ReadingResultJsonInsert) -> Reading_results{
     let readingResult = Reading_results()
     readingResult.gmt_set_no = readingResultClass.gmt_set_no
@@ -64,3 +140,4 @@ func readingResultClassToReadingResult(readingResultClass:ReadingResultJsonInser
     
     return readingResult
 }
+*/
