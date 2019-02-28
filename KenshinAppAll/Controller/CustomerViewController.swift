@@ -16,10 +16,12 @@ class CustomerViewController: UIViewController{
     @IBOutlet weak var dogContainer: UIView!
     @IBOutlet weak var otherContainer: UIView!
     var containers: Array<UIView> = []
+    var customer_instance: CustomersClass!
     
     @IBOutlet weak var customerName: UILabel!
     
     var customers:[Customers] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,11 @@ class CustomerViewController: UIViewController{
         containerView.bringSubviewToFront(serviceContainer)
         
         // テスト　ガスメータ設置場所番号：10010010010　の氏名を取得して表示
+        self.customer_instance = CustomersClass()
+        customers = self.customer_instance.selectCustomers()
+        print(customers.count)
+        
+        /*
         // Customersのname_j
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDelegate.managedObjectContext
@@ -42,6 +49,9 @@ class CustomerViewController: UIViewController{
         let fetchData = try!context.fetch(fetchRequestSearch)
         print(fetchData)
         //customers = CustomersClass.selectCustomers()
+        //他クラスメソッドの呼び出しがうまくできない
+        
+        
         print("tryした")
         if(!fetchData.isEmpty){
             print("検索結果あり")
@@ -51,7 +61,9 @@ class CustomerViewController: UIViewController{
         }else{
             print("データなし")
         }
+ */
     }
+ 
     
     @IBAction func changeContainerView(_ sender: UISegmentedControl) {
         let currentContainerView = containers[sender.selectedSegmentIndex]
