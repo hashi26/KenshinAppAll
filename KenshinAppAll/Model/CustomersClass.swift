@@ -15,13 +15,14 @@ class CustomersClass {
     let context:NSManagedObjectContext!
     
     // 初期化
-    init(completionClosure: @escaping () -> ()) {
+    init(){
+        //completionClosure: @escaping () -> ()) {
         persistentContainer = NSPersistentContainer(name: "KenshinCD")
         persistentContainer.loadPersistentStores() { (description, error) in
             if let error = error {
                 fatalError("CustomerClass.init()が失敗しました: \(error)")
             }
-            completionClosure()
+            //completionClosure()
         }
         context = persistentContainer.viewContext
     }
@@ -45,7 +46,7 @@ class CustomersClass {
         let customersFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Customers")
 
         // 条件指定
-        customersFetch.predicate = NSPredicate(format: "gmt_set_no = ’\(gmt_set_no)’")
+        customersFetch.predicate = NSPredicate(format: "gmt_set_no = '\(gmt_set_no)'")
         
         do {
             let fetchedCustomers = try context.fetch(customersFetch) as! [Customers]

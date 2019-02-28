@@ -39,22 +39,26 @@ class CustomerViewController: UIViewController{
         let task = Customers(context: context)
         task.gmt_set_no = "10010010010"
         task.name_j = "あいうえお"
-        //保存する
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        //保存する ※どんどん追加されちゃうのでコメントアウト
+        //(UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         /*
          お試しでデータInsert
          */
         
-        
         // コンテナ定義
         containers = [serviceContainer,dogContainer,otherContainer]
         containerView.bringSubviewToFront(serviceContainer)
         
+        // テスト　Custmer全件取得して表示 できた！
+        self.customer_instance = CustomersClass() //以下のメソッド確認のため残す
+        //customers = self.customer_instance.selectCustomers()
+        //print(customers.count)
+        //print(customers[0].name_j)
+        //customerName.text = customers[0].name_j
+        
         // テスト　ガスメータ設置場所番号：10010010010　の氏名を取得して表示
-        self.customer_instance = CustomersClass()
-        customers = self.customer_instance.selectCustomers()
-        print(customers.count)
+        customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
         print(customers[0].name_j)
         customerName.text = customers[0].name_j
         
