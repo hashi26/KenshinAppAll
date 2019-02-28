@@ -29,6 +29,24 @@ class CustomerViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+         お試しでデータInsert
+        */
+        //ここは丸写しで良い
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //インスタンス化をする
+        let task = Customers(context: context)
+        task.gmt_set_no = "10010010010"
+        task.name_j = "あいうえお"
+        //保存する
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        /*
+         お試しでデータInsert
+         */
+        
+        
         // コンテナ定義
         containers = [serviceContainer,dogContainer,otherContainer]
         containerView.bringSubviewToFront(serviceContainer)
@@ -37,6 +55,8 @@ class CustomerViewController: UIViewController{
         self.customer_instance = CustomersClass()
         customers = self.customer_instance.selectCustomers()
         print(customers.count)
+        print(customers[0].name_j)
+        customerName.text = customers[0].name_j
         
         /*
         // Customersのname_j
@@ -65,7 +85,10 @@ class CustomerViewController: UIViewController{
         }else{
             print("データなし")
         }
- */
+         */
+    
+        
+        
     }
  
     
