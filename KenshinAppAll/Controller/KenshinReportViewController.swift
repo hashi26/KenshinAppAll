@@ -24,6 +24,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     @IBOutlet weak var gouSelect: UIButton!
     @IBOutlet weak var cameraLightButton: UIBarButtonItem!
     
+    var gmtSetNo:CChar? //型式これでいいのか？？
+    
     //var customerData:KenshinData?   // お客さま情報詳細を確認する＆検針をするお客さまデータ
     //var adrs:(gyo:Int, retsu:Int)?  // 検針データリストから特定のお客さまを選択するために使用するアドレスを格納する
     var kaikiFlg:Int? = 0           //回帰フラグ
@@ -36,12 +38,27 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         super.viewDidLoad()
         navigationController?.delegate = self
         
-        //
-        //各データのインプットをここで記述。
-        gmtSijiSu.text   = "1234" // テスト用のか仮値
-        //
+        //coredata用インスタンス用意
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context:NSManagedObjectContext = appDelegate.managedObjectContext
+        
+        //お客さまテーブル読み込み？？
+
         
         
+        
+        
+        
+        //仮。実際は、前の画面から引き継いだ客番を利用する
+        gmtSetNo = 10010010010
+        
+        //inputを入力してる。
+        //customerData = KenshinInfoController.getKenshinData(gyo:adrs!.gyo, retsu:adrs!.retsu)// 検針データリストから特定のお客さまのインスタンスを取得する
+        meterNo.text = customerData?.getGasSecchi() // 社番の画面表示
+        oldGasSiji.text   = customerData?.getOldGasShiji().description // 前回指示数　descriptionでStringに変換
+        b1Ryo.text   = customerData?.getOldGasRyo().description // 前回使用量　descriptionでStringに変換
+        gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数　descriptionでStringに変換
+        gasUsage.text   = customerData?.getNowGasRyo().description // 今回使用量　descriptionでStringに変換
         
         
         self.gmtSijiSu.keyboardType = UIKeyboardType.numberPad//キーボードは数字入力固定
