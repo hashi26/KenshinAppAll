@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import AudioToolbox
 import AVFoundation
+import CoreData
 
 class KenshinReportViewController: UIViewController,UINavigationControllerDelegate {
     
@@ -19,7 +20,10 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     @IBOutlet weak var gmtSijiSu: UITextField!
     @IBOutlet weak var gasUsage: UILabel!
     @IBOutlet weak var resultCancel: UIButton!
-
+    @IBOutlet weak var nextMetr: UIButton!
+    @IBOutlet weak var gouSelect: UIButton!
+    @IBOutlet weak var cameraLightButton: UIBarButtonItem!
+    
     //var customerData:KenshinData?   // お客さま情報詳細を確認する＆検針をするお客さまデータ
     //var adrs:(gyo:Int, retsu:Int)?  // 検針データリストから特定のお客さまを選択するために使用するアドレスを格納する
     var kaikiFlg:Int? = 0           //回帰フラグ
@@ -34,7 +38,11 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         
         //
         //各データのインプットをここで記述。
+        gmtSijiSu.text   = "1234" // テスト用のか仮値
         //
+        
+        
+        
         
         self.gmtSijiSu.keyboardType = UIKeyboardType.numberPad//キーボードは数字入力固定
         resultCancel.layer.cornerRadius = 5  //取消ボタンを丸角にする
@@ -48,10 +56,9 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         
         //今回指示数の文字数チェック
         NotificationCenter.default.addObserver(self,selector: #selector(textFieldDidChange),
-                                               name: NSNotification.Name.UITextFieldTextDidChange,object: gmtSijiSu)
-        
+                                               name: UITextField.textDidChangeNotification,object: gmtSijiSu)
         //検針済かチェックして各処理行う。
-        //self.sumiCheck()
+        self.checkResult()
         
         //号の最後のお客さまかチェック。「次のお客さま」を非活性にする。
         if( countMax == adrs!.retsu + 1){
@@ -80,8 +87,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         shijisuAlert.addAction(UIAlertAction(title:"OK",style:.default,
                                              handler: { action in
                                                 //今回指示数が前回指示数未満の時
-                                                if(Int(self.gmtSijiSu.text!)! < Int(self.oldGasShijiLabel.text!)!){
-                                                    self.kaikiCheck()
+                                                if(Int(self.gmtSijiSu.text!)! < Int(self.oldGasSiji.text!)!){
+                                                    self.checkKaiki()
                                                     self.kenshinResult()
                                                     //今回指示数が前回指示数以上の時
                                                 }else{
@@ -105,7 +112,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
             if text.count > 3 {
                 print("text.count > 3 合致")
                 self.gmtSijiSu.resignFirstResponder()
-                self.cancelDoneBarOpen()
+                self.openCancelDoneBar()
                 self.gmtSijiSu.becomeFirstResponder()
                 gmtSijiSu.text = text.substring(to: text.index(text.startIndex, offsetBy: 4))
             }else{
@@ -138,7 +145,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     }
     
     //検針済かチェックし、各処理を行う。
-    func sumiCheck(){
+    func checkResult(){
         //検針済なら・・・
         if (customerData?.getSumiFlg() == 1) {
             //指示数入力欄を灰色にして非活性化
@@ -162,7 +169,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     }
     
     //アクションシートを表示し、回帰か確認を求める
-    func kaikiCheck() {
+    func checkKaiki() {
         let kaikiAlert = UIAlertController(
             title: "前回指示数を下回っています。", message:"", preferredStyle: .actionSheet)
         //回帰が押された場合
@@ -188,7 +195,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         let toolBar:UIToolbar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.sizeToFit()
-        let cancelButton:UIBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItemStyle.plain, target: self, action: #selector(pushCancel(_:)))
+        let cancelButton:UIBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItem.Style.plain, target: self, action: #selector(pushCancel(_:)))
         let toolBarItems = [cancelButton]
         toolBar.setItems(toolBarItems, animated: true)
         gmtSijiSu.inputAccessoryView = toolBar
@@ -196,14 +203,14 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     }
     
     //４桁入力後のツールバー
-    func cancelDoneBarOpen(){
+    func openCancelDoneBar(){
         //↓↓↓数字キーボードの上に「Done」「Cancel」を挿入する↓↓↓
         let toolBar:UIToolbar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.sizeToFit()
-        let cancelButton:UIBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItemStyle.plain, target: self, action: #selector(pushCancel(_:)))
-        let spacer:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        let setButton:UIBarButtonItem = UIBarButtonItem(title: "登録", style: UIBarButtonItemStyle.plain, target: self, action: #selector(pushDone(_:)))
+        let cancelButton:UIBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItem.Style.plain, target: self, action: #selector(pushCancel(_:)))
+        let spacer:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        let setButton:UIBarButtonItem = UIBarButtonItem(title: "登録", style: UIBarButtonItem.Style.plain, target: self, action: #selector(pushDone(_:)))
         let toolBarItems = [cancelButton,spacer,setButton]
         
         toolBar.setItems(toolBarItems, animated: true)
@@ -227,7 +234,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     func kenshinResult(){
         KenshinInfoController.setKenshinResult(kenshinData: self.customerData!, nowGasShiji: Int(self.gmtSijiSu.text!)!,kaikiFlg:self.kaikiFlg!, gyo: self.adrs!.gyo, retsu: self.adrs!.retsu)
         self.gasUsage.text   = self.customerData?.getNowGasRyo().description
-        self.sumiCheck()
+        self.checkResult()
     }
     
     //リセット(キャンセルした時とかに呼ばれる)
@@ -237,7 +244,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         kaikiFlg = 0                           //回帰フラグを初期値に変更
         KenshinInfoController.setKenshinresultCancel(kenshinData: self.customerData!, gyo: self.adrs!.gyo, retsu: self.adrs!.retsu)
         //検針済かチェックして各処理行う。
-        self.sumiCheck()
+        self.checkResult()
         
     }
     
