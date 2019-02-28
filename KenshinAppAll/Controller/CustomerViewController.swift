@@ -18,10 +18,14 @@ class CustomerViewController: UIViewController{
     var containers: Array<UIView> = []
     var customer_instance: CustomersClass!
     
+    // 画面上部表示項目
     @IBOutlet weak var customerName: UILabel!
+    @IBOutlet weak var meterNo: UILabel!
+    @IBOutlet weak var knsnHhCd: UILabel!
+    @IBOutlet weak var khsnJtCd: UILabel!
+    @IBOutlet weak var shrHhCd: UILabel!
     
     var customers:[Customers] = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +55,7 @@ class CustomerViewController: UIViewController{
         //customers = CustomersClass.selectCustomers()
         //他クラスメソッドの呼び出しがうまくできない
         
-        
+    
         print("tryした")
         if(!fetchData.isEmpty){
             print("検索結果あり")
