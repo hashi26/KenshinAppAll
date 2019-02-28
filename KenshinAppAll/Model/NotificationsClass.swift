@@ -61,7 +61,7 @@ class NotificationsClass {
     
     // 初期データ追加
     // アプリ起動時にjsonからお知らせ一覧を作成し、CoreDataにinsertする
-    func initInsertNotifications(otifications : Notifications) {
+    func initInsertNotifications() {
         do {
             // Insert前にCoreData内にデータが存在するかを確認し、
             // データが存在する場合　：何もしない

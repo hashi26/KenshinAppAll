@@ -7,26 +7,98 @@
 //
 
 import UIKit
+import CoreData
 
-class CustomerViewController: UIViewController {
+class CustomerViewController: UIViewController{
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var serviceContainer: UIView!
     @IBOutlet weak var dogContainer: UIView!
     @IBOutlet weak var otherContainer: UIView!
     var containers: Array<UIView> = []
+    var customer_instance: CustomersClass!
     
-    //Slack通知テスト
-
+    // 画面上部表示項目
+    @IBOutlet weak var customerName: UILabel!
+    @IBOutlet weak var meterNo: UILabel!
+    @IBOutlet weak var knsnHhCd: UILabel!
+    @IBOutlet weak var khsnJtCd: UILabel!
+    @IBOutlet weak var shrHhCd: UILabel!
+    
+    var customers:[Customers] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+         お試しでデータInsert
+        */
+        //ここは丸写しで良い
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //インスタンス化をする
+        let task = Customers(context: context)
+        task.gmt_set_no = "10010010010"
+        task.name_j = "あいうえお"
+        //保存する ※どんどん追加されちゃうのでコメントアウト
+        //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        /*
+         お試しでデータInsert
+         */
+        
+        // コンテナ定義
         containers = [serviceContainer,dogContainer,otherContainer]
         containerView.bringSubviewToFront(serviceContainer)
+        
+        // テスト　Custmer全件取得して表示 できた！
+        self.customer_instance = CustomersClass() //以下のメソッド確認のため残す
+        //customers = self.customer_instance.selectCustomers()
+        //print(customers.count)
+        //print(customers[0].name_j)
+        //customerName.text = customers[0].name_j
+        
+        // テスト　ガスメータ設置場所番号：10010010010　の氏名を取得して表示
+        customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
+        print(customers[0].name_j)
+        customerName.text = customers[0].name_j
+        
+        /*
+        // Customersのname_j
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context: NSManagedObjectContext = appDelegate.managedObjectContext
+        
+        print("検索する")
+        let fetchRequestSearch: NSFetchRequest<Customers> = Customers.fetchRequest()
+        let predicate = NSPredicate(format: "%K = %@","gmt_set_no","10010010010")
+        fetchRequestSearch.predicate = predicate
+    
+        print("fetch定義完了")
+        
+        let fetchData = try!context.fetch(fetchRequestSearch)
+        print(fetchData)
+        //customers = CustomersClass.selectCustomers()
+        //他クラスメソッドの呼び出しがうまくできない
+        
+    
+        print("tryした")
+        if(!fetchData.isEmpty){
+            print("検索結果あり")
+            for i in 0..<fetchData.count{
+                print(fetchData[i].name_j!)
+            }
+        }else{
+            print("データなし")
+        }
+         */
+    
+        
+        
     }
+ 
     
     @IBAction func changeContainerView(_ sender: UISegmentedControl) {
         let currentContainerView = containers[sender.selectedSegmentIndex]
         containerView.bringSubviewToFront(currentContainerView)
     }
-
+    
 }
