@@ -91,12 +91,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CbG-AJ-Gxz">
-                                        <rect key="frame" x="127" y="8" width="121" height="29"/>
+                                        <rect key="frame" x="52" y="8" width="255" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
-                                            <segment title="3"/>
+                                            <segment title="サービス"/>
+                                            <segment title="犬"/>
+                                            <segment title="その他"/>
                                         </segments>
                                         <connections>
                                             <action selector="changeContainerView:" destination="QHP-lf-R1c" eventType="valueChanged" id="ffF-93-BRn"/>
@@ -176,7 +176,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="blK-04-KOO">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="サービス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="blK-04-KOO">
                                                     <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -201,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="1672.8" y="-840.17991004497753"/>
         </scene>
-        <!--View Controller-->
+        <!--Customer Dog View Controller-->
         <scene sceneID="0Py-0e-p1e">
             <objects>
-                <viewController id="kEb-6p-eJ0" sceneMemberID="viewController">
+                <viewController id="kEb-6p-eJ0" customClass="Customer_DogViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cg4-6J-sVX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="362"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,6 +232,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kEb-6p-eJ0" id="rZ7-Wh-Rgm"/>
+                                    <outlet property="delegate" destination="kEb-6p-eJ0" id="82D-Pk-lu8"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -242,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="1672.8" y="-372.41379310344831"/>
         </scene>
-        <!--View Controller-->
+        <!--Customer Other View Controller-->
         <scene sceneID="HGs-qR-LfW">
             <objects>
-                <viewController id="2lc-lg-WhY" sceneMemberID="viewController">
+                <viewController id="2lc-lg-WhY" customClass="Customer_OtherViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NEw-Td-fBU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="362"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,6 +258,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="362"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="e5t-5F-oQd" style="IBUITableViewCellStyleDefault" id="WEl-6h-XGm">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WEl-6h-XGm" id="wOs-AA-YPt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="その他" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e5t-5F-oQd">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2lc-lg-WhY" id="ZfR-7e-G6P"/>
+                                    <outlet property="delegate" destination="2lc-lg-WhY" id="4yn-nk-olg"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -1,5 +1,5 @@
 //
-//  Customer_ServiceViewController.swift
+//  Customer_OtherViewController.swift
 //  KenshinAppAll
 //
 //  Created by MaiInagaki on 2019/02/28.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class Customer_OtherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let service = ["サービス情報1","サービス情報2","サービス情報3"]
+    let service = ["その他情報1","その他情報2","その他情報3"]
     
     //セルの個数を指定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,7 +29,7 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

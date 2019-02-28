@@ -1,16 +1,17 @@
 //
-//  Customer_ServiceViewController.swift
+//  Customer_DogViewController.swift
 //  KenshinAppAll
 //
 //  Created by MaiInagaki on 2019/02/28.
 //  Copyright © 2019年 KenshinT. All rights reserved.
 //
 
+
 import UIKit
 
-class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class Customer_DogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let service = ["サービス情報1","サービス情報2","サービス情報3"]
+    let service = ["犬情報1","犬情報2","犬情報3"]
     
     //セルの個数を指定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,7 +30,7 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
