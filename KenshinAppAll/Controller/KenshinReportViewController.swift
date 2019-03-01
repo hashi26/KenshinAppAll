@@ -38,28 +38,15 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         super.viewDidLoad()
         navigationController?.delegate = self
         
-        //coredata用インスタンス用意
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context:NSManagedObjectContext = appDelegate.managedObjectContext
         
-        //お客さまテーブル読み込み？？
-
-        
-        
-        
-        
-        
-        //仮。実際は、前の画面から引き継いだ客番を利用する
-        gmtSetNo = 10010010010
-        
-        //inputを入力してる。
+        /*
         //customerData = KenshinInfoController.getKenshinData(gyo:adrs!.gyo, retsu:adrs!.retsu)// 検針データリストから特定のお客さまのインスタンスを取得する
         meterNo.text = customerData?.getGasSecchi() // 社番の画面表示
         oldGasSiji.text   = customerData?.getOldGasShiji().description // 前回指示数　descriptionでStringに変換
         b1Ryo.text   = customerData?.getOldGasRyo().description // 前回使用量　descriptionでStringに変換
         gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数　descriptionでStringに変換
         gasUsage.text   = customerData?.getNowGasRyo().description // 今回使用量　descriptionでStringに変換
-        
+        */
         
         self.gmtSijiSu.keyboardType = UIKeyboardType.numberPad//キーボードは数字入力固定
         resultCancel.layer.cornerRadius = 5  //取消ボタンを丸角にする
@@ -77,6 +64,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         //検針済かチェックして各処理行う。
         self.checkResult()
         
+        
+        /*
         //号の最後のお客さまかチェック。「次のお客さま」を非活性にする。
         if( countMax == adrs!.retsu + 1){
             print("一致！")//後で消す
@@ -87,6 +76,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
             //self.nextMetr.isEnabled = true //次ボタンを活性化
             //self.gouSelect.isEnabled = false //号選択ボタンを非活性化
         }
+        */
 
     }
     
@@ -144,17 +134,19 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     
     //キーボードの「キャンセル」ボタン押下時の処理
     @objc func pushCancel(_ sender: UIButton){
+        
+        /*
         //今回指示数欄を登録済みの検針結果に戻す。
         if( customerData?.getNowGasShiji() == 0 ){
             gmtSijiSu.text = nil
         }else{
             gmtSijiSu.text   = customerData?.getNowGasShiji().description
         }
+        */
         //キーボードを閉じる
         self.openCancelBar()
         self.gmtSijiSu.resignFirstResponder()
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -163,6 +155,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     
     //検針済かチェックし、各処理を行う。
     func checkResult(){
+        
+        /*
         //検針済なら・・・
         if (customerData?.getSumiFlg() == 1) {
             //指示数入力欄を灰色にして非活性化
@@ -182,6 +176,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
             self.resultCancel.backgroundColor = UIColor.lightGray
             self.cameraLightButton.isEnabled = true
         }
+        */
 
     }
     
@@ -247,11 +242,15 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         self.present(resultCancelAlert, animated: true, completion: nil)
     }
     
+
     //検針結果登録、画面表示
     func kenshinResult(){
+        
+        /*
         KenshinInfoController.setKenshinResult(kenshinData: self.customerData!, nowGasShiji: Int(self.gmtSijiSu.text!)!,kaikiFlg:self.kaikiFlg!, gyo: self.adrs!.gyo, retsu: self.adrs!.retsu)
         self.gasUsage.text   = self.customerData?.getNowGasRyo().description
         self.checkResult()
+        */
     }
     
     //リセット(キャンセルした時とかに呼ばれる)
@@ -259,13 +258,15 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         self.gmtSijiSu.text = nil // 今回指示数をブランクに。
         self.gasUsage.text = String(0)   // 今回使用量を0に。
         kaikiFlg = 0                           //回帰フラグを初期値に変更
+        /*
         KenshinInfoController.setKenshinresultCancel(kenshinData: self.customerData!, gyo: self.adrs!.gyo, retsu: self.adrs!.retsu)
+        */
         //検針済かチェックして各処理行う。
         self.checkResult()
         
     }
     
-    
+    /*
     //ナビゲーションバーで戻った時の処理
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is JizenInfoTsutiViewController {
@@ -274,13 +275,19 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
             viewController.viewDidLoad()
         }
     }
+    */
     
+    
+    /*
     //次のお客様に遷移
     @IBAction func nextMetr(_ sender: Any) {
         print("nextMetr()も呼ばれてる。")//後で消す
         
     }
+    */
     
+    
+    /*
     //「次のお客様」or「号選択」に遷移
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "nextJizenInfoTsuti" {
@@ -290,6 +297,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         }else if segue.identifier == "toGouSelect" {//号選択に遷移
         }
     }
+    */
     
     // カメラのライトボタンを押された時の動作
     @IBAction func cameraLight(_ sender: Any) {
