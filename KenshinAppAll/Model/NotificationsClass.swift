@@ -29,13 +29,12 @@ class NotificationsClass {
     var persistentContainer:NSPersistentContainer!
     let context:NSManagedObjectContext!
 
-    init(completionClosure: @escaping () -> ()) {
+    init(){
         persistentContainer = NSPersistentContainer(name: "KenshinCD")
         persistentContainer.loadPersistentStores() { (description, error) in
             if let error = error {
                 fatalError("NotificationsClass.init()が失敗しました: \(error)")
             }
-            completionClosure()
         }
         context = persistentContainer.viewContext
     }
@@ -43,6 +42,8 @@ class NotificationsClass {
     // 全件検索
     func selectNotifications() -> [Notifications] {
         let notificationsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Notifications")
+        let sortDescripter = NSSortDescriptor(key: "updated_at", ascending: false)//ascendind:true 昇順、false 降順です
+        notificationsFetch.sortDescriptors = [sortDescripter]
         
         do {
             let fetchedNotifications = try context.fetch(notificationsFetch) as! [Notifications]
@@ -66,16 +67,51 @@ class NotificationsClass {
             // Insert前にCoreData内にデータが存在するかを確認し、
             // データが存在する場合　：何もしない
             // データが存在しない場合：データをInsertする
-            let resultSelectNotifications = selectNotifications()
-            if resultSelectNotifications.isEmpty {}
-            else {
+            if (selectNotifications()).isEmpty {
+                print("*** initInsertNotifications が実行されます。")
                 let notificationsInsertData = try InitNotifications.getInitNotificationsData()
-                for obj in notificationsInsertData! {
-                    insertNotifications(otifications: obj)
+                
+                // 構造体のプロパティから各変数を作成し、インスタンスを生成
+                for obj in notificationsInsertData!{
+                    let insertEntity = NSEntityDescription.insertNewObject(forEntityName: "Notifications", into: context)
+                    insertEntity.setValue(obj.contact_tel_no, forKey: "contact_tel_no")
+                    insertEntity.setValue(obj.contents, forKey: "contents")
+                    insertEntity.setValue(dateFromString(date: obj.created_at)! as NSDate, forKey: "created_at")
+                    insertEntity.setValue(Int16(obj.delete_flg), forKey: "delete_flg")
+                    insertEntity.setValue(obj.from_base_code, forKey: "from_base_code")
+                    insertEntity.setValue(obj.from_branch_office_code, forKey: "from_branch_office_code")
+                    insertEntity.setValue(obj.notification_no, forKey: "notification_no")
+                    insertEntity.setValue(obj.sender_name, forKey: "sender_name")
+                    insertEntity.setValue(obj.supervisor_name, forKey: "supervisor_name")
+                    insertEntity.setValue(obj.title, forKey: "title")
+                    insertEntity.setValue(obj.to_base_code, forKey: "to_base_code")
+                    insertEntity.setValue(obj.to_branch_office_code, forKey: "to_branch_office_code")
+                    insertEntity.setValue(obj.to_sales_office_code, forKey: "to_sales_office_code")
+                    if (obj.updated_at != "") {
+                        insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "updated_at")
+                    }
+                    saveNotifications()
                 }
+            } else {
+                print("*** initInsertNotifications が実行されませんでした。coredataにデータが存在します。 ")
             }
         } catch {
-            fatalError("NotificationsClass.initInsetNotifications()が失敗しました : \(error)")
+            fatalError("*** NotificationsClass.initInsetNotifications()が失敗しました : \(error)")
+        }
+    }
+    
+    // 削除
+    func deleteNotifications(delObj : Notifications) {
+        context.delete(delObj)
+        saveNotifications()
+    }
+    
+    // 全削除
+    func deleteNotificationsALL() {
+        let result = selectNotifications()
+        for delObj in result {
+            context.delete(delObj)
+            saveNotifications()
         }
     }
     
@@ -91,6 +127,16 @@ class NotificationsClass {
         }
     }
     
-    
+    // StringからDateへの日付変換処理
+    func dateFromString(date:String) -> Date!{
+        if date == "" {
+            return nil
+        } else {
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let returnValue:Date = df.date(from: date)! as Date
+            return returnValue
+        }
+    }
     
 }

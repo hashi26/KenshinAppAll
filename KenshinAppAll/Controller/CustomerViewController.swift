@@ -26,6 +26,7 @@ class CustomerViewController: UIViewController{
     @IBOutlet weak var shrHhCd: UILabel!
     
     var customers:[Customers] = []
+    var cust:CustomersClass!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +41,13 @@ class CustomerViewController: UIViewController{
         task.gmt_set_no = "10010010010"
         task.name_j = "あいうえお"
         //保存する ※どんどん追加されちゃうのでコメントアウト
-        //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         /*
          お試しでデータInsert
          */
+        self.cust = CustomersClass()
+        cust.initInsertCustomers()
         
         // コンテナ定義
         containers = [serviceContainer,dogContainer,otherContainer]
@@ -61,6 +64,9 @@ class CustomerViewController: UIViewController{
         customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
         print(customers[0].name_j)
         customerName.text = customers[0].name_j
+        meterNo.text = customers[0].gmt_set_no
+        knsnHhCd.text = customers[0].knsn_method_code
+        
         
         /*
         // Customersのname_j

@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import CoreMotion
 
-class HelloViewController: UIViewController {
+class HelloViewController: UIViewController{
 
-    override func viewDidLoad() {
+  @IBOutlet weak var healthTableView: UITableView!
+  @IBOutlet weak var UserName: UILabel!
+  
+  
+  override func viewDidLoad() {
+      
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
