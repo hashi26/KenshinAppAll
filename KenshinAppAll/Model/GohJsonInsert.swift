@@ -42,8 +42,8 @@ class GohJsoninsert{
         let gou_ban               : String
         let towns_name_c          : String
         let towns_name_j          : String
-        let created_at            : Date
-        let updated_at            : Date
+        let created_at            : String
+        let updated_at            : String
     }
         
         // JSONファイルからJSONを読み込み
