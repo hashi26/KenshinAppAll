@@ -26,9 +26,6 @@ class NotificationsTableViewController: UITableViewController {
         notificationsTableView.dataSource = self
         
         self.notificationsClassDao = NotificationsClass()
-        self.notificationsClassDao.deleteNotificationsALL()
-
-        self.notificationsClassDao.initInsertNotifications()
         notificationsList = self.notificationsClassDao.selectNotifications()
 
     }
