@@ -1,64 +1,92 @@
 //
-//  GohClass.swift
+//  NotificationsClass.swift
 //  KenshinAppAll
 //
-//  Created by Harada Hiroaki on 2019/02/08.
-//  Copyright © 2019 KenshinT. All rights reserved.
+//  Created by Takumi Takeuchi on 2019/02/12.
+//  Copyright © 2019年 KenshinT. All rights reserved.
 //
-
 import Foundation
-import CoreData //NSManagedObjectContext利用のため
+import CoreData
 
-class GohClass{
+class GohClass {
     var persistentContainer:NSPersistentContainer!
     let context:NSManagedObjectContext!
     
-    //初期化
-    init(completionClosure: @escaping () -> ()) {
+    
+    init(){
         persistentContainer = NSPersistentContainer(name: "KenshinCD")
         persistentContainer.loadPersistentStores() { (description, error) in
             if let error = error {
-                fatalError("GohClass.init()が失敗しました: \(error)")
+                fatalError("NotificationsClass.init()が失敗しました: \(error)")
             }
-            completionClosure()
         }
         context = persistentContainer.viewContext
     }
     
     // 全件検索
-    func selectCustomers() -> [Goh] {
-        let customersFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Goh")
+    func selectGoh() -> [Goh] {
+        let GohFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Goh")
+        //let sortDescripter = NSSortDescriptor(key: "updated_at", ascending: false)//ascendind:true 昇順、false 降順です
+        //gohFetch.sortDescriptors = [sortDescripter]
         
         do {
-            let fetchedGoh = try context.fetch(customersFetch) as! [Goh]
+            let fetchedGoh = try context.fetch(GohFetch) as! [Goh]
             return fetchedGoh
         } catch {
-            fatalError("CustomerGoh.selectGoh()が失敗しました: \(error)")
-        }
-        return []
-    }
-    
-    // 号番号を指定して検索
-    func selectGohByGohBan(gou_ban:String) -> [Goh] {
-        let gohFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Goh")
-        
-        // 条件指定
-        gohFetch.predicate = NSPredicate(format: "gou_ban = ’\(gou_ban)’")
-        
-        do {
-            let fetchedGoh = try context.fetch(gohFetch) as! [Goh]
-            return fetchedGoh
-        } catch {
-            fatalError("GohClass.selectGohByGohBan()が失敗しました: \(error)")
+            fatalError("GohClass.selectGoh()が失敗しました: \(error)")
         }
         return []
     }
     
     // 追加
-    func insertCustomers() -> Goh{
-        let goh = NSEntityDescription.insertNewObject(forEntityName: "Goh", into: context) as! Goh
+    func insertGoh(otifications : Goh) {
+        NSEntityDescription.insertNewObject(forEntityName: "Goh", into: context)
         saveGoh()
-        return goh
+    }
+    
+    // 初期データ追加
+    // アプリ起動時にjsonからお知らせ一覧を作成し、CoreDataにinsertする
+    func initInsertGoh() {
+        do {
+            // Insert前にCoreData内にデータが存在するかを確認し、
+            // データが存在する場合　：何もしない
+            // データが存在しない場合：データをInsertする
+            if (selectGoh()).isEmpty {
+                print("*** initInsertGoh が実行されます。")
+                let gohInsertData = try GohJsoninsert.getInitGohData()
+                
+                // 構造体のプロパティから各変数を作成し、インスタンスを生成
+                for obj in gohInsertData!{
+                    let insertEntity = NSEntityDescription.insertNewObject(forEntityName: "Notifications", into: context)
+                    insertEntity.setValue(obj.locations_code, forKey: "locations_code")
+                    insertEntity.setValue(obj.gou_ban, forKey: "gou_ban")
+                    insertEntity.setValue(dateFromString(date: obj.created_at)! as NSDate, forKey: "created_at")
+                    insertEntity.setValue(obj.towns_name_c, forKey: "towns_name_c")
+                    insertEntity.setValue(obj.towns_name_j, forKey: "towns_name_j")
+                    insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "update_at")
+                    saveGoh()
+                }
+            } else {
+                print("*** initInsertGoh が実行されませんでした。coredataにデータが存在します。 ")
+            }
+        } catch {
+            fatalError("*** GohClass.initInsetGoh()が失敗しました : \(error)")
+        }
+    }
+    
+    // 削除
+    func deleteGoh(delObj : Goh) {
+        context.delete(delObj)
+        saveGoh()
+    }
+    
+    // 全削除
+    func deleteGohALL() {
+        let result = selectGoh()
+        for delObj in result {
+            context.delete(delObj)
+            saveGoh()
+        }
     }
     
     // 保存
@@ -72,55 +100,16 @@ class GohClass{
             }
         }
     }
-}
-
-/*
-//GohClass用のJCLを読み込むメソッド
-func readGohClassJson() -> [GohJsonInsert]{
-    var goh: [GohJsonInsert] = []
-    guard let data1 = try? getJSONData1() else { return goh}
-    //print(data1)
-    let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .iso8601
-    goh = try! decoder.decode([GohJsonInsert].self, from: data1!)
-    return goh
-}
-
-//GohClassテーブルからデータを全件取得するメソッド
-func readGohClass() -> [Goh]{
     
-    let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let context:NSManagedObjectContext = appDelegate.managedObjectContext
-    
-    var goh: [Goh] = []
-    let fetchRequest:NSFetchRequest<Goh> = Goh.fetchRequest()
-    let fetchData = try! context.fetch(fetchRequest)
-    if(!fetchData.isEmpty){
-        for i in 0..<fetchData.count{
-            goh.append(fetchData[i])
+    func dateFromString(date:String) -> Date!{
+        if date == ""{
+            return nil
+        }else {
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let retrunValue:Date = df.date(from: date)! as Date
+            return retrunValue
         }
     }
-   return goh
-}
-*/
-//GohClassのjsonを読み込むための処理
-//forResource:jsonのファイル名
-func getJSONData1() throws -> Data? {
-    guard let path = Bundle.main.path(forResource: "goh", ofType: "json") else { return nil }
-    let url = URL(fileURLWithPath: path)
     
-    return try Data(contentsOf: url)
 }
-
-//GohClassからGohへ変換するためのメソッド
-/*func gohClassToGoh(gohClass:GohJsonInsert) -> Goh{
-    let goh = Goh()
-    goh.created_at = Date() as NSDate
-    goh.gou_ban = gohClass.gou_ban
-    goh.locations_code = gohClass.locations_code
-    goh.towns_name_c = gohClass.towns_name_c
-    goh.towns_name_j = gohClass.towns_name_j
-    goh.updated_at = Date() as NSDate
-    
-    return goh
-}*/
