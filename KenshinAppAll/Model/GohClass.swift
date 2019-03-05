@@ -57,13 +57,15 @@ class GohClass {
                 
                 // 構造体のプロパティから各変数を作成し、インスタンスを生成
                 for obj in gohInsertData!{
-                    let insertEntity = NSEntityDescription.insertNewObject(forEntityName: "Notifications", into: context)
+                    let insertEntity = NSEntityDescription.insertNewObject(forEntityName: "Goh", into: context)
                     insertEntity.setValue(obj.locations_code, forKey: "locations_code")
                     insertEntity.setValue(obj.gou_ban, forKey: "gou_ban")
                     insertEntity.setValue(dateFromString(date: obj.created_at)! as NSDate, forKey: "created_at")
                     insertEntity.setValue(obj.towns_name_c, forKey: "towns_name_c")
                     insertEntity.setValue(obj.towns_name_j, forKey: "towns_name_j")
-                    insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "update_at")
+                    if (obj.updated_at != "") {
+                        insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "updated_at")
+                    }
                     saveGoh()
                 }
             } else {
