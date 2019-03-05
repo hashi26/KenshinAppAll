@@ -37,17 +37,17 @@ class CustomerViewController: UIViewController{
         //ここは丸写しで良い
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         //インスタンス化をする
-        let task = Customers(context: context)
-        task.gmt_set_no = "10010010010"
-        task.name_j = "あいうえお"
+        //let task = Customers(context: context)
+        //task.gmt_set_no = "10010010010"
+        //task.name_j = "あいうえお"
         //保存する ※どんどん追加されちゃうのでコメントアウト
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        //(UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         /*
          お試しでデータInsert
          */
-        self.cust = CustomersClass()
-        cust.initInsertCustomers()
+        //self.cust = CustomersClass()
+        //cust.initInsertCustomers()
         
         // コンテナ定義
         containers = [serviceContainer,dogContainer,otherContainer]
@@ -62,43 +62,11 @@ class CustomerViewController: UIViewController{
         
         // テスト　ガスメータ設置場所番号：10010010010　の氏名を取得して表示
         customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
-        print(customers[0].name_j)
+        //print(customers[0].name_j)
         customerName.text = customers[0].name_j
         meterNo.text = customers[0].gmt_set_no
         knsnHhCd.text = customers[0].knsn_method_code
-        
-        
-        /*
-        // Customersのname_j
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context: NSManagedObjectContext = appDelegate.managedObjectContext
-        
-        print("検索する")
-        let fetchRequestSearch: NSFetchRequest<Customers> = Customers.fetchRequest()
-        let predicate = NSPredicate(format: "%K = %@","gmt_set_no","10010010010")
-        fetchRequestSearch.predicate = predicate
-    
-        print("fetch定義完了")
-        
-        let fetchData = try!context.fetch(fetchRequestSearch)
-        print(fetchData)
-        //customers = CustomersClass.selectCustomers()
-        //他クラスメソッドの呼び出しがうまくできない
-        
-    
-        print("tryした")
-        if(!fetchData.isEmpty){
-            print("検索結果あり")
-            for i in 0..<fetchData.count{
-                print(fetchData[i].name_j!)
-            }
-        }else{
-            print("データなし")
-        }
-         */
-    
-        
-        
+        khsnJtCd.text = customers[0].knsn_method_code
     }
  
     
@@ -107,4 +75,15 @@ class CustomerViewController: UIViewController{
         containerView.bringSubviewToFront(currentContainerView)
     }
     
+    /*
+     おそらく、下記メソッドは画面表示の際に３コンテナ分動いてしまっている
+     なぜ３回呼ばれているのかなぞ。
+    */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("セグエ値渡しメソッド動いているか")
+        if segue.identifier == "toService" {
+            let nextScene = segue.destination as? Customer_ServiceViewController
+            nextScene?.service = customers
+        }
+    }
 }
