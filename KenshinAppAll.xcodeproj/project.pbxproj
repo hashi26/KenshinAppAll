@@ -12,6 +12,14 @@
 		0D401DF6221577EF00FA3F22 /* Reading_results+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D401DF4221577EF00FA3F22 /* Reading_results+CoreDataProperties.swift */; };
 		0D7B7D1C22254644007D7F4E /* initReadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7B7D1B22254644007D7F4E /* initReadingResult.swift */; };
 		0D7E71D7221682C60088C0AA /* ReadingResultJsonInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7E71D6221682C60088C0AA /* ReadingResultJsonInsert.swift */; };
+		0DA2061E222E9A620068704D /* Config.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA2061D222E9A620068704D /* Config.storyboard */; };
+		0DA20621222E9AE50068704D /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA20620222E9AE50068704D /* FAQViewController.swift */; };
+		0DA20623222E9AF20068704D /* FontSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA20622222E9AF20068704D /* FontSettingViewController.swift */; };
+		0DA20625222E9AFD0068704D /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA20624222E9AFC0068704D /* ManualViewController.swift */; };
+		0DA20627222E9B030068704D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA20626222E9B030068704D /* PhotoViewController.swift */; };
+		0DA20629222E9B0A0068704D /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA20628222E9B0A0068704D /* ProfileImageViewController.swift */; };
+		0DA2062B222E9B110068704D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA2062A222E9B110068704D /* SettingsTableViewController.swift */; };
+		0DA2062D222E9B1F0068704D /* kensin_handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0DA2062C222E9B1F0068704D /* kensin_handbook.pdf */; };
 		734689002215884F00D10124 /* CustomersClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734688FF2215884F00D10124 /* CustomersClass.swift */; };
 		734689022215885C00D10124 /* NotificationsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689012215885C00D10124 /* NotificationsClass.swift */; };
 		734689052215887F00D10124 /* Notifications+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689032215887F00D10124 /* Notifications+CoreDataClass.swift */; };
@@ -62,6 +70,14 @@
 		0D401DF4221577EF00FA3F22 /* Reading_results+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reading_results+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0D7B7D1B22254644007D7F4E /* initReadingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initReadingResult.swift; sourceTree = "<group>"; };
 		0D7E71D6221682C60088C0AA /* ReadingResultJsonInsert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingResultJsonInsert.swift; sourceTree = "<group>"; };
+		0DA2061D222E9A620068704D /* Config.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
+		0DA20620222E9AE50068704D /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
+		0DA20622222E9AF20068704D /* FontSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSettingViewController.swift; sourceTree = "<group>"; };
+		0DA20624222E9AFC0068704D /* ManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
+		0DA20626222E9B030068704D /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		0DA20628222E9B0A0068704D /* ProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
+		0DA2062A222E9B110068704D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		0DA2062C222E9B1F0068704D /* kensin_handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = kensin_handbook.pdf; sourceTree = "<group>"; };
 		734688FF2215884F00D10124 /* CustomersClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomersClass.swift; sourceTree = "<group>"; };
 		734689012215885C00D10124 /* NotificationsClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsClass.swift; sourceTree = "<group>"; };
 		734689032215887F00D10124 /* Notifications+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -119,6 +135,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DA2061F222E9A770068704D /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				0DA2062C222E9B1F0068704D /* kensin_handbook.pdf */,
+				0DA2062A222E9B110068704D /* SettingsTableViewController.swift */,
+				0DA20626222E9B030068704D /* PhotoViewController.swift */,
+				0DA20628222E9B0A0068704D /* ProfileImageViewController.swift */,
+				0DA20624222E9AFC0068704D /* ManualViewController.swift */,
+				0DA20622222E9AF20068704D /* FontSettingViewController.swift */,
+				0DA20620222E9AE50068704D /* FAQViewController.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		739C0805220D431C008697C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +187,7 @@
 		933AD02B2206F66700952615 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0DA2061F222E9A770068704D /* Config */,
 				9EC38189222D3B5900ECEDFD /* NotificationsDetailViewController.swift */,
 				934D061421E83E95002EF183 /* ViewController.swift */,
 				EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */,
@@ -174,6 +205,7 @@
 		933AD02C2206F67E00952615 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0DA2061D222E9A620068704D /* Config.storyboard */,
 				EF2B9DE3220C3F160087124C /* Customer.storyboard */,
 				EF2B9DE4220C3F160087124C /* Hello.storyboard */,
 				EF2B9DF3220C3F460087124C /* Tab.storyboard */,
@@ -278,7 +310,9 @@
 				EF2B9DEA220C3F160087124C /* Login.storyboard in Resources */,
 				934D061A21E83E96002EF183 /* Assets.xcassets in Resources */,
 				9E4485B422237C0400E74FD4 /* customers.json in Resources */,
+				0DA2062D222E9B1F0068704D /* kensin_handbook.pdf in Resources */,
 				EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */,
+				0DA2061E222E9A620068704D /* Config.storyboard in Resources */,
 				9E22532B22228E1000EA166C /* Notifications.storyboard in Resources */,
 				9E4485B522237C0400E74FD4 /* notifications.json in Resources */,
 				739C0811220D790B008697C1 /* goh.json in Resources */,
@@ -298,6 +332,7 @@
 				739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */,
 				EF2B9DF1220C3F3E0087124C /* LoginViewController.swift in Sources */,
 				EF2B9E02220C3F5F0087124C /* SettingViewController.swift in Sources */,
+				0DA20625222E9AFD0068704D /* ManualViewController.swift in Sources */,
 				734689092215889C00D10124 /* Customers+CoreDataClass.swift in Sources */,
 				0D7B7D1C22254644007D7F4E /* initReadingResult.swift in Sources */,
 				734689062215887F00D10124 /* Notifications+CoreDataProperties.swift in Sources */,
@@ -305,6 +340,7 @@
 				EF2B9DF0220C3F3E0087124C /* HelloViewController.swift in Sources */,
 				7346890F22158CA500D10124 /* Reading_person+CoreDataProperties.swift in Sources */,
 				0D401DF5221577EF00FA3F22 /* Reading_results+CoreDataClass.swift in Sources */,
+				0DA20629222E9B0A0068704D /* ProfileImageViewController.swift in Sources */,
 				EF2B9DEF220C3F3E0087124C /* KenshinReportViewController.swift in Sources */,
 				734689022215885C00D10124 /* NotificationsClass.swift in Sources */,
 				9E50A17D221BFB5000100525 /* InitNotifications.swift in Sources */,
@@ -327,8 +363,12 @@
 				9E50A17E221BFB5000100525 /* NotificationsClass.swift in Sources */,
 				9E0DA634222E475800FEA70F /* InitCustomers.swift in Sources */,
 				734689052215887F00D10124 /* Notifications+CoreDataClass.swift in Sources */,
+				0DA20621222E9AE50068704D /* FAQViewController.swift in Sources */,
+				0DA20623222E9AF20068704D /* FontSettingViewController.swift in Sources */,
+				0DA2062B222E9B110068704D /* SettingsTableViewController.swift in Sources */,
 				EF2B9E01220C3F5F0087124C /* ContactViewController.swift in Sources */,
 				9EC3818A222D3B5900ECEDFD /* NotificationsDetailViewController.swift in Sources */,
+				0DA20627222E9B030068704D /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
