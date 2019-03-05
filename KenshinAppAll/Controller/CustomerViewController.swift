@@ -41,7 +41,7 @@ class CustomerViewController: UIViewController{
         task.gmt_set_no = "10010010010"
         task.name_j = "あいうえお"
         //保存する ※どんどん追加されちゃうのでコメントアウト
-        //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         /*
          お試しでデータInsert
