@@ -45,7 +45,7 @@ class ReadingPersonClass: Codable {
 }
 
 //ReadingPersonClass用のJsonを読み込むメソッド
-func readReadingPersonClassJson() -> [ReadingPersonClass]{
+/*func readReadingPersonClassJson() -> [ReadingPersonClass]{
     var readingPersonData: [ReadingPersonClass] = []
     guard let data1 = try? getJSONData1() else { return readingPersonData}
     //print(data1)
@@ -53,7 +53,7 @@ func readReadingPersonClassJson() -> [ReadingPersonClass]{
     decoder.dateDecodingStrategy = .iso8601
     readingPersonData = try! decoder.decode([ReadingPersonClass].self, from: data1!)
     return readingPersonData
-}
+}*/
 
 //Reading_personテーブルからデータを全件取得するメソッド
 func readReadingPersonClass() -> [Reading_person]{
