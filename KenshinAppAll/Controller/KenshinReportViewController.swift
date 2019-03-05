@@ -24,7 +24,9 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     @IBOutlet weak var gouSelect: UIButton!
     @IBOutlet weak var cameraLightButton: UIBarButtonItem!
     
-    var gmtSetNo:CChar? //型式これでいいのか？？
+    var customer_instance: CustomersClass!
+    var customers:[Customers] = []
+
     
     //var customerData:KenshinData?   // お客さま情報詳細を確認する＆検針をするお客さまデータ
     //var adrs:(gyo:Int, retsu:Int)?  // 検針データリストから特定のお客さまを選択するために使用するアドレスを格納する
@@ -39,6 +41,26 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         navigationController?.delegate = self
         
         
+        //テスト用データ
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //インスタンス化をする
+        let task = Customers(context: context)
+        task.gmt_set_no = "10010010010"
+        task.meter_no = "100001010"
+        task.old_gas_shizi = 5811
+        task.b1_ryo = 30
+        
+        
+        self.customer_instance = CustomersClass()
+        customers = self.customer_instance.selectCustomers()
+        //meterNo.text = customers[0].meter_no
+        
+        
+        // テスト　ガスメータ設置場所番号：10010010010　の社番を取得して表示
+        customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
+        //print(customers[0].meter_no)
+        
+        
         /*
         //customerData = KenshinInfoController.getKenshinData(gyo:adrs!.gyo, retsu:adrs!.retsu)// 検針データリストから特定のお客さまのインスタンスを取得する
         meterNo.text = customerData?.getGasSecchi() // 社番の画面表示
@@ -47,6 +69,10 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数　descriptionでStringに変換
         gasUsage.text   = customerData?.getNowGasRyo().description // 今回使用量　descriptionでStringに変換
         */
+        
+
+        
+        
         
         self.gmtSijiSu.keyboardType = UIKeyboardType.numberPad//キーボードは数字入力固定
         resultCancel.layer.cornerRadius = 5  //取消ボタンを丸角にする
@@ -138,7 +164,9 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         /*
         //今回指示数欄を登録済みの検針結果に戻す。
         if( customerData?.getNowGasShiji() == 0 ){
+        */
             gmtSijiSu.text = nil
+        /*
         }else{
             gmtSijiSu.text   = customerData?.getNowGasShiji().description
         }
