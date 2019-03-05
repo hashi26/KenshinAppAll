@@ -44,35 +44,18 @@ class GohJsoninsert{
         let towns_name_j          : String
         let created_at            : Date
         let updated_at            : Date
+    }
         
         // JSONファイルからJSONを読み込み
         // Notificationsのリスト（＝配列）を返す
-        static func getIntGohData() throws -> [Goh]? {
-            guard let path = Bundle.main.path(forResource: "notifications",ofType: "json") else {
+        static func getInitGohData() throws -> [GohStruct]? {
+            guard let path = Bundle.main.path(forResource: "Goh",ofType: "json") else {
                 return nil}
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url)
             
             // JSONデータを構造体型いにデコードする
             let gohStructData = try! JSONDecoder().decode([GohStruct].self, from:data)
-            var dataList:[Goh] = []
-            
-            for obj in gohStructData{
-                //構造体のプロパティから各変数を作成し、インスタンスを作成
-                let goh:Goh = Goh()
-                
-                goh.locations_code = obj.locations_code
-                goh.gou_ban = obj.gou_ban
-                goh.towns_name_c = obj.towns_name_c
-                goh.towns_name_j = obj.towns_name_j
-                goh.created_at = obj.created_at as NSDate
-                goh.updated_at = obj.updated_at as NSDate
-                dataList.append(goh)
-            }
-            
-            return dataList
+            return gohStructData
         }
-        
-        //StringからDateへの日付変換処理は、InitNotificationsで実装しているため記載不要
-}
 }
