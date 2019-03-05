@@ -26,7 +26,7 @@ class GohClass{
     }
     
     // 全件検索
-    func selectCustomers() -> [Goh] {
+    func selectGoh() -> [Goh] {
         let customersFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Goh")
         
         do {
