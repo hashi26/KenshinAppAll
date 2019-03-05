@@ -61,6 +61,9 @@ class CustomerViewController: UIViewController{
         customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
         print(customers[0].name_j)
         customerName.text = customers[0].name_j
+        meterNo.text = customers[0].gmt_set_no
+        knsnHhCd.text = customers[0].knsn_method_code
+        
         
         /*
         // Customersのname_j
