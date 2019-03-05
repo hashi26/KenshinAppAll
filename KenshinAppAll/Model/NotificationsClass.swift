@@ -87,8 +87,9 @@ class NotificationsClass {
                     insertEntity.setValue(obj.to_base_code, forKey: "to_base_code")
                     insertEntity.setValue(obj.to_branch_office_code, forKey: "to_branch_office_code")
                     insertEntity.setValue(obj.to_sales_office_code, forKey: "to_sales_office_code")
-                    insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "updated_at")
-    //                insertEntity.setValue(obj.updated_at, forKey: "updated_at")
+                    if (obj.updated_at != "") {
+                        insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "updated_at")
+                    }
                     saveNotifications()
                 }
             } else {

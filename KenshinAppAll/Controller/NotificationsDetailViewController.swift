@@ -23,7 +23,11 @@ class NotificationsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateLabel.text = dateToString(date: receiveData?.updated_at as! NSDate)
+        if receiveData?.updated_at != nil {
+            dateLabel.text = dateToString(date: receiveData?.updated_at as! NSDate)
+        } else {
+            dateLabel.text = dateToString(date: receiveData?.created_at as! NSDate)
+        }
         titleLabel.text = receiveData?.title
         titleLabel.sizeToFit()
         detailLabel.text = receiveData?.contents

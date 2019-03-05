@@ -26,6 +26,7 @@ class CustomerViewController: UIViewController{
     @IBOutlet weak var shrHhCd: UILabel!
     
     var customers:[Customers] = []
+    var cust:CustomersClass!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,8 @@ class CustomerViewController: UIViewController{
         /*
          お試しでデータInsert
          */
+        self.cust = CustomersClass()
+        cust.initInsertCustomers()
         
         // コンテナ定義
         containers = [serviceContainer,dogContainer,otherContainer]
