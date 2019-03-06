@@ -46,11 +46,12 @@ class CustomersClass {
         let customersFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Customers")
 
         // 条件指定
-        customersFetch.predicate = NSPredicate(format: "gmt_set_no = '\(gmt_set_no)'")
+        let predicate = NSPredicate(format: "%K = %@","gmt_set_no", gmt_set_no)
+        customersFetch.predicate = predicate
         
         do {
-            let fetchedCustomers = try context.fetch(customersFetch) as! [Customers]
-            return fetchedCustomers
+            let fetchedCustomers = try self.context.fetch(customersFetch)
+            return fetchedCustomers as! [Customers]
         } catch {
             fatalError("CustomerClass.selectCustomersByGmtSetNo()が失敗しました: \(error)")
         }
