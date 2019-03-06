@@ -33,6 +33,7 @@
 		7346890F22158CA500D10124 /* Reading_person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346890D22158CA500D10124 /* Reading_person+CoreDataProperties.swift */; };
 		7346891122158CF800D10124 /* ReadingPersonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346891022158CF800D10124 /* ReadingPersonClass.swift */; };
 		734689152217BFDA00D10124 /* GohJsonInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689142217BFDA00D10124 /* GohJsonInsert.swift */; };
+		7351E30B222F850200467C21 /* GohObjectAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351E30A222F850200467C21 /* GohObjectAnnotation.swift */; };
 		739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 739C07F5220C4BDB008697C1 /* KenshinCD.xcdatamodeld */; };
 		739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */; };
 		739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */; };
@@ -100,6 +101,7 @@
 		7346890D22158CA500D10124 /* Reading_person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reading_person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7346891022158CF800D10124 /* ReadingPersonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingPersonClass.swift; sourceTree = "<group>"; };
 		734689142217BFDA00D10124 /* GohJsonInsert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohJsonInsert.swift; sourceTree = "<group>"; };
+		7351E30A222F850200467C21 /* GohObjectAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohObjectAnnotation.swift; sourceTree = "<group>"; };
 		739C07F6220C4BDB008697C1 /* KenshinCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KenshinCD.xcdatamodel; sourceTree = "<group>"; };
 		739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataClass.swift"; sourceTree = "<group>"; };
 		739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				EF2B9DED220C3F3E0087124C /* LoginViewController.swift */,
 				733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */,
 				733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */,
+				7351E30A222F850200467C21 /* GohObjectAnnotation.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				739C080F220D7435008697C1 /* GohClass.swift in Sources */,
 				8A3F8979221D22C900338CD7 /* initReadingPerson.swift in Sources */,
 				7346891122158CF800D10124 /* ReadingPersonClass.swift in Sources */,
+				7351E30B222F850200467C21 /* GohObjectAnnotation.swift in Sources */,
 				9EC38188222CE96800ECEDFD /* NotificationsTableViewController.swift in Sources */,
 				9E75D237222F78470016392B /* Motion.swift in Sources */,
 				0D3FE9F2220D864800FD4F37 /* ReadingResultClass.swift in Sources */,
@@ -532,6 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KenshinAppAll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -549,6 +554,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KenshinAppAll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
