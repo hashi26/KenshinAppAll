@@ -21,6 +21,8 @@
 		0DA2062B222E9B110068704D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA2062A222E9B110068704D /* SettingsTableViewController.swift */; };
 		0DA2062D222E9B1F0068704D /* kensin_handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0DA2062C222E9B1F0068704D /* kensin_handbook.pdf */; };
 		733E40E0222F49ED0069FC8E /* CustomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */; };
+		733E40E3222F53790069FC8E /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */; };
+		733E40E4222F53790069FC8E /* CustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */; };
 		734689002215884F00D10124 /* CustomersClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734688FF2215884F00D10124 /* CustomersClass.swift */; };
 		734689022215885C00D10124 /* NotificationsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689012215885C00D10124 /* NotificationsClass.swift */; };
 		734689052215887F00D10124 /* Notifications+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689032215887F00D10124 /* Notifications+CoreDataClass.swift */; };
@@ -80,6 +82,8 @@
 		0DA2062A222E9B110068704D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0DA2062C222E9B1F0068704D /* kensin_handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = kensin_handbook.pdf; sourceTree = "<group>"; };
 		733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListViewController.swift; sourceTree = "<group>"; };
+		733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
+		733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerTableViewCell.xib; sourceTree = "<group>"; };
 		734688FF2215884F00D10124 /* CustomersClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomersClass.swift; sourceTree = "<group>"; };
 		734689012215885C00D10124 /* NotificationsClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsClass.swift; sourceTree = "<group>"; };
 		734689032215887F00D10124 /* Notifications+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				9EC38189222D3B5900ECEDFD /* NotificationsDetailViewController.swift */,
 				934D061421E83E95002EF183 /* ViewController.swift */,
 				EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */,
+				733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */,
 				EF2B9DFE220C3F5F0087124C /* ContactViewController.swift */,
 				9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */,
 				EF2B9DFF220C3F5F0087124C /* SettingViewController.swift */,
@@ -200,7 +205,8 @@
 				EF2B9DEB220C3F3E0087124C /* KenshinReportViewController.swift */,
 				EF2B9DF5220C3F4C0087124C /* MapViewController.swift */,
 				EF2B9DED220C3F3E0087124C /* LoginViewController.swift */,
-				733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */,
+				733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */,
+				733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 				EF2B9DE7220C3F160087124C /* Customer.storyboard in Resources */,
 				EF2B9DEA220C3F160087124C /* Login.storyboard in Resources */,
 				934D061A21E83E96002EF183 /* Assets.xcassets in Resources */,
+				733E40E4222F53790069FC8E /* CustomerTableViewCell.xib in Resources */,
 				9E4485B422237C0400E74FD4 /* customers.json in Resources */,
 				0DA2062D222E9B1F0068704D /* kensin_handbook.pdf in Resources */,
 				EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */,
@@ -369,6 +376,7 @@
 				0DA20621222E9AE50068704D /* FAQViewController.swift in Sources */,
 				0DA20623222E9AF20068704D /* FontSettingViewController.swift in Sources */,
 				0DA2062B222E9B110068704D /* SettingsTableViewController.swift in Sources */,
+				733E40E3222F53790069FC8E /* CustomerTableViewCell.swift in Sources */,
 				EF2B9E01220C3F5F0087124C /* ContactViewController.swift in Sources */,
 				9EC3818A222D3B5900ECEDFD /* NotificationsDetailViewController.swift in Sources */,
 				733E40E0222F49ED0069FC8E /* CustomerListViewController.swift in Sources */,
