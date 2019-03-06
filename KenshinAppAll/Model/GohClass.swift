@@ -13,6 +13,7 @@ class GohClass {
     let context:NSManagedObjectContext!
     
     
+    
     init(){
         persistentContainer = NSPersistentContainer(name: "KenshinCD")
         persistentContainer.loadPersistentStores() { (description, error) in

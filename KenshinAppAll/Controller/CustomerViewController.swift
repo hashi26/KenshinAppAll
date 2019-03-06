@@ -79,6 +79,7 @@ class CustomerViewController: UIViewController{
      おそらく、下記メソッドは画面表示の際に３コンテナ分動いてしまっている
      なぜ３回呼ばれているのかなぞ。
     */
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("セグエ値渡しメソッド動いているか")
         if segue.identifier == "toService" {
@@ -86,4 +87,5 @@ class CustomerViewController: UIViewController{
             nextScene?.service = customers
         }
     }
+ */
 }
