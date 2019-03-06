@@ -11,16 +11,19 @@ import UIKit
 class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var service: [Customers] = []
+    var test: String = ""
     
     //セルの個数を指定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Cellの数カウントしているか")
-        //print(service[0].gmt_set_no!)
+        print("サービスこテーブルのCellの数カウントしているか")
+        //print(service[0].gmt_set_no)
+        print(test)
         return service.count
     }
     
     //セルに値を設定するデータソースメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("Cellの中身を定義しているか")
         // セルを取得する
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         // セルに表示する値を設定する
