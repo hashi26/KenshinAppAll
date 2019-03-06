@@ -24,13 +24,14 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
         // セルを取得する
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         // セルに表示する値を設定する
-        cell.textLabel!.text = service[indexPath.row] as? String
-        print(service[0].gmt_set_no)
+        cell.textLabel!.text = service[indexPath.row].gmt_set_no
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let customerController = CustomersClass()
+        service = customerController.selectCustomers()
     }
 
     override func didReceiveMemoryWarning() {
