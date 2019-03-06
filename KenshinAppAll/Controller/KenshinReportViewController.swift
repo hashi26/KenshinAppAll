@@ -24,9 +24,13 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     @IBOutlet weak var gouSelect: UIButton!
     @IBOutlet weak var cameraLightButton: UIBarButtonItem!
     
+    var containers: Array<UIView> = []
     var customer_instance: CustomersClass!
     var customers:[Customers] = []
-
+    var cust:CustomersClass!
+    
+    var result_instance: ReadingResultClass!
+    var results:[Reading_results] = []
     
     //var customerData:KenshinData?   // お客さま情報詳細を確認する＆検針をするお客さまデータ
     //var adrs:(gyo:Int, retsu:Int)?  // 検針データリストから特定のお客さまを選択するために使用するアドレスを格納する
@@ -34,43 +38,87 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     //var countMax:Int? //対象号の配列のMAX値
     var cameraLightStatus:Bool = true   // カメラのライト状態
     
-    
+    /*
+    必要なデータ操作。
+     ・お客様テーブルの参照・・・起動時画面表示→途中
+     ・結果テーブルの参照・・・起動時画面表示→未　1ペケからの参照メソッドが今の所ない。
+     ・結果テーブルのレコード挿入・・・検針結果登録→未
+     ・結果テーブルのレコード削除・・・検針結果取消→未
+     ・号の最後のお客様かチェック・・・画面遷移先の変更→未
+    */
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
         
+        self.customer_instance = CustomersClass()
+        
         
         //テスト用データ
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        //インスタンス化をする
-        let task = Customers(context: context)
-        task.gmt_set_no = "10010010010"
-        task.meter_no = "100001010"
-        task.old_gas_shizi = 5811
-        task.b1_ryo = 30
         
-        
-        self.customer_instance = CustomersClass()
-        customers = self.customer_instance.selectCustomers()
-        //meterNo.text = customers[0].meter_no
-        
-        
-        // テスト　ガスメータ設置場所番号：10010010010　の社番を取得して表示
+        // テスト　ガスメータ設置場所番号：10010010010　の各情報を取得して表示
         customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
-        //print(customers[0].meter_no)
+        //meterNo.text = customers[0].meter_no
+        //oldGasSiji.text = customers[0].old_gas_shizi.description //0になっちゃう。。。。
+        //b1Ryo.text = customers[0].b1_ryo.description //0になっちゃう。。。。
+        //gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数　descriptionでStringに変換
+        //gasUsage.text   = customerData?.getNowGasRyo().description // 今回使用量　descriptionでStringに変換
         
         
-        /*
-        //customerData = KenshinInfoController.getKenshinData(gyo:adrs!.gyo, retsu:adrs!.retsu)// 検針データリストから特定のお客さまのインスタンスを取得する
-        meterNo.text = customerData?.getGasSecchi() // 社番の画面表示
-        oldGasSiji.text   = customerData?.getOldGasShiji().description // 前回指示数　descriptionでStringに変換
-        b1Ryo.text   = customerData?.getOldGasRyo().description // 前回使用量　descriptionでStringに変換
-        gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数　descriptionでStringに変換
-        gasUsage.text   = customerData?.getNowGasRyo().description // 今回使用量　descriptionでStringに変換
-        */
+        // テスト　ガスメータ設置場所番号：10010010010　のデータが存在するか確認。
+        customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
+        
         
 
+        print("建物名",customers[0].tatemono_cana)
+        print(customers[0].adrs_banchi)
+        print(customers[0].adrs_chou)
+        print(customers[0].adrs_goh)
+        print(customers[0].apart_heya_ban_cana)
+        print(customers[0].b1_kikan)
+        print(customers[0].b1_ryo)
+        print(customers[0].bb1_kikan)
+        print(customers[0].bb1_ryo)
+        print(customers[0].bb2_kikan)
+        print(customers[0].bb2_ryo)
+        print(customers[0].constract_started_at)
+        print(customers[0].created_at)
+        print(customers[0].customer_name_cana)
+        print(customers[0].customer_name_kanzi)
+        print(customers[0].flyer_refused)
+        print(customers[0].gmt_set_no)
+        print(customers[0].goh_ban)
+        print(customers[0].heya_ban_cana)
+        print(customers[0].ichi_code)
+        print(customers[0].in_dog)
+        print(customers[0].in_dog_code)
+        print(customers[0].kaiheisen_code)
+        print(customers[0].ken_seq)
+        print(customers[0].knsn_method_code)
+        print(customers[0].knsn_tnt_emp_no)
+        print(customers[0].memo)
+        print(customers[0].meter_no)
+        print(customers[0].mune_ban_cana)
+        print(customers[0].name_j)
+        print(customers[0].next_date)
+        print(customers[0].old_gas_shizi)
+        print(customers[0].opened_at)
+        print(customers[0].out_dog)
+        print(customers[0].out_dog_code)
+        print(customers[0].service_info)
+        print(customers[0].tatemono_cana)
+        print(customers[0].tatemono_kanzi)
+        print(customers[0].teirei_date)
+        print(customers[0].tel_no)
+        print(customers[0].updated_at)
+        print(customers[0].wireless_used)
+        print(customers[0].yago_cana)
+        print(customers[0].yago_kanzi)
+        print(customers[0].yuso_setted)
+        
+        
+        
         
         
         
