@@ -10,6 +10,135 @@ import Foundation
 import CoreData
 import UIKit
 
+class ReadingPersonClass {
+    //    @NSManaged public var contact_tel_no: String?
+    //    @NSManaged public var contents: String?
+    //    @NSManaged public var created_at: NSDate?
+    //    @NSManaged public var delete_flg: Int16
+    //    @NSManaged public var from_base_code: String?
+    //    @NSManaged public var from_branch_office_code: String?
+    //    @NSManaged public var from_sales_office_code: String?
+    //    @NSManaged public var notification_no: String?
+    //    @NSManaged public var sender_name: String?
+    //    @NSManaged public var supervisor_name: String?
+    //    @NSManaged public var title: String?
+    //    @NSManaged public var to_base_code: String?
+    //    @NSManaged public var to_branch_office_code: String?
+    //    @NSManaged public var to_sales_office_code: String?
+    //    @NSManaged public var updated_at: NSDate?
+    
+    var persistentContainer:NSPersistentContainer!
+    let context:NSManagedObjectContext!
+    
+    init(){
+        persistentContainer = NSPersistentContainer(name: "KenshinCD")
+        persistentContainer.loadPersistentStores() { (description, error) in
+            if let error = error {
+                fatalError("NotificationsClass.init()が失敗しました: \(error)")
+            }
+        }
+        context = persistentContainer.viewContext
+    }
+    
+    // 全件検索
+    func selectReadingPerson() -> [Reading_person]{
+        let readingPersonFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Reading_person")
+        let sortDescripter = NSSortDescriptor(key: "updated_at", ascending: false)//ascendind:true 昇順、false 降順です
+        readingPersonFetch.sortDescriptors = [sortDescripter]
+        
+        do {
+            let fetchedReadingPerson = try context.fetch(readingPersonFetch) as! [Reading_person]
+            return fetchedReadingPerson
+        } catch {
+            fatalError("ReadingPersonClass.selectReadingPerson()が失敗しました: \(error)")
+        }
+        return []
+    }
+    
+    // 追加
+    func insertReadingPerson(otifications : Reading_person) {
+        NSEntityDescription.insertNewObject(forEntityName: "Reading_person", into: context)
+        saveReadingPerson()
+    }
+    
+    // 初期データ追加
+    // アプリ起動時にjsonからお知らせ一覧を作成し、CoreDataにinsertする
+    func initInsertReadingPerson() {
+        do {
+            // Insert前にCoreData内にデータが存在するかを確認し、
+            // データが存在する場合　：何もしない
+            // データが存在しない場合：データをInsertする
+            if (selectReadingPerson()).isEmpty {
+                print("*** initInsertReadingPerson が実行されます。")
+                let readingPersonInsertData = try initReadingPerson.getInitReadingPersonData()
+                
+                // 構造体のプロパティから各変数を作成し、インスタンスを生成
+                for obj in readingPersonInsertData!{
+                    let insertEntity = NSEntityDescription.insertNewObject(forEntityName: "Reading_person", into: context)
+                    insertEntity.setValue(obj.branch_office_code, forKey: "branch_office_code")
+                    insertEntity.setValue(obj.knsn_tnt_emp_no, forKey: "knsn_tnt_emp_no")
+                    insertEntity.setValue(obj.knsn_tnt_name, forKey: "knsn_tnt_name")
+                    insertEntity.setValue(obj.knsn_tnt_pass, forKey: "knsn_tnt_pass")
+                    insertEntity.setValue(obj.knsn_tnt_tel_no, forKey: "knsn_tnt_tel_no")
+                    insertEntity.setValue(obj.sales_office_code, forKey: "sales_office_code")
+
+                    insertEntity.setValue(dateFromString(date: obj.created_at)! as NSDate, forKey: "created_at")
+                    if (obj.updated_at != "") {
+                        insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "updated_at")
+                    }
+                    saveReadingPerson()
+                }
+            } else {
+                print("*** initInsertReadingPerson が実行されませんでした。coredataにデータが存在します。 ")
+            }
+        } catch {
+            fatalError("*** ReadingPersonClass.initInsertReadingPerson()が失敗しました : \(error)")
+        }
+    }
+    
+    // 削除
+    func deleteReadingPerson(delObj : Reading_person) {
+        context.delete(delObj)
+        saveReadingPerson()
+    }
+    
+    // 全削除
+    func deleteReadingPersonALL() {
+        let result = selectReadingPerson()
+        for delObj in result {
+            context.delete(delObj)
+            saveReadingPerson()
+        }
+    }
+    
+    // 保存
+    func saveReadingPerson() {
+        if context.hasChanges {
+            do {
+                try context.save();
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
+    // StringからDateへの日付変換処理
+    func dateFromString(date:String) -> Date!{
+        if date == "" {
+            return nil
+        } else {
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let returnValue:Date = df.date(from: date)! as Date
+            return returnValue
+        }
+    }
+    
+}
+
+
+/*
 class ReadingPersonClass: Codable {
     //
     let base_code: String
@@ -96,3 +225,4 @@ func readingPersonClassToReadingPerson(readingPersonClass:ReadingPersonClass) ->
 
     return readingPerson
 }
+*/

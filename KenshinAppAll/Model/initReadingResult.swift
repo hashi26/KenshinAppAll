@@ -17,11 +17,11 @@ class InitReadingResult {
         //検針年月日
         let knsn_ymd : String
         //メーター指示数
-        let gmt_sizi_su : Int16
+        let gmt_sizi_su : String
         //開閉栓状態
         let is_opend : String
         //ガス使用量
-        let gas_usage : Int16
+        let gas_usage : String
         //検針担当者番号
         let knsn_tnt_emp_no : String
         //契約開始年月日
@@ -29,22 +29,24 @@ class InitReadingResult {
         //検針方法コード
         let knsn_method : String
         //当日検針日時
-        let readed_at : Date
+        let readed_at : String
         //登録日時
-        let created_at : Date
+        let created_at : String
         //更新日時
-        let updated_at : Date
+        let updated_at : String
     }
     
     // JSONファイルからJSONを読み込み
     // Notificationsのリスト（=配列）を返す
-    static func getInitReadingResultData() throws -> [Reading_results]? {
-        guard let path = Bundle.main.path(forResource: "neadingResult", ofType: "json") else { return nil }
+    static func getInitReadingResultData() throws -> [ReadingResultStruct]? {
+        
+        guard let path = Bundle.main.path(forResource: "readingResult", ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: path)
         let data = try Data(contentsOf: url)
         
         // JSONデータを構造体型にデコードする
         let readingResultStructData = try! JSONDecoder().decode([ReadingResultStruct].self, from: data)
+        /*
         var dataList:[Reading_results] = []
         
         for obj in readingResultStructData{
@@ -66,8 +68,9 @@ class InitReadingResult {
 
             dataList.append(readingResult)
         }
-        
-        return dataList
+        */
+        //return dataList
+        return readingResultStructData
     }
     
     // StringからDateへの日付変換処理

@@ -15,20 +15,19 @@ class ReadingResultClass {
     var persistentContainer:NSPersistentContainer!
     let context:NSManagedObjectContext!
     
-    init(completionClosure: @escaping () -> ()) {
+    init() {
         persistentContainer = NSPersistentContainer(name: "KenshinCD")
         persistentContainer.loadPersistentStores() { (description, error) in
             if let error = error {
                 fatalError("ReadingResultClass.init()が失敗しました: \(error)")
             }
-            completionClosure()
         }
         context = persistentContainer.viewContext
     }
     
     // 全件検索
     func selectReadingResult() -> [Reading_results] {
-        let readingResultFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadingResult")
+        let readingResultFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Reading_results")
         
         do {
             let fetchedReadingResult = try context.fetch(readingResultFetch) as! [Reading_results]
@@ -40,28 +39,45 @@ class ReadingResultClass {
     }
     
     // 追加
-    func insertReadingResult(readingResult : Reading_results) {
+    func insertReadingResult(otifications : Reading_results) {
         NSEntityDescription.insertNewObject(forEntityName: "ReadingResult", into: context)
         saveReadingResult()
     }
     
     // 初期データ追加
     // アプリ起動時にjsonからお知らせ一覧を作成し、CoreDataにinsertする
-    func initInsertReadingResult(readingResult : Reading_results) {
+    func initInsertReadingResult() {
         do {
             // Insert前にCoreData内にデータが存在するかを確認し、
             // データが存在する場合　：何もしない
             // データが存在しない場合：データをInsertする
-            let resultSelectReadingResult = selectReadingResult()
-            if resultSelectReadingResult.isEmpty {}
-            else {
+            if (selectReadingResult()).isEmpty {
+                print("*** initInsertReadingResult が実行されます。")
                 let readingResultInsertData = try InitReadingResult.getInitReadingResultData()
-                for obj in readingResultInsertData! {
-                    insertReadingResult(readingResult: obj)
+                
+                // 構造体のプロパティから各変数を作成し、インスタンスを生成
+                for obj in readingResultInsertData!{
+                    let insertEntity = NSEntityDescription.insertNewObject(forEntityName: "Reading_results", into: context)
+                    insertEntity.setValue(obj.constract_started_at, forKey: "constract_started_at")
+                    insertEntity.setValue(Int16(obj.gas_usage), forKey: "gas_usage")
+                    insertEntity.setValue(obj.gmt_set_no, forKey: "gmt_set_no")
+                    insertEntity.setValue(dateFromString(date: obj.created_at)! as NSDate, forKey: "created_at")
+                    insertEntity.setValue(obj.knsn_ymd, forKey: "knsn_ymd")
+                    insertEntity.setValue(Int16(obj.gmt_sizi_su), forKey: "gmt_sizi_su")
+                    insertEntity.setValue(obj.is_opend, forKey: "is_opend")
+                    insertEntity.setValue(Int16(obj.gas_usage), forKey: "gas_usage")
+                    insertEntity.setValue(obj.knsn_tnt_emp_no, forKey: "knsn_tnt_emp_no")
+                    insertEntity.setValue(obj.knsn_method, forKey: "knsn_method")
+                    if (obj.updated_at != "") {
+                        insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "updated_at")
+                    }
+                    saveReadingResult()
                 }
+            } else {
+                print("*** initInsertNotifications が実行されませんでした。coredataにデータが存在します。 ")
             }
         } catch {
-            fatalError("ReadingResultClass.initInsetReadingResult()が失敗しました : \(error)")
+            fatalError("*** NotificationsClass.initInsetNotifications()が失敗しました : \(error)")
         }
     }
     
@@ -74,6 +90,33 @@ class ReadingResultClass {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    // 削除
+    func deleteReadingResult(delObj : Reading_results) {
+        context.delete(delObj)
+        saveReadingResult()
+    }
+    
+    // 全削除
+    func deleteReadingResultALL() {
+        let result = selectReadingResult()
+        for delObj in result {
+            context.delete(delObj)
+            saveReadingResult()
+        }
+    }
+    
+    // StringからDateへの日付変換処理
+    func dateFromString(date:String) -> Date!{
+        if date == "" {
+            return nil
+        } else {
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let returnValue:Date = df.date(from: date)! as Date
+            return returnValue
         }
     }
     
