@@ -24,33 +24,14 @@ class initReadingPerson{
 
     // JSONファイルからJSONを読み込み
     // ReadingPersonのリスト（=配列）を返す
-    static func getInitReadingPersonData() throws -> [Reading_person]? {
-        guard let path = Bundle.main.path(forResource: "readingperson", ofType: "json") else { return nil }
+    static func getInitReadingPersonData() throws -> [ReadingPersonStruct]? {
+        guard let path = Bundle.main.path(forResource: "reading_person", ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: path)
         let data = try Data(contentsOf: url)
         
         // JSONデータを構造体型にデコードする
         let readingPersonStructData = try! JSONDecoder().decode([ReadingPersonStruct].self, from: data)
-        var dataList:[Reading_person] = []
-        
-        for obj in readingPersonStructData{
-            // 構造体のプロパティから各変数を作成し、インスタンスを生成
-            //        for i in notificationsStructData
-            let readingPersons:Reading_person = Reading_person()
-            
-            readingPersons.base_code          = obj.base_code
-            readingPersons.branch_office_code = obj.branch_office_code
-            readingPersons.created_at         = dateFromString(date: obj.created_at) as NSDate
-            readingPersons.knsn_tnt_emp_no    = obj.knsn_tnt_emp_no
-            readingPersons.knsn_tnt_name      = obj.knsn_tnt_name
-            readingPersons.knsn_tnt_pass      = obj.knsn_tnt_pass
-            readingPersons.knsn_tnt_tel_no    = obj.knsn_tnt_tel_no
-            readingPersons.sales_office_code  = obj.sales_office_code
-            readingPersons.updated_at         = dateFromString(date: obj.updated_at) as NSDate
-            dataList.append(readingPersons)
-        }
-        
-        return dataList
+        return readingPersonStructData
     }
     
     // StringからDateへの日付変換処理

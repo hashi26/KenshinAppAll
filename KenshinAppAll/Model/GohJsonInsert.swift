@@ -49,7 +49,7 @@ class GohJsoninsert{
         // JSONファイルからJSONを読み込み
         // Notificationsのリスト（＝配列）を返す
         static func getInitGohData() throws -> [GohStruct]? {
-            guard let path = Bundle.main.path(forResource: "Goh",ofType: "json") else {
+            guard let path = Bundle.main.path(forResource: "goh",ofType: "json") else {
                 return nil}
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url)
