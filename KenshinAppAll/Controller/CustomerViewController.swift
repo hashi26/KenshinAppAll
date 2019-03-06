@@ -88,7 +88,6 @@ class CustomerViewController: UIViewController{
             let nextScene = (segue.destination as? Customer_ServiceViewController)
                 nextScene?.service = customers
             
-            
         }
     }
 }

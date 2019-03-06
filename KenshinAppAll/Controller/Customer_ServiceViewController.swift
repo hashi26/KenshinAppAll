@@ -27,7 +27,6 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
         cell.textLabel!.text = service[indexPath.row] as? String
         print(service[0].gmt_set_no)
         return cell
-        
     }
     
     override func viewDidLoad() {
