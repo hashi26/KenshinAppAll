@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Toお客さま"/>
                                 <connections>
-                                    <segue destination="QHP-lf-R1c" kind="show" id="eb1-PI-aaV"/>
+                                    <segue destination="QHP-lf-R1c" kind="show" id="Gu8-QG-Pp1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="お客さま一覧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8V-9Q-U7L">
@@ -200,6 +200,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="F4F-ub-fH0"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1e0-8U-M6R"/>
                     <connections>
                         <outlet property="containerView" destination="ZdT-QC-Xrv" id="nPt-vZ-3BE"/>
                         <outlet property="customerName" destination="OQQ-5N-SuX" id="TFc-ot-iwB"/>
