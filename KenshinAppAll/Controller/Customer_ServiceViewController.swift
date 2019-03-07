@@ -51,14 +51,9 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
     // サービスに表示する項目の件数
     func insertItem(){
         var item: [String] = []
-        item.append("あ")
-        item.append("い")
-        item.append(String(service.gmt_set_no!))
-        print(item[0])
-        print(item[1])
-        print(item[2])
+        item.append(String(service.meter_no!))
+        item.append(String(service.tatemono_kanzi!))
         serviceItem = item
     }
-    
 }
 
