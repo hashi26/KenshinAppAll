@@ -12,13 +12,20 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
     
     var service:Customers = Customers()
     
+    var serviceItem:[String] = []
+    
     //セルの個数を指定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         service = appDelegate.customerInfo
         //print(service[0].gmt_set_no!)
-        //return service.count
-        return 1
+        
+        insertItem()
+        return serviceItem.count
+        
+
+        
+        //return 1
     }
     
     //セルに値を設定するデータソースメソッド
@@ -27,8 +34,9 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         // セルに表示する値を設定する
         //cell.textLabel!.text = service[indexPath.row] as? String
-        cell.textLabel!.text = service.gmt_set_no
+        //cell.textLabel!.text = service.gmt_set_no★
         //print(service[0].gmt_set_no)
+        cell.textLabel?.text = serviceItem[indexPath.row]
         return cell
     }
     
@@ -38,6 +46,18 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // サービスに表示する項目の件数
+    func insertItem(){
+        var item: [String] = []
+        item.append("あ")
+        item.append("い")
+        item.append(String(service.gmt_set_no!))
+        print(item[0])
+        print(item[1])
+        print(item[2])
+        serviceItem = item
     }
     
 }
