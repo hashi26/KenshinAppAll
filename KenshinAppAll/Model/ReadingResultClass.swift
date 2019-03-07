@@ -38,6 +38,23 @@ class ReadingResultClass {
         return []
     }
     
+    // ガスメータ設置場所番号を指定して検索
+    func selectReadingResultByGmtSetNo(gmt_set_no:String) -> [Reading_results] {
+        let readingResultFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Reading_results")
+        
+        // 条件指定
+        let predicate = NSPredicate(format: "%K = %@","gmt_set_no", gmt_set_no)
+        readingResultFetch.predicate = predicate
+        
+        do {
+            let fetchedReadingResult = try self.context.fetch(readingResultFetch)
+            return fetchedReadingResult as! [Reading_results]
+        } catch {
+            fatalError("ReadingResultClass.selectReadingResultByGmtSetNo()が失敗しました: \(error)")
+        }
+        return []
+    }
+    
     // 追加
     func insertReadingResult(otifications : Reading_results) {
         NSEntityDescription.insertNewObject(forEntityName: "ReadingResult", into: context)

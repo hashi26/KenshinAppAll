@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G5019" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Customers" representedClassName="Customers" syncable="YES">
         <attribute name="adrs_banchi" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="adrs_chou" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +31,7 @@
         <attribute name="mune_ban_cana" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name_j" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="next_date" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="old_gas_shizi" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="old_gas_siji" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="opened_at" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="out_dog" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="out_dog_code" optional="YES" attributeType="String" syncable="YES"/>
@@ -96,7 +96,7 @@
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Customers" positionX="-54" positionY="-9" width="128" height="703"/>
+        <element name="Customers" positionX="-54" positionY="-9" width="128" height="705"/>
         <element name="Goh" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Notifications" positionX="0" positionY="171" width="128" height="270"/>
         <element name="Reading_person" positionX="-18" positionY="162" width="128" height="180"/>

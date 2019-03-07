@@ -109,7 +109,7 @@ class CustomersClass {
                     insertEntity.setValue(obj.mune_ban_c, forKey:"mune_ban_cana")
                     insertEntity.setValue(obj.name_j, forKey:"name_j")
                     insertEntity.setValue(obj.next_date, forKey:"next_date")
-                    insertEntity.setValue(Int16(obj.old_gas_siji), forKey:"old_gas_shizi")
+                    insertEntity.setValue(Int16(obj.old_gas_siji), forKey:"old_gas_siji")
                     insertEntity.setValue(obj.opened_at, forKey:"opened_at")
                     insertEntity.setValue(obj.out_dog, forKey:"out_dog")
                     insertEntity.setValue(obj.out_dog_code, forKey:"out_dog_code")
