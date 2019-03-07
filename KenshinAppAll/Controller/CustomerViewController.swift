@@ -42,14 +42,27 @@ class CustomerViewController: UIViewController{
         customerName.text = customers[0].name_j
         meterNo.text = customers[0].gmt_set_no
         knsnHhCd.text = customers[0].knsn_method_code
-        khsnJtCd.text = customers[0].knsn_method_code
+        khsnJtCd.text = checkKaihei(String(customers[0].kaiheisen_code!))
     }
- 
     
     @IBAction func changeContainerView(_ sender: UISegmentedControl) {
         let currentContainerView = containers[sender.selectedSegmentIndex]
         containerView.bringSubviewToFront(currentContainerView)
     }
+    
+    func checkKaihei(_ code: String) -> String {
+        var method: String = ""
+        if(code == "0"){
+            method = "閉栓中"
+        }else if(code == "1"){
+            method = "開栓中"
+        }else{
+            method = ""
+            //この場合は発生しないはずだがブランクを表示する
+        }
+        return method
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppearの実行")
