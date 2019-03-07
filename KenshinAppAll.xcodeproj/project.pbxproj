@@ -350,7 +350,6 @@
 				0DA2061E222E9A620068704D /* Config.storyboard in Resources */,
 				9E22532B22228E1000EA166C /* Notifications.storyboard in Resources */,
 				9E4485B522237C0400E74FD4 /* notifications.json in Resources */,
-				7344510C223128A70065247A /* ContactCell.xib in Resources */,
 				739C0811220D790B008697C1 /* goh.json in Resources */,
 				EF2B9DE8220C3F160087124C /* Hello.storyboard in Resources */,
 				9E4485B622237C0400E74FD4 /* reading_person.json in Resources */,
@@ -364,6 +363,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7344510E22313A410065247A /* ContactCell.xib in Sources */,
+				7344510D223139F10065247A /* ContactCell.swift in Sources */,
 				9E761D35222F69FC00690580 /* Customer_ServiceViewController.swift in Sources */,
 				7346890B2215895D00D10124 /* Customers+CoreDataProperties.swift in Sources */,
 				739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */,
@@ -382,7 +383,6 @@
 				0DA20629222E9B0A0068704D /* ProfileImageViewController.swift in Sources */,
 				EF2B9DEF220C3F3E0087124C /* KenshinReportViewController.swift in Sources */,
 				734689022215885C00D10124 /* NotificationsClass.swift in Sources */,
-				7344510B223128A70065247A /* ContactCell.swift in Sources */,
 				9E50A17D221BFB5000100525 /* InitNotifications.swift in Sources */,
 				9E761D32222F69FC00690580 /* Customer_DogViewController.swift in Sources */,
 				734689002215884F00D10124 /* CustomersClass.swift in Sources */,
