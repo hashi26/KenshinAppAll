@@ -10,13 +10,15 @@ import UIKit
 
 class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var service: [Customers] = []
+    var service:Customers = Customers()
     
     //セルの個数を指定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Cellの数カウントしているか")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        service = appDelegate.customerInfo
         //print(service[0].gmt_set_no!)
-        return service.count
+        //return service.count
+        return 1
     }
     
     //セルに値を設定するデータソースメソッド
@@ -24,8 +26,9 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
         // セルを取得する
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         // セルに表示する値を設定する
-        cell.textLabel!.text = service[indexPath.row] as? String
-        print(service[0].gmt_set_no)
+        //cell.textLabel!.text = service[indexPath.row] as? String
+        cell.textLabel!.text = service.gmt_set_no
+        //print(service[0].gmt_set_no)
         return cell
     }
     
