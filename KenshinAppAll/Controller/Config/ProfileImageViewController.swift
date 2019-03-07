@@ -16,6 +16,8 @@ class ProfileImageViewController: UIViewController ,UIImagePickerControllerDeleg
         super.viewDidLoad()
         
         profileLabel.text = "tap button"
+        
+        defaultImage()
 
         // Do any additional setup after loading the view.
     }
@@ -39,10 +41,18 @@ class ProfileImageViewController: UIViewController ,UIImagePickerControllerDeleg
     @IBAction func savePicture(_ sender: AnyObject) {
         let image:UIImage! = cameraView.image
         
+        /*
         if image != nil{
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(ProfileImageViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
         }else{
             profileLabel.text = "image Failed"
+        }
+         */
+        let data = image.pngData() as NSData?
+        if let imageData = data{
+            UserDefaults.standard.set(imageData, forKey: "profileImage")
+            //UserDefaults.standard.synchronize()
+            profileLabel.text = "Save Succeeded"
         }
     }
 
@@ -95,14 +105,13 @@ class ProfileImageViewController: UIViewController ,UIImagePickerControllerDeleg
         super.didReceiveMemoryWarning()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func defaultImage(){
+        if UserDefaults.standard.object(forKey:"profileImage") != nil{
+            let object = UserDefaults.standard.object(forKey: "profileImage") as? NSData
+            cameraView.image = UIImage(data: object! as Data)
+            cameraView.contentMode = .scaleAspectFill
+            cameraView.clipsToBounds = true
+        }
     }
-    */
-
+    
 }
