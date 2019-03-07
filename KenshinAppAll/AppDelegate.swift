@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var goh:GohClass = GohClass()
     var readingResult:ReadingResultClass = ReadingResultClass()
     var readingPerson:ReadingPersonClass = ReadingPersonClass()
+    var customerInfo:Customers = Customers()
     
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
