@@ -23,6 +23,8 @@
 		733E40E0222F49ED0069FC8E /* CustomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */; };
 		733E40E3222F53790069FC8E /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */; };
 		733E40E4222F53790069FC8E /* CustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */; };
+		7344510D223139F10065247A /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73445109223128A70065247A /* ContactCell.swift */; };
+		7344510E22313A410065247A /* ContactCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 7344510A223128A70065247A /* ContactCell.xib */; };
 		734689002215884F00D10124 /* CustomersClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734688FF2215884F00D10124 /* CustomersClass.swift */; };
 		734689022215885C00D10124 /* NotificationsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689012215885C00D10124 /* NotificationsClass.swift */; };
 		734689052215887F00D10124 /* Notifications+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689032215887F00D10124 /* Notifications+CoreDataClass.swift */; };
