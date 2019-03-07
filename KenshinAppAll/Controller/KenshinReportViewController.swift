@@ -41,7 +41,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     /*
     必要なデータ操作。
      ・お客様テーブルの参照・・・起動時画面表示→途中　
-     ・結果テーブルの参照・・・起動時画面表示→未　1ペケからの参照メソッドが今の所ない。
+     ・結果テーブルの参照・・・起動時画面表示→途中
      ・結果テーブルのレコード挿入・・・検針結果登録→未
      ・結果テーブルのレコード削除・・・検針結果取消→未
      ・号の最後のお客様かチェック・・・画面遷移先の変更→未
@@ -52,22 +52,27 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         navigationController?.delegate = self
         
         self.customer_instance = CustomersClass()
-        
+        self.result_instance = ReadingResultClass()
         
         //テスト用データ
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        // テスト　ガスメータ設置場所番号：10010010010　の各情報を取得して表示
+        // テスト　ガスメータ設置場所番号：10010010010　の各情報を取得して表示(お客さまテーブル)
         customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
+        
+        // テスト　ガスメータ設置場所番号：10010010010　の各情報を取得して表示（結果テーブル）
+        results = self.result_instance.selectReadingResultByGmtSetNo(gmt_set_no: "10010010010")
+        
+        //print("結果テーブルから今回使用量",results[0].gas_usage)
+        //print("結果テーブルから今回指示数",results[0].gmt_sizi_su)
+        
+        
         //meterNo.text = customers[0].meter_no
         //oldGasSiji.text = customers[0].old_gas_shizi.description //0になっちゃう。。。。
         //b1Ryo.text = customers[0].b1_ryo.description //0になっちゃう。。。。
         //gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数　descriptionでStringに変換
         //gasUsage.text   = customerData?.getNowGasRyo().description // 今回使用量　descriptionでStringに変換
         
-        
-        // テスト　ガスメータ設置場所番号：10010010010　のデータが存在するか確認。
-        customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
         
         
 
@@ -77,11 +82,11 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         print(customers[0].adrs_goh)
         print(customers[0].apart_heya_ban_cana)
         print(customers[0].b1_kikan)
-        print(customers[0].b1_ryo)
+        print(String(customers[0].b1_ryo))
         print(customers[0].bb1_kikan)
-        print(customers[0].bb1_ryo)
+        print(customers[0].bb1_ryo.description)
         print(customers[0].bb2_kikan)
-        print(customers[0].bb2_ryo)
+        print(customers[0].bb2_ryo.description)
         print(customers[0].constract_started_at)
         print(customers[0].created_at)
         print(customers[0].customer_name_cana)
@@ -102,7 +107,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         print(customers[0].mune_ban_cana)
         print(customers[0].name_j)
         print(customers[0].next_date)
-        print(customers[0].old_gas_shizi)
+        print("前回指示数",customers[0].old_gas_siji)
         print(customers[0].opened_at)
         print(customers[0].out_dog)
         print(customers[0].out_dog_code)
