@@ -19,15 +19,20 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
+        
         NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChange), name: UserDefaults.didChangeNotification, object: nil)
-        */
         
         if let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String{
             versionLabel.text = version
         }
-        
-        fontLabel.text = "\(UIFont.systemFontSize)"
+
+        if let systemFontSize = UserDefaults.standard.value(forKey: "systemFontSize") as? Int{
+            fontLabel.text = "\(systemFontSize)"
+        }else{
+            fontLabel.text = "\(UIFont.systemFontSize)"
+        }
+
+        //fontLabel.text = "\(UIFont.systemFontSize)"
         //fontLabel.text = "\(UILabel.appearance().defaultFont)"
         
         
@@ -83,9 +88,17 @@ class SettingsTableViewController: UITableViewController {
     }
      */
     
-    /*
+    
     @objc func userDefaultsDidChange(_ notification: Notification){
-        fontLabel.text = "\(UIFont.systemFontSize)"
+        if let systemFontSize = UserDefaults.standard.value(forKey: "systemFontSize") as? Int{
+            fontLabel.text = "\(systemFontSize)"
+        }else{
+            fontLabel.text = "\(UIFont.systemFontSize)"
+        }
     }
-    */
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self,name: UserDefaults.didChangeNotification,object:nil)
+    }
+    
 }
