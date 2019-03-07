@@ -41,7 +41,7 @@ class CustomerViewController: UIViewController{
         customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")//★将来的に渡された値を代入
         customerName.text = customers[0].name_j
         meterNo.text = customers[0].gmt_set_no
-        knsnHhCd.text = customers[0].knsn_method_code
+        knsnHhCd.text = checkKensnMethod(String(customers[0].knsn_method_code!))
         khsnJtCd.text = checkKaihei(String(customers[0].kaiheisen_code!))
     }
     
@@ -63,6 +63,20 @@ class CustomerViewController: UIViewController{
         return method
     }
     
+    func checkKensnMethod(_ code: String) -> String {
+        var method: String = ""
+        switch code {
+        case "11":
+            method = "電話"
+        case "12":
+            method = "スマメ"
+        case "21":
+            method = "はこ"
+        default:
+            print("その他")
+        }
+        return method
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppearの実行")
