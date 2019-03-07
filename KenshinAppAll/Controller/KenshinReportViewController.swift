@@ -40,7 +40,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     
     /*
     必要なデータ操作。
-     ・お客様テーブルの参照・・・起動時画面表示→途中
+     ・お客様テーブルの参照・・・起動時画面表示→途中　
      ・結果テーブルの参照・・・起動時画面表示→未　1ペケからの参照メソッドが今の所ない。
      ・結果テーブルのレコード挿入・・・検針結果登録→未
      ・結果テーブルのレコード削除・・・検針結果取消→未
