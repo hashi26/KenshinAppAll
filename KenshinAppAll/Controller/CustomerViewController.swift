@@ -35,6 +35,15 @@ class CustomerViewController: UIViewController{
         containers = [serviceContainer,dogContainer,otherContainer]
         containerView.bringSubviewToFront(serviceContainer)
         
+        // スワイプ定義
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        rightSwipe.direction = .right
+        view.addGestureRecognizer(rightSwipe)
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        leftSwipe.direction = .left
+        view.addGestureRecognizer(leftSwipe)
+        
         // 1XXに紐づくお客さま情報取得
         self.customer_instance = CustomersClass()
         // テスト　ガスメータ設置場所番号：10010010010　の氏名を取得して表示
@@ -76,6 +85,68 @@ class CustomerViewController: UIViewController{
             print("その他")
         }
         return method
+    }
+    
+    @objc final func handleSwipe(sender: UISwipeGestureRecognizer) {
+        
+        /*
+        if sender.state == .ended {
+            switch sender.direction {
+            case .right:
+                print("前のお客さま")
+                
+                //selectObjectの添え字がマイナスになならないように調整
+                if appDelegate.num! == 0{
+                    appDelegate.num! = appDelegate.selectObjects!.count-1
+                }
+                else{
+                    appDelegate.num! -= 1
+                }
+                print("\(appDelegate.num!)")
+                
+                //count = count - 1
+                //print(count)
+                // 画面遷移
+                
+                //let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+                //let nextView = storyboard.instantiateViewController(withIdentifier: "VCDatail-ID")
+                //self.present(nextView, animated: true, completion: nil)
+                
+                
+            case .left:
+                print("次のお客さま")
+                
+                //selectObjectの配列の添え字が最大個数を超えないように調整
+                if appDelegate.num! == appDelegate.selectObjects!.count-1{
+                    appDelegate.num! = 0
+                }
+                else{
+                    appDelegate.num! += 1
+                }
+                
+                //count = count + 1
+                //print(count)
+                // 画面遷移
+                
+                //let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+                //let nextView = storyboard.instantiateViewController(withIdentifier: "VCDatail-ID")
+            //self.present(nextView, animated: true, completion: nil)
+            default:
+                break
+            }
+            
+            //結果を更新
+            
+            //お客様名格納
+            custName.text = String(appDelegate.selectObjects![appDelegate.num!].name)
+            //社番格納
+            meterNo.text = String(appDelegate.selectObjects![appDelegate.num!].syaban)
+            
+        }
+        */
+        
+        print("スワイプ検知")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
