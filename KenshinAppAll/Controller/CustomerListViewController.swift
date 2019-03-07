@@ -103,24 +103,24 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         //プレースホルダの指定
         customerSearchBar.placeholder = "検索文字列を入力してください"
         
-        //検索ボタン押下時の呼び出しメソッド
-        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            print("検索ボタン押下時メソッドが実行されるか")
-            customerSearchBar.endEditing(true)
-            
-            //検索結果配列を空にする。
-            searchResult.removeAll()
-            resultNumber.removeAll()
-            
-            if(customerSearchBar.text == "") {
-                //検索文字列が空の場合はすべてを表示する。
-                searchResult = self.customers
-                for (index,_) in searchResult.enumerated(){
-                    resultNumber.append(index)
-                }
-            }else{
-                
+    }
+    
+    //検索ボタン押下時の呼び出しメソッド
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("検索ボタン押下時メソッドが実行されるか")
+        customerSearchBar.endEditing(true)
+        
+        //検索結果配列を空にする。
+        searchResult.removeAll()
+        resultNumber.removeAll()
+        
+        if(customerSearchBar.text == "") {
+            //検索文字列が空の場合はすべてを表示する。
+            searchResult = self.customers
+            for (index,_) in searchResult.enumerated(){
+                resultNumber.append(index)
             }
+        }else{
             
         }
     }

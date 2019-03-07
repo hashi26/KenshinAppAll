@@ -27,7 +27,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>Customer</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Customer</string>
+	<string>Tab</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
