@@ -57,6 +57,7 @@
                     </view>
                     <connections>
                         <outlet property="AreaMapView" destination="NPq-5f-1sG" id="k2R-mF-8OF"/>
+                        <outlet property="customerSearchBar" destination="89R-3v-CWR" id="IaJ-D7-ORk"/>
                         <outlet property="customerTableView" destination="VE5-Lj-QaT" id="Pl1-LK-j1P"/>
                     </connections>
                 </viewController>
