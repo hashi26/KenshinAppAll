@@ -91,6 +91,8 @@
 		733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListViewController.swift; sourceTree = "<group>"; };
 		733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
 		733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerTableViewCell.xib; sourceTree = "<group>"; };
+		73445109223128A70065247A /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		7344510A223128A70065247A /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		734688FF2215884F00D10124 /* CustomersClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomersClass.swift; sourceTree = "<group>"; };
 		734689012215885C00D10124 /* NotificationsClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsClass.swift; sourceTree = "<group>"; };
 		734689032215887F00D10124 /* Notifications+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -219,6 +221,8 @@
 				EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */,
 				733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */,
 				EF2B9DFE220C3F5F0087124C /* ContactViewController.swift */,
+				73445109223128A70065247A /* ContactCell.swift */,
+				7344510A223128A70065247A /* ContactCell.xib */,
 				9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */,
 				EF2B9DFF220C3F5F0087124C /* SettingViewController.swift */,
 				EF2B9DEC220C3F3E0087124C /* HelloViewController.swift */,
@@ -346,6 +350,7 @@
 				0DA2061E222E9A620068704D /* Config.storyboard in Resources */,
 				9E22532B22228E1000EA166C /* Notifications.storyboard in Resources */,
 				9E4485B522237C0400E74FD4 /* notifications.json in Resources */,
+				7344510C223128A70065247A /* ContactCell.xib in Resources */,
 				739C0811220D790B008697C1 /* goh.json in Resources */,
 				EF2B9DE8220C3F160087124C /* Hello.storyboard in Resources */,
 				9E4485B622237C0400E74FD4 /* reading_person.json in Resources */,
@@ -377,6 +382,7 @@
 				0DA20629222E9B0A0068704D /* ProfileImageViewController.swift in Sources */,
 				EF2B9DEF220C3F3E0087124C /* KenshinReportViewController.swift in Sources */,
 				734689022215885C00D10124 /* NotificationsClass.swift in Sources */,
+				7344510B223128A70065247A /* ContactCell.swift in Sources */,
 				9E50A17D221BFB5000100525 /* InitNotifications.swift in Sources */,
 				9E761D32222F69FC00690580 /* Customer_DogViewController.swift in Sources */,
 				734689002215884F00D10124 /* CustomersClass.swift in Sources */,
