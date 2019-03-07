@@ -14,6 +14,7 @@ import CoreLocation
 class CustomerListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,MKMapViewDelegate,CLLocationManagerDelegate,UIGestureRecognizerDelegate {
     @IBOutlet weak var AreaMapView: MKMapView!
     @IBOutlet weak var customerTableView: UITableView!
+    @IBOutlet weak var customerSearchBar: UISearchBar!
     
     //アノテーションをクラスタリングさせるための変数
     var annotation:[GohObjectAnnotation] = []
@@ -21,6 +22,11 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var customer:CustomersClass = CustomersClass()
     var goh:GohClass = GohClass()
+    var customers:[Customers] = []
+    
+    //検索結果配列
+    var searchResult = [Customers]()
+    var resultNumber:[Int] = [] //kenshinDataからどのデータがsearchResultに格納されたのか保管する配列
     
     //経路を表示させるための変数
     var userLocation: CLLocationCoordinate2D!
@@ -46,22 +52,10 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         
         //Gohデータを取得できるか確認
         var gohs:[Goh] = goh.selectGoh()
-        var customers:[Customers] = customer.selectCustomers()
-        
-        print("customerの件数")
-        print(customers.count)
-        
-        print("Gohの件数")
-        print(gohs.count)
-        print("gohs[0].gou_ban",gohs[0].gou_ban)
-        print("gohs[1].towns_name_c",gohs[0].towns_name_c)
-        
-        
-        
-        
+        customers = customer.selectCustomers()
         
         /****************************
-         ここから地図表示
+         地図表示の実装
          ****************************/
         //locationManagerオブジェクトの初期化
         setupLocationManager()
@@ -86,16 +80,59 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         let region = MKCoordinateRegion(center: self.userLocation, span: span)
         self.AreaMapView.setRegion(region, animated:false)
         
+        
+        /****************************
+         検索バーの実装
+         ****************************/
+        //デリゲート先を自分に設定する。
+        customerSearchBar.delegate = self
+        
+        //何も入力されていなくてもReturnキーを押せるようにする。
+        customerSearchBar.enablesReturnKeyAutomatically = false
+        
+        //検索結果配列にデータをコピーする。
+        searchResult = self.customers
+        
+        for (index,_) in searchResult.enumerated(){
+            resultNumber.append(index)
+        }
+        
+        //キャンセルボタンの追加
+        customerSearchBar.showsCancelButton = true
+        
+        //プレースホルダの指定
+        customerSearchBar.placeholder = "検索文字列を入力してください"
+        
+        //検索ボタン押下時の呼び出しメソッド
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            print("検索ボタン押下時メソッドが実行されるか")
+            customerSearchBar.endEditing(true)
+            
+            //検索結果配列を空にする。
+            searchResult.removeAll()
+            resultNumber.removeAll()
+            
+            if(customerSearchBar.text == "") {
+                //検索文字列が空の場合はすべてを表示する。
+                searchResult = self.customers
+                for (index,_) in searchResult.enumerated(){
+                    resultNumber.append(index)
+                }
+            }else{
+                
+            }
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return customers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "CustomerTableViewCell", for: indexPath) //新セル
         if let cell = cell as? CustomerTableViewCell {
-            cell.samplelogic(ij: indexPath)
+            cell.samplelogic(model: customers[indexPath.row])
         }
         return cell
     }
