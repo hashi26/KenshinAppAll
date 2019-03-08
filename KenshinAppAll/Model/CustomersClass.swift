@@ -138,7 +138,6 @@ class CustomersClass {
     
     // 1件削除
     func deleteCustomers(delObj : Customers) {
-        print("*** 客番：\(delObj.gmt_set_no) を削除します。")
         context.delete(delObj)
         saveCustomers()
     }
@@ -150,7 +149,6 @@ class CustomersClass {
         for delObj in result {
             context.delete(delObj)
             saveCustomers()
-            print("*** 客番：\(delObj.gmt_set_no) を削除しました。")
         }
     }
     
