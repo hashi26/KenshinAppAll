@@ -24,7 +24,7 @@ extension Customers {
     @NSManaged public var b1_kikan: String?
     @NSManaged public var b1_ryo: Int16
     @NSManaged public var bb1_kikan: String?
-    @NSManaged public var bb1_ryo: Int16
+    @NSManaged public var bb1_ryo: NSNumber
     @NSManaged public var bb2_kikan: String?
     @NSManaged public var bb2_ryo: Int16
     @NSManaged public var constract_started_at: String?
