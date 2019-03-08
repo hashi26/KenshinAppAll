@@ -107,6 +107,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             else if readingPerson[0].knsn_tnt_pass == pass{
                 let storyboard: UIStoryboard = UIStoryboard(name: "Hello", bundle: nil)
                 let nextView = storyboard.instantiateInitialViewController()
+                
+                //Helloが画面への受け渡し
+                /*
+                let next = storyboard!.instantiateViewController(withIdentifier: "Hello") as? NextViewController
+                let _ = next?.view // ** hack code **
+                next?.textField1.text = textField.text
+                */
                 present(nextView!, animated: true, completion: nil)
                 print("ログイン成功")
             }
