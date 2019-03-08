@@ -21,6 +21,10 @@
 		0DA2062B222E9B110068704D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA2062A222E9B110068704D /* SettingsTableViewController.swift */; };
 		0DA2062D222E9B1F0068704D /* kensin_handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0DA2062C222E9B1F0068704D /* kensin_handbook.pdf */; };
 		733E40E0222F49ED0069FC8E /* CustomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */; };
+		733E40E3222F53790069FC8E /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */; };
+		733E40E4222F53790069FC8E /* CustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */; };
+		7344510D223139F10065247A /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73445109223128A70065247A /* ContactCell.swift */; };
+		7344510E22313A410065247A /* ContactCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 7344510A223128A70065247A /* ContactCell.xib */; };
 		734689002215884F00D10124 /* CustomersClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734688FF2215884F00D10124 /* CustomersClass.swift */; };
 		734689022215885C00D10124 /* NotificationsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689012215885C00D10124 /* NotificationsClass.swift */; };
 		734689052215887F00D10124 /* Notifications+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689032215887F00D10124 /* Notifications+CoreDataClass.swift */; };
@@ -31,6 +35,7 @@
 		7346890F22158CA500D10124 /* Reading_person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346890D22158CA500D10124 /* Reading_person+CoreDataProperties.swift */; };
 		7346891122158CF800D10124 /* ReadingPersonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346891022158CF800D10124 /* ReadingPersonClass.swift */; };
 		734689152217BFDA00D10124 /* GohJsonInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734689142217BFDA00D10124 /* GohJsonInsert.swift */; };
+		7351E30B222F850200467C21 /* GohObjectAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351E30A222F850200467C21 /* GohObjectAnnotation.swift */; };
 		739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 739C07F5220C4BDB008697C1 /* KenshinCD.xcdatamodeld */; };
 		739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */; };
 		739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */; };
@@ -48,6 +53,12 @@
 		9E4485B722237C0400E74FD4 /* ReadingPersonJsonInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4485B322237C0400E74FD4 /* ReadingPersonJsonInsert.swift */; };
 		9E50A17D221BFB5000100525 /* InitNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50A17B221BFB5000100525 /* InitNotifications.swift */; };
 		9E50A17E221BFB5000100525 /* NotificationsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50A17C221BFB5000100525 /* NotificationsClass.swift */; };
+		9E75D237222F78470016392B /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E75D236222F78470016392B /* Motion.swift */; };
+		9E761D31222F69FC00690580 /* Customer_ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D2C222F69FC00690580 /* Customer_ServiceViewController.swift */; };
+		9E761D32222F69FC00690580 /* Customer_DogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D2D222F69FC00690580 /* Customer_DogViewController.swift */; };
+		9E761D33222F69FC00690580 /* Customer_OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D2E222F69FC00690580 /* Customer_OtherViewController.swift */; };
+		9E761D34222F69FC00690580 /* CustomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D2F222F69FC00690580 /* CustomerListViewController.swift */; };
+		9E761D35222F69FC00690580 /* Customer_ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D30222F69FC00690580 /* Customer_ServiceViewController.swift */; };
 		9EC38188222CE96800ECEDFD /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */; };
 		9EC3818A222D3B5900ECEDFD /* NotificationsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC38189222D3B5900ECEDFD /* NotificationsDetailViewController.swift */; };
 		EF1D333D2232510D002376A3 /* NumberKeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D333C2232510D002376A3 /* NumberKeyBoard.swift */; };
@@ -81,6 +92,10 @@
 		0DA2062A222E9B110068704D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0DA2062C222E9B1F0068704D /* kensin_handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = kensin_handbook.pdf; sourceTree = "<group>"; };
 		733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListViewController.swift; sourceTree = "<group>"; };
+		733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
+		733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerTableViewCell.xib; sourceTree = "<group>"; };
+		73445109223128A70065247A /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		7344510A223128A70065247A /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		734688FF2215884F00D10124 /* CustomersClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomersClass.swift; sourceTree = "<group>"; };
 		734689012215885C00D10124 /* NotificationsClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsClass.swift; sourceTree = "<group>"; };
 		734689032215887F00D10124 /* Notifications+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -91,6 +106,7 @@
 		7346890D22158CA500D10124 /* Reading_person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reading_person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7346891022158CF800D10124 /* ReadingPersonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingPersonClass.swift; sourceTree = "<group>"; };
 		734689142217BFDA00D10124 /* GohJsonInsert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohJsonInsert.swift; sourceTree = "<group>"; };
+		7351E30A222F850200467C21 /* GohObjectAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohObjectAnnotation.swift; sourceTree = "<group>"; };
 		739C07F6220C4BDB008697C1 /* KenshinCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KenshinCD.xcdatamodel; sourceTree = "<group>"; };
 		739C07FC220C4DFA008697C1 /* Goh+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataClass.swift"; sourceTree = "<group>"; };
 		739C07FD220C4DFA008697C1 /* Goh+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goh+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -110,6 +126,12 @@
 		9E4485B322237C0400E74FD4 /* ReadingPersonJsonInsert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingPersonJsonInsert.swift; sourceTree = "<group>"; };
 		9E50A17B221BFB5000100525 /* InitNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitNotifications.swift; sourceTree = "<group>"; };
 		9E50A17C221BFB5000100525 /* NotificationsClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsClass.swift; sourceTree = "<group>"; };
+		9E75D236222F78470016392B /* Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
+		9E761D2C222F69FC00690580 /* Customer_ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer_ServiceViewController.swift; sourceTree = "<group>"; };
+		9E761D2D222F69FC00690580 /* Customer_DogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer_DogViewController.swift; sourceTree = "<group>"; };
+		9E761D2E222F69FC00690580 /* Customer_OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer_OtherViewController.swift; sourceTree = "<group>"; };
+		9E761D2F222F69FC00690580 /* CustomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerListViewController.swift; sourceTree = "<group>"; };
+		9E761D30222F69FC00690580 /* Customer_ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer_ServiceViewController.swift; sourceTree = "<group>"; };
 		9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		9EC38189222D3B5900ECEDFD /* NotificationsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsDetailViewController.swift; sourceTree = "<group>"; };
 		EF1D333C2232510D002376A3 /* NumberKeyBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeyBoard.swift; sourceTree = "<group>"; };
@@ -157,6 +179,7 @@
 		739C0805220D431C008697C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9E75D236222F78470016392B /* Motion.swift */,
 				9E4485B022237C0400E74FD4 /* customers.json */,
 				9E4485B122237C0400E74FD4 /* notifications.json */,
 				9E4485B222237C0400E74FD4 /* reading_person.json */,
@@ -193,17 +216,27 @@
 			isa = PBXGroup;
 			children = (
 				0DA2061F222E9A770068704D /* Config */,
+				9E761D2D222F69FC00690580 /* Customer_DogViewController.swift */,
+				9E761D2E222F69FC00690580 /* Customer_OtherViewController.swift */,
+				9E761D2C222F69FC00690580 /* Customer_ServiceViewController.swift */,
+				9E761D30222F69FC00690580 /* Customer_ServiceViewController.swift */,
+				9E761D2F222F69FC00690580 /* CustomerListViewController.swift */,
 				9EC38189222D3B5900ECEDFD /* NotificationsDetailViewController.swift */,
 				934D061421E83E95002EF183 /* ViewController.swift */,
 				EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */,
+				733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */,
 				EF2B9DFE220C3F5F0087124C /* ContactViewController.swift */,
+				73445109223128A70065247A /* ContactCell.swift */,
+				7344510A223128A70065247A /* ContactCell.xib */,
 				9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */,
 				EF2B9DFF220C3F5F0087124C /* SettingViewController.swift */,
 				EF2B9DEC220C3F3E0087124C /* HelloViewController.swift */,
 				EF2B9DEB220C3F3E0087124C /* KenshinReportViewController.swift */,
 				EF2B9DF5220C3F4C0087124C /* MapViewController.swift */,
 				EF2B9DED220C3F3E0087124C /* LoginViewController.swift */,
-				733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */,
+				733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */,
+				733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */,
+				7351E30A222F850200467C21 /* GohObjectAnnotation.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -315,6 +348,7 @@
 				EF2B9DE7220C3F160087124C /* Customer.storyboard in Resources */,
 				EF2B9DEA220C3F160087124C /* Login.storyboard in Resources */,
 				934D061A21E83E96002EF183 /* Assets.xcassets in Resources */,
+				733E40E4222F53790069FC8E /* CustomerTableViewCell.xib in Resources */,
 				9E4485B422237C0400E74FD4 /* customers.json in Resources */,
 				0DA2062D222E9B1F0068704D /* kensin_handbook.pdf in Resources */,
 				EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */,
@@ -334,6 +368,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7344510E22313A410065247A /* ContactCell.xib in Sources */,
+				7344510D223139F10065247A /* ContactCell.swift in Sources */,
+				9E761D35222F69FC00690580 /* Customer_ServiceViewController.swift in Sources */,
 				7346890B2215895D00D10124 /* Customers+CoreDataProperties.swift in Sources */,
 				EF1D333D2232510D002376A3 /* NumberKeyBoard.swift in Sources */,
 				739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */,
@@ -343,26 +380,32 @@
 				734689092215889C00D10124 /* Customers+CoreDataClass.swift in Sources */,
 				0D7B7D1C22254644007D7F4E /* initReadingResult.swift in Sources */,
 				734689062215887F00D10124 /* Notifications+CoreDataProperties.swift in Sources */,
+				9E761D31222F69FC00690580 /* Customer_ServiceViewController.swift in Sources */,
 				934D061521E83E95002EF183 /* ViewController.swift in Sources */,
 				EF2B9DF0220C3F3E0087124C /* HelloViewController.swift in Sources */,
 				7346890F22158CA500D10124 /* Reading_person+CoreDataProperties.swift in Sources */,
+				9E761D33222F69FC00690580 /* Customer_OtherViewController.swift in Sources */,
 				0D401DF5221577EF00FA3F22 /* Reading_results+CoreDataClass.swift in Sources */,
 				0DA20629222E9B0A0068704D /* ProfileImageViewController.swift in Sources */,
 				EF2B9DEF220C3F3E0087124C /* KenshinReportViewController.swift in Sources */,
 				734689022215885C00D10124 /* NotificationsClass.swift in Sources */,
 				9E50A17D221BFB5000100525 /* InitNotifications.swift in Sources */,
+				9E761D32222F69FC00690580 /* Customer_DogViewController.swift in Sources */,
 				734689002215884F00D10124 /* CustomersClass.swift in Sources */,
 				7346890E22158CA500D10124 /* Reading_person+CoreDataClass.swift in Sources */,
 				934D061321E83E95002EF183 /* AppDelegate.swift in Sources */,
 				9E4485B722237C0400E74FD4 /* ReadingPersonJsonInsert.swift in Sources */,
 				739C07FE220C4DFA008697C1 /* Goh+CoreDataClass.swift in Sources */,
+				9E761D34222F69FC00690580 /* CustomerListViewController.swift in Sources */,
 				739C07FF220C4DFA008697C1 /* Goh+CoreDataProperties.swift in Sources */,
 				EF2B9DF2220C3F3E0087124C /* CustomerViewController.swift in Sources */,
 				0D7E71D7221682C60088C0AA /* ReadingResultJsonInsert.swift in Sources */,
 				739C080F220D7435008697C1 /* GohClass.swift in Sources */,
 				8A3F8979221D22C900338CD7 /* initReadingPerson.swift in Sources */,
 				7346891122158CF800D10124 /* ReadingPersonClass.swift in Sources */,
+				7351E30B222F850200467C21 /* GohObjectAnnotation.swift in Sources */,
 				9EC38188222CE96800ECEDFD /* NotificationsTableViewController.swift in Sources */,
+				9E75D237222F78470016392B /* Motion.swift in Sources */,
 				0D3FE9F2220D864800FD4F37 /* ReadingResultClass.swift in Sources */,
 				734689152217BFDA00D10124 /* GohJsonInsert.swift in Sources */,
 				EF2B9DF6220C3F4C0087124C /* MapViewController.swift in Sources */,
@@ -373,6 +416,7 @@
 				0DA20621222E9AE50068704D /* FAQViewController.swift in Sources */,
 				0DA20623222E9AF20068704D /* FontSettingViewController.swift in Sources */,
 				0DA2062B222E9B110068704D /* SettingsTableViewController.swift in Sources */,
+				733E40E3222F53790069FC8E /* CustomerTableViewCell.swift in Sources */,
 				EF2B9E01220C3F5F0087124C /* ContactViewController.swift in Sources */,
 				9EC3818A222D3B5900ECEDFD /* NotificationsDetailViewController.swift in Sources */,
 				733E40E0222F49ED0069FC8E /* CustomerListViewController.swift in Sources */,
@@ -504,6 +548,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KenshinAppAll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,6 +566,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KenshinAppAll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -17,17 +17,33 @@ class FontSettingViewController: UIViewController {
     @IBAction func sliderDidChangeValue(_ sender: UISlider) {
         let fontSize = Int(sender.value)
         fontSizeLabel.text = "フォントサイズ：\(fontSize)"
-        UILabel.appearance().defaultFont = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        fontSizeLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        descriptionLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        
+        UserDefaults.standard.set(fontSize, forKey: "systemFontSize")
+        //UILabel.appearance().defaultFont = UIFont.systemFont(ofSize: CGFloat(fontSize))
         //UILabel.appearance().font = UIFont(name: "Gills Sans", size: CGFloat(sender.value))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let systemFontSize = UserDefaults.standard.value(forKey: "systemFontSize") as? Int{
+            fontSizeLabel.text = "フォントサイズ：\(systemFontSize)"
+            fontSizeLabel.font = UIFont.systemFont(ofSize: CGFloat(systemFontSize))
+            descriptionLabel.font = UIFont.systemFont(ofSize: CGFloat(systemFontSize))
+            fontSizeSlider.value = Float(systemFontSize)
+        }else{
+            fontSizeLabel.text = "フォントサイズ：\(UIFont.systemFontSize)"
+            fontSizeSlider.value = Float(UIFont.systemFontSize)
+        }
+        
+        
+        
 
-        fontSizeLabel.text = "フォントサイズ：\(UIFont.systemFontSize)"
         // Do any additional setup after loading the view.
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.sizeToFit()
+        //descriptionLabel.numberOfLines = 0
+        //descriptionLabel.sizeToFit()
         
     }
     
@@ -44,6 +60,7 @@ class FontSettingViewController: UIViewController {
 
 }
 
+/*
 extension UILabel{
     var defaultFont: UIFont{
         get{
@@ -54,4 +71,10 @@ extension UILabel{
         }
     }
 }
+ */
 
+extension UISlider{
+    override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        return true
+    }
+}

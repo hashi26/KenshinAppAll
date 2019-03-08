@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var goh:GohClass = GohClass()
     var readingResult:ReadingResultClass = ReadingResultClass()
     var readingPerson:ReadingPersonClass = ReadingPersonClass()
-    
+    var customerInfo:Customers = Customers()
+    var customers:CustomersClass = CustomersClass()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
@@ -40,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     goh.deleteGohALL()
     readingResult.deleteReadingResultALL()
     readingPerson.deleteReadingPersonALL()
+    customers.deleteCustomersALL()
     
   }
 
@@ -55,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     goh.initInsertGoh()
     //readingResult.initInsertReadingResult()
     readingPerson.initInsertReadingPerson()
-    
+    customers.initInsertCustomers()
   }
     // アプリkill時に動作するメソッド
   func applicationWillTerminate(_ application: UIApplication) {
@@ -64,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     goh.deleteGohALL()
     readingResult.deleteReadingResultALL()
     readingPerson.deleteReadingPersonALL()
+    customers.deleteCustomersALL()
   }
     
     // MARK: - Core Data stack

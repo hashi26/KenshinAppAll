@@ -46,11 +46,12 @@ class CustomersClass {
         let customersFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Customers")
 
         // 条件指定
-        customersFetch.predicate = NSPredicate(format: "gmt_set_no = '\(gmt_set_no)'")
+        let predicate = NSPredicate(format: "%K = %@","gmt_set_no", gmt_set_no)
+        customersFetch.predicate = predicate
         
         do {
-            let fetchedCustomers = try context.fetch(customersFetch) as! [Customers]
-            return fetchedCustomers
+            let fetchedCustomers = try self.context.fetch(customersFetch)
+            return fetchedCustomers as! [Customers]
         } catch {
             fatalError("CustomerClass.selectCustomersByGmtSetNo()が失敗しました: \(error)")
         }
@@ -108,7 +109,7 @@ class CustomersClass {
                     insertEntity.setValue(obj.mune_ban_c, forKey:"mune_ban_cana")
                     insertEntity.setValue(obj.name_j, forKey:"name_j")
                     insertEntity.setValue(obj.next_date, forKey:"next_date")
-                    insertEntity.setValue(Int16(obj.old_gas_siji), forKey:"old_gas_shizi")
+                    insertEntity.setValue(Int16(obj.old_gas_siji), forKey:"old_gas_siji")
                     insertEntity.setValue(obj.opened_at, forKey:"opened_at")
                     insertEntity.setValue(obj.out_dog, forKey:"out_dog")
                     insertEntity.setValue(obj.out_dog_code, forKey:"out_dog_code")
@@ -128,10 +129,26 @@ class CustomersClass {
                     saveCustomers()
                 }
             } else {
-                print("*** initInsertNotifications が実行されませんでした。coredataにデータが存在します。 ")
+                print("*** initInsertCustomers が実行されませんでした。coredataにデータが存在します。 ")
             }
         } catch {
-            fatalError("*** NotificationsClass.initInsetNotifications()が失敗しました : \(error)")
+            fatalError("*** CustomersClass.initInsertCustomers()が失敗しました : \(error)")
+        }
+    }
+    
+    // 1件削除
+    func deleteCustomers(delObj : Customers) {
+        context.delete(delObj)
+        saveCustomers()
+    }
+    
+    // 全削除
+    func deleteCustomersALL() {
+        print("*** Customers を全て削除します。")
+        let result = selectCustomers()
+        for delObj in result {
+            context.delete(delObj)
+            saveCustomers()
         }
     }
     
