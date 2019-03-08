@@ -18,18 +18,23 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var nextButton: UIButton!
     
     //アノテーションをクラスタリングさせるための変数
-    var annotation:[GohObjectAnnotation] = []
+    var annotation:[PinObjectAnnotation] = []
+    var annotation2:[MKAnnotation] = []
     var locationManager: CLLocationManager!//位置情報の機能を管理するためのインスタンス
     
     var customer:CustomersClass = CustomersClass()
     var goh:GohClass = GohClass()
     var gohs:[Goh] = []
+    var gohsample:Goh = Goh()
     var customers:[Customers] = []
     var selectedNumber:Int = 0
     
     //検索結果配列
     var searchResult = [Customers]()
     var resultNumber:[Int] = [] //customerからどのデータがsearchResultに格納されたのか保管する配列
+    var m:Int = 0 //時間計算用（分）
+    var s:Int = 0 //時間計算用（秒）
+    var cellAannotation = MKPointAnnotation() //セル選択時のピンを表示する際に利用する
     
     //経路を表示させるための変数
     var userLocation: CLLocationCoordinate2D!
@@ -69,11 +74,11 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         setupLocationManager()
         
         //自分の現在地座標を登録
-        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: 35.635531, longitude: 139.706093), glyphText:"現在地", glyphTintColor: .white, markerTintColor: .blue,title: "現在地")
+        let ano1 = PinObjectAnnotation(CLLocationCoordinate2D(latitude: 35.635531, longitude: 139.706093), glyphText:"現在地", glyphTintColor: .white, markerTintColor: .blue,title: "現在地")
         
         //近くのハローメイトを登録
-        let ano2 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: 35.639831, longitude: 139.709593), glyphText:"橋爪", glyphTintColor: .white, markerTintColor: .blue,title: "橋爪")
-        let ano3 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: 35.633231, longitude: 139.700593), glyphText:"野中", glyphTintColor: .white, markerTintColor: .blue,title: "野中")
+        let ano2 = PinObjectAnnotation(CLLocationCoordinate2D(latitude: 35.639831, longitude: 139.709593), glyphText:"橋爪", glyphTintColor: .white, markerTintColor: .blue,title: "橋爪")
+        let ano3 = PinObjectAnnotation(CLLocationCoordinate2D(latitude: 35.633231, longitude: 139.700593), glyphText:"野中", glyphTintColor: .white, markerTintColor: .blue,title: "野中")
         
         AreaMapView.addAnnotation(ano1)
         AreaMapView.addAnnotation(ano2)
@@ -163,9 +168,91 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         self.selectedNumber = resultNumber[indexPath.row]
         
         //選択されたセルから住所を割り出す
+        let addressForLocationx = addressIdentify(gohx: gohs[0], customerx: customers[selectedNumber])!
+    
+        // 選択されたセルの住所を元に座標を登録
+        let geocoder1 = CLGeocoder()
+        print("geocoder1",geocoder1)
+        print("処理０")
+        geocoder1.geocodeAddressString(addressForLocationx, completionHandler: {(placemarks, error) in
+            print("処理A")
+            if(error == nil) {
+                print("処理B")
+                for placemark in placemarks! {
+                    let location:CLLocation = placemark.location!
+                    //地図にピンを立てる。
+                    print("地図にピンを立てる")
+                    // self.AreaMapView.removeAnnotation(self.cellAannotation)
+                    self.cellAannotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                    // self.AreaMapView.addAnnotation(self.cellAannotation)
+                    self.destLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                    print("destLocation",self.destLocation)
+                    // self.AreaMapView.selectAnnotation(self.cellAannotation, animated: true)
+                }
+            }
+            print("処理C")
+        })
         
-        //let ax = addressIdentify(gohx gohx:gohs[0], customerx: resultNumber[selectedNumber])
-        //print("選択されたセルの住所：",ax)
+        
+        /***********************
+         ここから経路表示
+         ***********************/
+        /*
+        let userPlaceMark = MKPlacemark(coordinate: userLocation)
+        let destinationPlaceMark = MKPlacemark(coordinate: destLocation)
+        
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = MKMapItem(placemark: userPlaceMark)//出発元を指定
+        directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)//到着先を指定
+        directionRequest.transportType = .walking//歩いていくってよ
+        
+        //経路計算
+        //前回のルートを削除する
+        self.AreaMapView.removeOverlays(AreaMapView.overlays)
+        
+        let directions = MKDirections(request: directionRequest)//ルート計算
+        let directions2 = MKDirections(request: directionRequest)//時間計算
+        directions.calculate { (response, error) in
+            guard let directionResonse = response else {
+                if let error = error {
+                    print("we have error getting directions==\(error.localizedDescription)")
+                }
+                return
+            }
+            let route = directionResonse.routes[0]
+            self.AreaMapView.addOverlay(route.polyline, level: .aboveRoads)//絶対エラーとなる気がする
+            //self.AreaMapView?.addOverlays(route.polyline, level: .aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.AreaMapView.setRegion(MKCoordinateRegion(rect), animated: true)//ここも変えてしまったが行けるのだろうか
+        }
+        //set delegate for mapview
+        self.AreaMapView.delegate = self
+        
+        directions2.calculateETA { (response, error) in
+            guard let directionResonse2 = response else {
+                if let error = error {
+                    print("we have error getting directions==\(error.localizedDescription)")
+                }
+                return
+            }
+            let time = directionResonse2.expectedTravelTime
+            print("予測時間（秒）",time)
+            
+            //秒を分に変換
+            self.m = Int(time) / 60
+            self.s = Int(time) % 60
+            if(self.s != 0){
+                self.m = self.m + 1  //秒が１秒でもあれば1分繰り上げる
+            }
+            print("予測時間（分）",self.m)
+            
+            let subtitle = "徒歩" + String(self.m) + "分"
+         self.cellAannotation.subtitle = String(subtitle)
+        }*/
+        
+        self.AreaMapView.addAnnotation(self.cellAannotation)
+        self.AreaMapView.selectAnnotation(self.cellAannotation, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -213,20 +300,39 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         return addressForLocation
     }
     
+    //MARK:- MapKit delegates
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 4.0
+        return renderer
+    }
+    
     //Mapクラスタリンク用に作成
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation)
         
         guard let markerAnnotationView = annotationView as? MKMarkerAnnotationView,
-            let gohObjectAnnotation = annotation as? GohObjectAnnotation else { return annotationView }
+            let pinObjectAnnotation = annotation as? PinObjectAnnotation else { return annotationView }
         
-        markerAnnotationView.clusteringIdentifier = GohObjectAnnotation.clusteringIdentifier
-        markerAnnotationView.glyphText = gohObjectAnnotation.glyphText
-        markerAnnotationView.glyphTintColor = gohObjectAnnotation.glyphTintColor
-        markerAnnotationView.markerTintColor = gohObjectAnnotation.markerTintColor
+        markerAnnotationView.clusteringIdentifier = PinObjectAnnotation.clusteringIdentifier
+        markerAnnotationView.glyphText = pinObjectAnnotation.glyphText
+        markerAnnotationView.glyphTintColor = pinObjectAnnotation.glyphTintColor
+        markerAnnotationView.markerTintColor = pinObjectAnnotation.markerTintColor
         
         return markerAnnotationView
     }
+    
+    //遷移先の画面を取り出す
+    /*
+    override func prepare(for segue:UIStoryboardSegue, sender: Any?){
+        print("次画面呼び出し実行")
+        //次の画面を取り出す
+        let viewController = segue.destination as! CustomerViewController
+        viewController.customers = self.customers
+        viewController.selectionNumber = self.selectedNumber
+        
+    }*/
     
 }
