@@ -9,13 +9,19 @@
 import UIKit
 import CoreData
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate {
     
-    //var goh2: [GohJsonInsert] = []
 
+    @IBOutlet weak var id: UITextField!
+    @IBOutlet weak var pass: UITextField!
+    
+    var readingPerson_instance: ReadingPersonClass!
+    var readingPerson:[Reading_person] = []
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //下記は原田CoreDataテストのため記述
         /*
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -34,8 +40,6 @@ class LoginViewController: UIViewController {
             print(error)
         }
         */
-        //Goh情報をJsonファイルから読み出す
-        print(Date())
         
         /*
         guard let data1 = try? getJSONData1() else { return }
@@ -57,7 +61,32 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    
+    @IBAction func login(_ sender: Any) {
+        
+        let id : String = self.id.text ?? ""
+        let pass : String = self.pass.text ?? ""
 
+        self.readingPerson_instance = ReadingPersonClass()
+        
+        readingPerson = self.readingPerson_instance.selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no: id)
+        
+        //passチェック
+        if readingPerson[0].knsn_tnt_pass == pass{
+            let storyboard: UIStoryboard = UIStoryboard(name: "Hello", bundle: nil)
+            let nextView = storyboard.instantiateInitialViewController()
+            present(nextView!, animated: true, completion: nil)
+        }
+        else{
+            
+        }
+        print(readingPerson[0].knsn_tnt_emp_no)
+        
+    }
+    
+ 
     /*
     // MARK: - Navigation
 
@@ -79,3 +108,6 @@ class LoginViewController: UIViewController {
  */
 
 }
+
+
+
