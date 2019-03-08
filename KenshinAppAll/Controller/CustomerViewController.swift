@@ -22,18 +22,21 @@ class CustomerViewController: UIViewController{
     @IBOutlet weak var dogContainer: UIView!
     @IBOutlet weak var otherContainer: UIView!
     var containers: Array<UIView> = []
+    
+    var customers:[Customers] = []
+    var selectionNumver: Int = 0
+    var viewCount: Int = 0
+    
+    // 他クラスインスタンス用変数
     var customer_instance: CustomersClass!
+    var servise_instance: Customer_ServiceViewController!
+    
     
     // 画面上部表示項目
     @IBOutlet weak var customerName: UILabel!
     @IBOutlet weak var meterNo: UILabel!
     @IBOutlet weak var knsnHhCd: UILabel!
     @IBOutlet weak var khsnJtCd: UILabel!
-    @IBOutlet weak var shrHhCd: UILabel!
-    
-    var customers:[Customers] = []
-    var cust:CustomersClass!
-    var selectionNumver: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,15 +62,13 @@ class CustomerViewController: UIViewController{
         */
         
         self.customer_instance = CustomersClass()
+        self.servise_instance = Customer_ServiceViewController()
         customers = self.customer_instance.selectCustomers() //前画面からObject受け取り実装完了次第不要
         
         customerName.text = customers[selectionNumver].name_j
         meterNo.text = customers[selectionNumver].gmt_set_no
         knsnHhCd.text = checkKensnMethod(String(customers[selectionNumver].knsn_method_code!))
         khsnJtCd.text = checkKaihei(String(customers[selectionNumver].kaiheisen_code!))
-        
-        print(customers[2].name_j)
-        
     }
     
     @IBAction func changeContainerView(_ sender: UISegmentedControl) {
@@ -109,81 +110,44 @@ class CustomerViewController: UIViewController{
             case .right:
                 print("前のお客さま")
                 selectionNumver = selectionNumver - 1
+                //　画面上部
                 viewDidLoad() //画面上部しか変わらない
+                
+                // 画面下部。動かない！
+                viewWillAppear(true)
             case .left:
                 print("次のお客さま")
                 selectionNumver = selectionNumver + 1
-                viewDidLoad() //画面上部しか変わらない
+                
+                //　画面上部
+                viewDidLoad()
+                
+                // 画面下部。動かない！
+                viewWillAppear(true)
             default:
                 break
         }
-        
-        /*
-        if sender.state == .ended {
-            switch sender.direction {
-            case .right:
-                print("前のお客さま")
-                
-                //selectObjectの添え字がマイナスになならないように調整
-                if appDelegate.num! == 0{
-                    appDelegate.num! = appDelegate.selectObjects!.count-1
-                }
-                else{
-                    appDelegate.num! -= 1
-                }
-                print("\(appDelegate.num!)")
-                
-                //count = count - 1
-                //print(count)
-                // 画面遷移
-                
-                //let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-                //let nextView = storyboard.instantiateViewController(withIdentifier: "VCDatail-ID")
-                //self.present(nextView, animated: true, completion: nil)
-                
-                
-            case .left:
-                print("次のお客さま")
-                
-                //selectObjectの配列の添え字が最大個数を超えないように調整
-                if appDelegate.num! == appDelegate.selectObjects!.count-1{
-                    appDelegate.num! = 0
-                }
-                else{
-                    appDelegate.num! += 1
-                }
-                
-                //count = count + 1
-                //print(count)
-                // 画面遷移
-                
-                //let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-                //let nextView = storyboard.instantiateViewController(withIdentifier: "VCDatail-ID")
-            //self.present(nextView, animated: true, completion: nil)
-            default:
-                break
-            }
-            
-            //結果を更新
-            
-            //お客様名格納
-            custName.text = String(appDelegate.selectObjects![appDelegate.num!].name)
-            //社番格納
-            meterNo.text = String(appDelegate.selectObjects![appDelegate.num!].syaban)
-            
-        }
-        */
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppearの実行")
         super.viewWillAppear(animated)
         let appDelegagte = UIApplication.shared.delegate as! AppDelegate
-        appDelegagte.customerInfo = customers[selectionNumver] //★将来的にここに適した値を入れる
+        appDelegagte.customerInfo = customers[selectionNumver]
         /*
          画面フリック時にテーブルの再読み込みが必要。この辺りが必要かも？
          */
+        print("viewWillAppear動いているか")
+        print(selectionNumver)
+        //self.servise_instance = Customer_ServiceViewController()
+        
+        if viewCount > 0 {
+            //servise_instance.appDelegate.reloadInputViews()
+            //appDelegate.reloadInputViews()
+            //self.servise_instance.serviceTable.reloadData()
+            //serviceContainer.reloadInputViews()
+        }
+        viewCount = viewCount + 1
     }
 }
 
