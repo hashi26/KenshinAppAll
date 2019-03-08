@@ -10,14 +10,18 @@ import UIKit
 
 class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBOutlet weak var serviceTable: UITableView!
     var service:Customers = Customers()
     var serviceItem:[String] = []
     let sectionName:[String] = ["名前（カナ）","社番","建物名","メモ"]
-    //Cell上部に上記のタイトルを表示したいが表示できない
-    // 参照：https://tech.pjin.jp/blog/2016/09/06/tableview-12/
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        print("serviceTable再表示確認")
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,7 +30,6 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
     
     //各セクション内のセル数を設定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         service = appDelegate.customerInfo
         insertItem()
         return 1
