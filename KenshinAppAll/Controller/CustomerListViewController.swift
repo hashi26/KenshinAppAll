@@ -15,6 +15,7 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var AreaMapView: MKMapView!
     @IBOutlet weak var customerTableView: UITableView!
     @IBOutlet weak var customerSearchBar: UISearchBar!
+    @IBOutlet weak var nextButton: UIButton!
     
     //アノテーションをクラスタリングさせるための変数
     var annotation:[GohObjectAnnotation] = []
@@ -22,11 +23,13 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var customer:CustomersClass = CustomersClass()
     var goh:GohClass = GohClass()
+    var gohs:[Goh] = []
     var customers:[Customers] = []
+    var selectedNumber:Int = 0
     
     //検索結果配列
     var searchResult = [Customers]()
-    var resultNumber:[Int] = [] //kenshinDataからどのデータがsearchResultに格納されたのか保管する配列
+    var resultNumber:[Int] = [] //customerからどのデータがsearchResultに格納されたのか保管する配列
     
     //経路を表示させるための変数
     var userLocation: CLLocationCoordinate2D!
@@ -34,6 +37,11 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //nextButtonの非活性化
+        nextButton.alpha = 0
+        nextButton.isEnabled = false
+        
         customerTableView.register(UINib(nibName:"CustomerTableViewCell",bundle: nil),forCellReuseIdentifier:"CustomerTableViewCell")
         
         
@@ -51,7 +59,7 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         //Gohデータを取得できるか確認
-        var gohs:[Goh] = goh.selectGoh()
+        gohs = goh.selectGoh()
         customers = customer.selectCustomers()
         
         /****************************
@@ -121,18 +129,54 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
                 resultNumber.append(index)
             }
         }else{
-            
+            //検索文字列を含むデータを検索結果配列に追加する。
+            for (index,data) in self.customers.enumerated() {
+                //配列（data)の中に検索入力内容を含むデータがあるか調べる
+                if data.customer_name_kanzi!.contains(customerSearchBar.text!){
+                    searchResult.append(data)
+                    resultNumber.append(index)
+                }
+                
+                if data.gmt_set_no!.contains(customerSearchBar.text!) {
+                    searchResult.append(data)
+                    resultNumber.append(index)
+                }
+                
+            }
         }
+        
+        //テーブルを再読み込みする
+        customerTableView.reloadData()
+        
+        //キーボードを閉じる
+        self.view.endEditing(true)
+    }
+    
+    // Cell が選択された場合
+    func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
+        print("Cellの選択")
+        //nextButtonを表示させる
+        nextButton.alpha = 100
+        nextButton.isEnabled = true
+        
+        //選択した列を変数に格納
+        self.selectedNumber = resultNumber[indexPath.row]
+        
+        //選択されたセルから住所を割り出す
+        
+        //let ax = addressIdentify(gohx gohx:gohs[0], customerx: resultNumber[selectedNumber])
+        //print("選択されたセルの住所：",ax)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customers.count
+        return searchResult.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("tableViewの実行")
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "CustomerTableViewCell", for: indexPath) //新セル
         if let cell = cell as? CustomerTableViewCell {
-            cell.samplelogic(model: customers[indexPath.row])
+            cell.samplelogic(model: searchResult[indexPath.row])
         }
         return cell
     }
@@ -149,6 +193,24 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
             locationManager.distanceFilter = 10
             locationManager.startUpdatingLocation()
         }
+    }
+    
+    //住所作成用関数
+    func addressIdentify(gohx: Goh ,customerx: Customers) -> String!{
+        let city = gohx.towns_name_j!
+        var chou  = self.customers[selectedNumber].adrs_chou!
+        var banti = self.customers[selectedNumber].adrs_banchi!
+        var goh   = self.customers[selectedNumber].adrs_goh!
+        
+        //Jsonファイルは先頭に0が含まれるので緯度、経度を求める前に事前削除しておく
+        chou = chou.replacingOccurrences(of:"0",with:"")
+        banti = banti.replacingOccurrences(of:"0",with:"")
+        goh = goh.replacingOccurrences(of:"0",with:"")
+        
+        let street = chou + "-" + banti + "-" + goh
+        let addressForLocation = city + street
+        
+        return addressForLocation
     }
     
     //Mapクラスタリンク用に作成
