@@ -31,7 +31,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eOp-BX-5jZ" userLabel="pass" customClass="NumberKeyBoard" customModule="KenshinAppAll" customModuleProvider="target">
-                                <rect key="frame" x="74" y="294" width="227" height="40"/>
+                                <rect key="frame" x="74" y="272" width="227" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="vPA-lw-dGD"/>
                                 </constraints>
@@ -39,14 +39,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワードを忘れた方へ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jem-HG-mhL">
-                                <rect key="frame" x="74" y="371" width="146" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzt-oB-28z">
-                                <rect key="frame" x="181" y="429" width="52" height="30"/>
+                                <rect key="frame" x="161" y="431" width="52" height="30"/>
                                 <state key="normal" title="ToHello"/>
                                 <connections>
                                     <action selector="login:" destination="NjL-xU-7Uq" eventType="touchUpInside" id="OkF-Gf-IbH"/>
@@ -72,6 +66,12 @@
                                     <constraint firstAttribute="width" constant="119" id="hr8-in-AWl"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワードを忘れた方へ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jem-HG-mhL">
+                                <rect key="frame" x="74" y="320" width="146" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -79,16 +79,16 @@
                             <constraint firstItem="CLo-RN-fkz" firstAttribute="leading" secondItem="VmK-l3-6nt" secondAttribute="leading" id="4YA-wo-aXA"/>
                             <constraint firstItem="ZbT-7a-ehq" firstAttribute="top" secondItem="CLo-RN-fkz" secondAttribute="bottom" constant="44" id="BnV-DX-qAc"/>
                             <constraint firstItem="VmK-l3-6nt" firstAttribute="trailing" secondItem="ZbT-7a-ehq" secondAttribute="trailing" constant="67" id="CD8-pg-WIS"/>
-                            <constraint firstItem="jem-HG-mhL" firstAttribute="top" secondItem="eOp-BX-5jZ" secondAttribute="bottom" constant="37" id="CvO-Zo-L2K"/>
+                            <constraint firstItem="jem-HG-mhL" firstAttribute="top" secondItem="eOp-BX-5jZ" secondAttribute="bottom" constant="8" id="CvO-Zo-L2K"/>
                             <constraint firstItem="jem-HG-mhL" firstAttribute="leading" secondItem="VmK-l3-6nt" secondAttribute="leading" constant="74" id="F1I-pe-grX"/>
                             <constraint firstItem="VmK-l3-6nt" firstAttribute="trailing" secondItem="j3V-pI-Za6" secondAttribute="trailing" constant="30" id="Gaa-KS-gB1"/>
                             <constraint firstItem="VmK-l3-6nt" firstAttribute="trailing" secondItem="tbL-Y0-WZz" secondAttribute="trailing" constant="74" id="I6g-rG-gcX"/>
                             <constraint firstItem="VmK-l3-6nt" firstAttribute="trailing" secondItem="eOp-BX-5jZ" secondAttribute="trailing" constant="74" id="M88-gU-aqS"/>
                             <constraint firstItem="tbL-Y0-WZz" firstAttribute="leading" secondItem="VmK-l3-6nt" secondAttribute="leading" constant="74" id="OXd-B0-uAS"/>
                             <constraint firstItem="CLo-RN-fkz" firstAttribute="top" secondItem="VmK-l3-6nt" secondAttribute="top" id="QEX-lb-MjM"/>
-                            <constraint firstItem="bzt-oB-28z" firstAttribute="top" secondItem="jem-HG-mhL" secondAttribute="bottom" constant="42" id="Xdb-wv-7RF"/>
-                            <constraint firstItem="eOp-BX-5jZ" firstAttribute="top" secondItem="tbL-Y0-WZz" secondAttribute="bottom" constant="30" id="aSd-VI-jsn"/>
-                            <constraint firstItem="VmK-l3-6nt" firstAttribute="trailing" secondItem="bzt-oB-28z" secondAttribute="trailing" constant="142" id="f1W-eI-tlL"/>
+                            <constraint firstItem="bzt-oB-28z" firstAttribute="top" secondItem="jem-HG-mhL" secondAttribute="bottom" constant="95" id="Xdb-wv-7RF"/>
+                            <constraint firstItem="eOp-BX-5jZ" firstAttribute="top" secondItem="tbL-Y0-WZz" secondAttribute="bottom" constant="8" id="aSd-VI-jsn"/>
+                            <constraint firstItem="VmK-l3-6nt" firstAttribute="trailing" secondItem="bzt-oB-28z" secondAttribute="trailing" constant="162" id="f1W-eI-tlL"/>
                             <constraint firstItem="eOp-BX-5jZ" firstAttribute="leading" secondItem="VmK-l3-6nt" secondAttribute="leading" constant="74" id="pNY-qp-7cr"/>
                             <constraint firstItem="VmK-l3-6nt" firstAttribute="bottom" secondItem="j3V-pI-Za6" secondAttribute="bottom" constant="21" id="qPK-w3-22Q"/>
                             <constraint firstItem="tbL-Y0-WZz" firstAttribute="top" secondItem="VmK-l3-6nt" secondAttribute="top" constant="180" id="qVv-2n-8q3"/>

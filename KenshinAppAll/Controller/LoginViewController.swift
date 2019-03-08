@@ -18,9 +18,27 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     var readingPerson_instance: ReadingPersonClass!
     var readingPerson:[Reading_person] = []
 
+    var alert:UIAlertController!
+    var alert2:UIAlertController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //アラートコントローラーを作成する。
+        alert = UIAlertController(title: "注意！！", message: "ID,またはPassが入力されていません", preferredStyle: UIAlertController.Style.alert)
+        
+        alert2 = UIAlertController(title: "注意！！", message: "入力されたID,またはPassが誤っています", preferredStyle: UIAlertController.Style.alert)
+        
+        //alertのアラートアクションを作成する。
+        let alertAction = UIAlertAction(
+            title: "OK",
+            style: UIAlertAction.Style.default,
+            handler: nil
+        )
+
+        //アラートアクションを追加する。
+        alert.addAction(alertAction)
+        alert2.addAction(alertAction)
 
         //下記は原田CoreDataテストのため記述
         /*
@@ -71,17 +89,46 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 
         self.readingPerson_instance = ReadingPersonClass()
         
-        readingPerson = self.readingPerson_instance.selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no: id)
-        
-        //passチェック
-        if readingPerson[0].knsn_tnt_pass == pass{
-            let storyboard: UIStoryboard = UIStoryboard(name: "Hello", bundle: nil)
-            let nextView = storyboard.instantiateInitialViewController()
-            present(nextView!, animated: true, completion: nil)
+        //入力有無チェック
+        if id == "" || pass == ""{
+            //アラートコントローラーを表示する。
+            self.present(alert, animated: true, completion:nil)
+            return
         }
         else{
+            //入力されたIDで検索
+            readingPerson = self.readingPerson_instance.selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no: id)
+            //passチェック
+            if readingPerson.isEmpty {
+                self.present(alert2, animated: true, completion:nil)
+                print("ログイン失敗（ID対象なし）")
+                return
+            }
+            else if readingPerson[0].knsn_tnt_pass == pass{
+                let storyboard: UIStoryboard = UIStoryboard(name: "Hello", bundle: nil)
+                let nextView = storyboard.instantiateInitialViewController()
+                present(nextView!, animated: true, completion: nil)
+                print("ログイン成功")
+            }
+            else {
+                self.present(alert2, animated: true, completion:nil)
+                print("ログイン失敗（PASS誤り）")
+                return
+            }
             
+            /*
+            if readingPerson[0].knsn_tnt_pass == pass{
+                let storyboard: UIStoryboard = UIStoryboard(name: "Hello", bundle: nil)
+                let nextView = storyboard.instantiateInitialViewController()
+                present(nextView!, animated: true, completion: nil)
+            }
+            else{
+                self.present(alert2, animated: true, completion:nil)
+                return
+            }
+ */
         }
+        
         print(readingPerson[0].knsn_tnt_emp_no)
         
     }
