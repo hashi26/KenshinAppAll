@@ -129,10 +129,28 @@ class CustomersClass {
                     saveCustomers()
                 }
             } else {
-                print("*** initInsertNotifications が実行されませんでした。coredataにデータが存在します。 ")
+                print("*** initInsertCustomers が実行されませんでした。coredataにデータが存在します。 ")
             }
         } catch {
-            fatalError("*** NotificationsClass.initInsetNotifications()が失敗しました : \(error)")
+            fatalError("*** CustomersClass.initInsertCustomers()が失敗しました : \(error)")
+        }
+    }
+    
+    // 1件削除
+    func deleteCustomers(delObj : Customers) {
+        print("*** 客番：\(delObj.gmt_set_no) を削除します。")
+        context.delete(delObj)
+        saveCustomers()
+    }
+    
+    // 全削除
+    func deleteCustomersALL() {
+        print("*** Customers を全て削除します。")
+        let result = selectCustomers()
+        for delObj in result {
+            context.delete(delObj)
+            saveCustomers()
+            print("*** 客番：\(delObj.gmt_set_no) を削除しました。")
         }
     }
     
