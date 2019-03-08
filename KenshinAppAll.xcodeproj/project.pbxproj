@@ -59,8 +59,8 @@
 		9E761D33222F69FC00690580 /* Customer_OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D2E222F69FC00690580 /* Customer_OtherViewController.swift */; };
 		9E761D34222F69FC00690580 /* CustomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D2F222F69FC00690580 /* CustomerListViewController.swift */; };
 		9E761D35222F69FC00690580 /* Customer_ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D30222F69FC00690580 /* Customer_ServiceViewController.swift */; };
+		9E85A7B5223233C90036F267 /* NotificationsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E85A7B4223233C90036F267 /* NotificationsDetailTableViewController.swift */; };
 		9EC38188222CE96800ECEDFD /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */; };
-		9EC3818A222D3B5900ECEDFD /* NotificationsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC38189222D3B5900ECEDFD /* NotificationsDetailViewController.swift */; };
 		EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */; };
 		EF2B9DE7220C3F160087124C /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE3220C3F160087124C /* Customer.storyboard */; };
 		EF2B9DE8220C3F160087124C /* Hello.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE4220C3F160087124C /* Hello.storyboard */; };
@@ -131,8 +131,8 @@
 		9E761D2E222F69FC00690580 /* Customer_OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer_OtherViewController.swift; sourceTree = "<group>"; };
 		9E761D2F222F69FC00690580 /* CustomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerListViewController.swift; sourceTree = "<group>"; };
 		9E761D30222F69FC00690580 /* Customer_ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer_ServiceViewController.swift; sourceTree = "<group>"; };
+		9E85A7B4223233C90036F267 /* NotificationsDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsDetailTableViewController.swift; sourceTree = "<group>"; };
 		9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
-		9EC38189222D3B5900ECEDFD /* NotificationsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsDetailViewController.swift; sourceTree = "<group>"; };
 		EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF2B9DE3220C3F160087124C /* Customer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
 		EF2B9DE4220C3F160087124C /* Hello.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hello.storyboard; sourceTree = "<group>"; };
@@ -218,7 +218,6 @@
 				9E761D2C222F69FC00690580 /* Customer_ServiceViewController.swift */,
 				9E761D30222F69FC00690580 /* Customer_ServiceViewController.swift */,
 				9E761D2F222F69FC00690580 /* CustomerListViewController.swift */,
-				9EC38189222D3B5900ECEDFD /* NotificationsDetailViewController.swift */,
 				934D061421E83E95002EF183 /* ViewController.swift */,
 				EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */,
 				733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */,
@@ -234,6 +233,7 @@
 				733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */,
 				733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */,
 				7351E30A222F850200467C21 /* GohObjectAnnotation.swift */,
+				9E85A7B4223233C90036F267 /* NotificationsDetailTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -409,12 +409,12 @@
 				9E50A17E221BFB5000100525 /* NotificationsClass.swift in Sources */,
 				9E0DA634222E475800FEA70F /* InitCustomers.swift in Sources */,
 				734689052215887F00D10124 /* Notifications+CoreDataClass.swift in Sources */,
+				9E85A7B5223233C90036F267 /* NotificationsDetailTableViewController.swift in Sources */,
 				0DA20621222E9AE50068704D /* FAQViewController.swift in Sources */,
 				0DA20623222E9AF20068704D /* FontSettingViewController.swift in Sources */,
 				0DA2062B222E9B110068704D /* SettingsTableViewController.swift in Sources */,
 				733E40E3222F53790069FC8E /* CustomerTableViewCell.swift in Sources */,
 				EF2B9E01220C3F5F0087124C /* ContactViewController.swift in Sources */,
-				9EC3818A222D3B5900ECEDFD /* NotificationsDetailViewController.swift in Sources */,
 				733E40E0222F49ED0069FC8E /* CustomerListViewController.swift in Sources */,
 				0DA20627222E9B030068704D /* PhotoViewController.swift in Sources */,
 			);
