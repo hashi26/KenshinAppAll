@@ -51,7 +51,7 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
         return sectionName[section]
     }
     
-    // サービスに表示する項目の件数
+    // サービスに表示する項目
     func insertItem(){
         var item: [String] = []
         item.append(String(service.customer_name_cana!))
