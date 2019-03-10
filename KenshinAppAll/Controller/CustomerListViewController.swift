@@ -40,6 +40,7 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
     var userLocation: CLLocationCoordinate2D!
     var destLocation: CLLocationCoordinate2D!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -169,37 +170,38 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         
         //選択されたセルから住所を割り出す
         let addressForLocationx = addressIdentify(gohx: gohs[0], customerx: customers[selectedNumber])!
-    
+        print("addressForLoacationx:",addressForLocationx)
         // 選択されたセルの住所を元に座標を登録
         let geocoder1 = CLGeocoder()
         print("geocoder1",geocoder1)
         print("処理０")
         geocoder1.geocodeAddressString(addressForLocationx, completionHandler: {(placemarks, error) in
-            print("処理A")
+            print("この処理に入らない")
             if(error == nil) {
-                print("処理B")
+                print("処理Ba")
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
-                    //地図にピンを立てる。
-                    print("地図にピンを立てる")
+                    print("処理Ca")
                     // self.AreaMapView.removeAnnotation(self.cellAannotation)
                     self.cellAannotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                     // self.AreaMapView.addAnnotation(self.cellAannotation)
                     self.destLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                     print("destLocation",self.destLocation)
                     // self.AreaMapView.selectAnnotation(self.cellAannotation, animated: true)
+                    //let userPlaceMark = MKPlacemark(coordinate: self.userLocation)
+                    //let destinationPlaceMark = MKPlacemark(coordinate: self.destLocation)
                 }
             }
-            print("処理C")
         })
-        
+        print("destLocation",self.destLocation)
         
         /***********************
          ここから経路表示
          ***********************/
-        /*
-        let userPlaceMark = MKPlacemark(coordinate: userLocation)
-        let destinationPlaceMark = MKPlacemark(coordinate: destLocation)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+        let userPlaceMark = MKPlacemark(coordinate: self.userLocation)
+        let destinationPlaceMark = MKPlacemark(coordinate: self.destLocation)
+        
         
         let directionRequest = MKDirections.Request()
         directionRequest.source = MKMapItem(placemark: userPlaceMark)//出発元を指定
@@ -208,7 +210,7 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         
         //経路計算
         //前回のルートを削除する
-        self.AreaMapView.removeOverlays(AreaMapView.overlays)
+            self.AreaMapView.removeOverlays(self.AreaMapView.overlays)
         
         let directions = MKDirections(request: directionRequest)//ルート計算
         let directions2 = MKDirections(request: directionRequest)//時間計算
@@ -249,10 +251,11 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let subtitle = "徒歩" + String(self.m) + "分"
          self.cellAannotation.subtitle = String(subtitle)
-        }*/
+        }
         
         self.AreaMapView.addAnnotation(self.cellAannotation)
         self.AreaMapView.selectAnnotation(self.cellAannotation, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
