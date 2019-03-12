@@ -24,10 +24,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     @IBOutlet weak var gouSelect: UIButton!
     @IBOutlet weak var cameraLightButton: UIBarButtonItem!
     
-    var containers: Array<UIView> = []
     var customer_instance: CustomersClass!
     var customers:[Customers] = []
-    var cust:CustomersClass!
     
     var result_instance: ReadingResultClass!
     var results:[Reading_results] = []
@@ -38,11 +36,14 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     //var countMax:Int? //対象号の配列のMAX値
     var cameraLightStatus:Bool = true   // カメラのライト状態
     
+    //テスト用に1ペケをベタ書き
+    var gmtSetNo:String = "10010010010"
+    
     /*
     必要なデータ操作。
      ・お客様テーブルの参照・・・起動時画面表示→途中　
      ・結果テーブルの参照・・・起動時画面表示→途中
-     ・結果テーブルのレコード挿入・・・検針結果登録→未
+     ・結果テーブルのレコード挿入・・・検針結果登録→むずずずずずずずず
      ・結果テーブルのレコード削除・・・検針結果取消→未
      ・号の最後のお客様かチェック・・・画面遷移先の変更→未
     */
@@ -56,33 +57,28 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         
         //テスト用データ
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
         // テスト　ガスメータ設置場所番号：10010010010　の各情報を取得して表示(お客さまテーブル)
-        customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")
-        
+        customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: gmtSetNo)
         // テスト　ガスメータ設置場所番号：10010010010　の各情報を取得して表示（結果テーブル）
-        results = self.result_instance.selectReadingResultByGmtSetNo(gmt_set_no: "10010010010")
+        //results = self.result_instance.selectReadingResultByGmtSetNo(gmt_set_no: gmtSetNo)
         
-        //print("結果テーブルから今回使用量",results[0].gas_usage)
-        //print("結果テーブルから今回指示数",results[0].gmt_sizi_su)
-        
-        
-        //meterNo.text = customers[0].meter_no
+        //ラベル初期値設定
+        meterNo.text = customers[0].meter_no
         //oldGasSiji.text = customers[0].old_gas_shizi.description //0になっちゃう。。。。
+        oldGasSiji.text = "5811"  //↑テーブルに値が格納されていないので、一旦ベタ書きする。
         //b1Ryo.text = customers[0].b1_ryo.description //0になっちゃう。。。。
+        b1Ryo.text = "30"  //↑テーブルに値が格納されていないので、一旦ベタ書きする。
         //gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数　descriptionでStringに変換
-        //gasUsage.text   = customerData?.getNowGasRyo().description // 今回使用量　descriptionでStringに変換
+        gasUsage.text   = "0" // 今回使用量　descriptionでStringに変換
         
         
-        
-
-        print("建物名",customers[0].tatemono_cana)
+        print("結果テーブルの値",results)
         print(customers[0].adrs_banchi)
         print(customers[0].adrs_chou)
         print(customers[0].adrs_goh)
         print(customers[0].apart_heya_ban_cana)
         print(customers[0].b1_kikan)
-        print(String(customers[0].b1_ryo))
+        print("前回使用量",customers[0].b1_ryo)
         print(customers[0].bb1_kikan)
         print(customers[0].bb1_ryo.description)
         print(customers[0].bb2_kikan)
@@ -121,9 +117,6 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         print(customers[0].yago_cana)
         print(customers[0].yago_kanzi)
         print(customers[0].yuso_setted)
-        
-        
-        
         
         
         
@@ -236,19 +229,20 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     
     //検針済かチェックし、各処理を行う。
     func checkResult(){
-        
-        /*
+
         //検針済なら・・・
-        if (customerData?.getSumiFlg() == 1) {
+        if (results != []) {
             //指示数入力欄を灰色にして非活性化
+            print("結果テーブル対象あり")
             self.gmtSijiSu.isEnabled = false
             self.gmtSijiSu.backgroundColor = UIColor.lightGray
             //取消ボタンを赤色にして活性化
             self.resultCancel.isEnabled = true
             self.resultCancel.backgroundColor = UIColor.red
             self.cameraLightButton.isEnabled = false
-            //未検針なら
         }else{
+            //未検針なら
+            print("結果テーブル対象なし")
             //指示数入力欄を白色にして活性化
             self.gmtSijiSu.isEnabled = true
             self.gmtSijiSu.backgroundColor = UIColor.white
@@ -257,8 +251,6 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
             self.resultCancel.backgroundColor = UIColor.lightGray
             self.cameraLightButton.isEnabled = true
         }
-        */
-
     }
     
     //アクションシートを表示し、回帰か確認を求める
@@ -326,7 +318,43 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
 
     //検針結果登録、画面表示
     func kenshinResult(){
+    
+        var tempGasUsage:Int = 0
+    
+        // 今回ガス使用量を算出
+        // 回帰の場合は、今回ガスメータ指示数に10000を足してから引く
+        if(kaikiFlg == 1){
+            tempGasUsage = Int(gmtSijiSu.text!)! + 10000 - Int(oldGasSiji.text!)!
+        } else{
+            tempGasUsage = Int(gmtSijiSu.text!)! - Int(oldGasSiji.text!)!
+        }
+        gasUsage.text   = tempGasUsage.description
         
+        print("temp今回使用量：",tempGasUsage)
+        
+        //　本日日付の取得
+        let f = DateFormatter()
+        f.dateFormat = "yyyyMMdd"
+        print("日付：",f.string(from: Date()))
+        
+        /*
+         results[0].knsn_ymd = knsn_ymd
+         results[0].gmt_sizi_su = gmt_sizi_su
+         results[0].is_opend = is_opend
+         results[0].gas_usage = gas_usage
+         results[0].knsn_tnt_emp_no = knsn_tnt_emp_no
+         results[0].constract_started_at = constract_started_at
+         results[0].knsn_method = knsn_method
+         results[0].readed_at = readed_at
+         results[0].created_at = created_at
+         results[0].updated_at = updated_at
+         */
+        
+        //結果テーブルインサートしたい
+        results[0].gmt_set_no = self.gmtSetNo
+        self.result_instance.insertReadingResult(otifications: results[0])
+        
+
         /*
         KenshinInfoController.setKenshinResult(kenshinData: self.customerData!, nowGasShiji: Int(self.gmtSijiSu.text!)!,kaikiFlg:self.kaikiFlg!, gyo: self.adrs!.gyo, retsu: self.adrs!.retsu)
         self.gasUsage.text   = self.customerData?.getNowGasRyo().description
