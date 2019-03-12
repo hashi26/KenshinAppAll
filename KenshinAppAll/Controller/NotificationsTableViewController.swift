@@ -19,7 +19,9 @@ class NotificationsTableViewController: UITableViewController {
     var sectionTitleArray: [String] = []
     var sectionDataArray: [[String]] = []
     var sendData:Notifications!
-
+    var activityIndicatorView:UIActivityIndicatorView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationsTableView.delegate = self
@@ -27,7 +29,16 @@ class NotificationsTableViewController: UITableViewController {
         
         self.notificationsClassDao = NotificationsClass()
         notificationsList = self.notificationsClassDao.selectNotifications()
-        print(notificationsList.count)
+        
+        activityIndicatorView = UIActivityIndicatorView()
+        activityIndicatorView.center = view.center
+//        activityIndicatorView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+//        activityIndicatorView.style = UIActivityIndicatorView.Style.whiteLarge
+//
+//        activityIndicatorView.backgroundColor = UIColor.black
+        self.activityIndicatorView.hidesWhenStopped = true
+        self.view.addSubview(activityIndicatorView)
+        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,5 +85,16 @@ class NotificationsTableViewController: UITableViewController {
         }
     }
     
-
+//    @IBAction func reloadTableView(_ sender: Any) {
+//        self.activityIndicatorView.hidesWhenStopped = false
+//        self.activityIndicatorView.startAnimating()
+//        self.view.addSubview(activityIndicatorView)
+//        self.view.bringSubviewToFront(activityIndicatorView)
+//        
+//        // 3秒後にアニメーションを停止させる
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+//            self.activityIndicatorView.stopAnimating()
+//            self.activityIndicatorView.hidesWhenStopped = true
+//        })
+//    }
 }
