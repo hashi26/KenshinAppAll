@@ -6,6 +6,12 @@
 //  Copyright © 2019 KenshinT. All rights reserved.
 //
 
+/*
+    お客さま一覧画面にて選択されたお客さま情報を表示する
+    Customerオブジェクト全件（30件）と、何番目のお客さまかという値を受け取る
+    同様に、検針画面に上記の情報を渡す
+*/
+
 import UIKit
 import CoreData
 
@@ -16,17 +22,21 @@ class CustomerViewController: UIViewController{
     @IBOutlet weak var dogContainer: UIView!
     @IBOutlet weak var otherContainer: UIView!
     var containers: Array<UIView> = []
+    
+    var customers:[Customers] = []
+    var selectionNumver: Int = 0
+    var viewCount: Int = 0
+    
+    // 他クラスインスタンス用変数
     var customer_instance: CustomersClass!
+    var servise_instance: Customer_ServiceViewController!
+    
     
     // 画面上部表示項目
     @IBOutlet weak var customerName: UILabel!
     @IBOutlet weak var meterNo: UILabel!
     @IBOutlet weak var knsnHhCd: UILabel!
     @IBOutlet weak var khsnJtCd: UILabel!
-    @IBOutlet weak var shrHhCd: UILabel!
-    
-    var customers:[Customers] = []
-    var cust:CustomersClass!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +45,30 @@ class CustomerViewController: UIViewController{
         containers = [serviceContainer,dogContainer,otherContainer]
         containerView.bringSubviewToFront(serviceContainer)
         
-        // 1XXに紐づくお客さま情報取得
+        // スワイプ定義
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        rightSwipe.direction = .right
+        view.addGestureRecognizer(rightSwipe)
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        leftSwipe.direction = .left
+        view.addGestureRecognizer(leftSwipe)
+        
+        /*
+        // CusromerClassインスタンス生成
         self.customer_instance = CustomersClass()
         // テスト　ガスメータ設置場所番号：10010010010　の氏名を取得して表示
         customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: "10010010010")//★将来的に渡された値を代入
-        customerName.text = customers[0].name_j
-        meterNo.text = customers[0].gmt_set_no
-        knsnHhCd.text = checkKensnMethod(String(customers[0].knsn_method_code!))
-        khsnJtCd.text = checkKaihei(String(customers[0].kaiheisen_code!))
+        */
+        
+        self.customer_instance = CustomersClass()
+        self.servise_instance = Customer_ServiceViewController()
+        customers = self.customer_instance.selectCustomers() //前画面からObject受け取り実装完了次第不要
+        
+        customerName.text = customers[selectionNumver].name_j
+        meterNo.text = customers[selectionNumver].gmt_set_no
+        knsnHhCd.text = checkKensnMethod(String(customers[selectionNumver].knsn_method_code!))
+        khsnJtCd.text = checkKaihei(String(customers[selectionNumver].kaiheisen_code!))
     }
     
     @IBAction func changeContainerView(_ sender: UISegmentedControl) {
@@ -78,14 +104,50 @@ class CustomerViewController: UIViewController{
         return method
     }
     
+    @objc final func handleSwipe(sender: UISwipeGestureRecognizer) {
+    
+        switch sender.direction{
+            case .right:
+                print("前のお客さま")
+                selectionNumver = selectionNumver - 1
+                //　画面上部
+                viewDidLoad() //画面上部しか変わらない
+                
+                // 画面下部。動かない！
+                viewWillAppear(true)
+            case .left:
+                print("次のお客さま")
+                selectionNumver = selectionNumver + 1
+                
+                //　画面上部
+                viewDidLoad()
+                
+                // 画面下部。動かない！
+                viewWillAppear(true)
+            default:
+                break
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppearの実行")
         super.viewWillAppear(animated)
         let appDelegagte = UIApplication.shared.delegate as! AppDelegate
-        appDelegagte.customerInfo = customers[0] //★将来的にここに適した値を入れる
+        appDelegagte.customerInfo = customers[selectionNumver]
         /*
          画面フリック時にテーブルの再読み込みが必要。この辺りが必要かも？
          */
+        print("viewWillAppear動いているか")
+        print(selectionNumver)
+        //self.servise_instance = Customer_ServiceViewController()
+        
+        if viewCount > 0 {
+            //servise_instance.appDelegate.reloadInputViews()
+            //appDelegate.reloadInputViews()
+            //self.servise_instance.serviceTable.reloadData()
+            //serviceContainer.reloadInputViews()
+        }
+        viewCount = viewCount + 1
     }
 }
 

@@ -61,6 +61,23 @@ class ReadingPersonClass {
         saveReadingPerson()
     }
     
+    // 検針担当者を指定して検索
+    func selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no:String) -> [Reading_person] {
+        let readingPersonFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Reading_person")
+        
+        // 条件指定
+        readingPersonFetch.predicate = NSPredicate(format: "knsn_tnt_emp_no = '\(knsn_tnt_emp_no)'")
+        
+        do {
+            let fetchedReadingPerson = try context.fetch(readingPersonFetch) as! [Reading_person]
+            return fetchedReadingPerson
+        } catch {
+            fatalError("selectReadingPersonByKnsnTntEmpNo()が失敗しました: \(error)")
+        }
+        return []
+    }
+    
+    
     // 初期データ追加
     // アプリ起動時にjsonからお知らせ一覧を作成し、CoreDataにinsertする
     func initInsertReadingPerson() {
