@@ -27,7 +27,7 @@ class NotificationsTableViewController: UITableViewController {
         
         self.notificationsClassDao = NotificationsClass()
         notificationsList = self.notificationsClassDao.selectNotifications()
-
+        print(notificationsList.count)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,8 +68,8 @@ class NotificationsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Segue" {
             if let indexPath = self.tableView.indexPathForSelectedRow{
-                let sendObj = notificationsList[(indexPath as NSIndexPath).row]
-                (segue.destination as! NotificationsDetailViewController).receiveData = sendObj
+                let sendObj:Notifications = notificationsList[(indexPath as NSIndexPath).row]
+                (segue.destination as! NotificationsDetailTableViewController).receiveData = sendObj
             }
         }
     }
