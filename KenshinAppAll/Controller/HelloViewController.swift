@@ -11,10 +11,15 @@ import CoreMotion //歩数カウントのため
 
 class HelloViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
+  @IBOutlet weak var UserImage: UIImageView!
   @IBOutlet weak var healthTableView: UITableView!
   @IBOutlet weak var UserName: UILabel!
   
   var motion = [Motion]()
+  var reading_person:[Reading_person] = []
+  
+  // 他クラスインスタンス用変数
+  var person_instance: ReadingPersonClass!
   
   // class wide constant !!
   let pedometer = CMPedometer()
@@ -22,6 +27,28 @@ class HelloViewController: UIViewController,UITableViewDelegate, UITableViewData
   override func viewDidLoad() {
       
     super.viewDidLoad()
+    
+    // ログイン画面には戻れないようにする
+    self.navigationItem.hidesBackButton = true
+    
+    //プロフィール画像を取得
+    if UserDefaults.standard.object(forKey:"profileImage") != nil{
+      let object = UserDefaults.standard.object(forKey: "profileImage") as? NSData
+      UserImage.image = UIImage(data: object! as Data)
+      UserImage.contentMode = .scaleAspectFit
+      UserImage.clipsToBounds = true
+    }else{
+      //未設定であれば初期画像を表示
+      UserImage.image  = UIImage(named:"no_image")
+      UserImage.contentMode = .scaleAspectFit
+      UserImage.clipsToBounds = true
+    }
+    
+    // ReadingPersonClassインスタンス生成
+    self.person_instance = ReadingPersonClass()
+    // テスト　検針担当者：10010010010　の氏名を取得して表示
+    reading_person = self.person_instance.selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no: "2010123")//★将来的に渡された値を代入
+    UserName.text = reading_person[0].knsn_tnt_name
     
     //motionに初期値を格納
     motion.append(Motion(category: "歩数", result1: 0, result2: 0.0)) //motion[0]に歩数を登録
