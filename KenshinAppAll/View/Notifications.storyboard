@@ -51,11 +51,9 @@
                             <outlet property="delegate" destination="jda-Na-4aK" id="P7q-Nt-qMB"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="通知一覧" id="ge3-MD-GU2"/>
+                    <tabBarItem key="tabBarItem" title="通知一覧" image="notifications" selectedImage="notifications" id="ge3-MD-GU2"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="通知一覧" id="7c1-Yf-lUi">
-                        <barButtonItem key="rightBarButtonItem" title="更新" id="klT-rF-Cnu"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="通知一覧" id="7c1-Yf-lUi"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="notificationsTableView" destination="x1J-HA-rDQ" id="XIt-x8-OcO"/>
@@ -127,4 +125,7 @@
             <point key="canvasLocation" x="-1868" y="13"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="notifications" width="20" height="20"/>
+    </resources>
 </document>

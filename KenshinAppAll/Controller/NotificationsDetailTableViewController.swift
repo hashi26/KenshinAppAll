@@ -11,6 +11,7 @@ import UIKit
 class NotificationsDetailTableViewController: UITableViewController {
 
     @IBOutlet weak var tableview: UITableView!
+    
     var receiveData:Notifications?
     var sectionTitle:[String] = ["差出人","タイトル","日付","内容","担当者","連絡先"]
     var inSectionContents:[String] = []
