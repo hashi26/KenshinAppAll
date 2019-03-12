@@ -21,12 +21,12 @@ class HelloViewController: UIViewController,UITableViewDelegate, UITableViewData
   
   override func viewDidLoad() {
       
-    //super.viewDidLoad()
+    super.viewDidLoad()
     
     //motionに初期値を格納
-    motion.append(Motion(category: "歩数", result1: 0, result2: 0.0, result3: 0)) //motion[0]に歩数を登録
-    motion.append(Motion(category: "距離”", result1: 0, result2: 0.0, result3: 0)) //motion[1]に距離を登録
-    motion.append(Motion(category:"平均速度", result1: 0, result2: 0.0, result3: 0)) //motion[2]に平均速度を登録
+    motion.append(Motion(category: "歩数", result1: 0, result2: 0.0)) //motion[0]に歩数を登録
+    motion.append(Motion(category: "距離", result1: 0, result2: 0.0)) //motion[1]に距離を登録
+    motion.append(Motion(category:"平均速度", result1: 0, result2: 0.0)) //motion[2]に平均速度を登録
     
     //カスタムセルを利用するためにビューに登録
     healthTableView.register (UINib(nibName: "HealthCustomViewCell", bundle: nil),forCellReuseIdentifier:"HealthCustomViewCell")
@@ -34,7 +34,6 @@ class HelloViewController: UIViewController,UITableViewDelegate, UITableViewData
     /**********************************
      万歩計の実装
      **********************************/
-    // labelMotion.text = String(motion[0].speed)
     
     // CMPedometerの確認
     if(CMPedometer.isStepCountingAvailable()){
@@ -76,24 +75,17 @@ class HelloViewController: UIViewController,UITableViewDelegate, UITableViewData
   
   /// セルの個数を指定するデリゲートメソッド（必須）
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return motion.count
   }
   /// セルに値を設定するデータソースメソッド（必須）
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     // セルを取得する
-    /*let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "healthCell", for: indexPath)
-     // セルに表示する値を設定する
-     cell.textLabel!.text = TODO[indexPath.row]
-     */
-    
-    
-    // セルを取得する
-    //let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "HealthCell", for: indexPath) //新セル
+    let cell = tableView.dequeueReusableCell(withIdentifier: "HealthTableViewCell") as! HealthCustomViewCell
+    //let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "HealthCustomViewCell", for: indexPath) //新セル
     // セルに表示する値を設定する
-    //if let cell = cell as? HealthCell {
-   //   cell.setupCell(model: motion[indexPath.row])
+      cell.setupCell(model: motion[indexPath.row])
    // }
-    return UITableViewCell()
+    return cell
   }
 
     /*

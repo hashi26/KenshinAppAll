@@ -27,7 +27,11 @@ class HealthCustomViewCell: UITableViewCell {
     //mをKmに変換
     Result2.text = String(model.result2)
     
+    
+    
     //画像
+    //画像のアスペクト比を調整（Aspect Fit = 縦横の比率はそのままで長い辺を基準に全体を表示する）
+    CategoryImage.contentMode = UIView.ContentMode.scaleAspectFit
     if(model.category == "歩数"){
       CategoryImage.image = UIImage(named: "walking")
       Result1.text = String(model.result1) + " 歩"
