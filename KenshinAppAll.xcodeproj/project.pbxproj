@@ -62,6 +62,7 @@
 		9E801380223756470074729C /* NotificationsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E80137F223756470074729C /* NotificationsDetailTableViewController.swift */; };
 		9EC38188222CE96800ECEDFD /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */; };
 		EF1D333D2232510D002376A3 /* NumberKeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D333C2232510D002376A3 /* NumberKeyBoard.swift */; };
+		EF1D33412238F4C6002376A3 /* HealthCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D33402238F4C6002376A3 /* HealthCustomViewCell.swift */; };
 		EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */; };
 		EF2B9DE7220C3F160087124C /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE3220C3F160087124C /* Customer.storyboard */; };
 		EF2B9DE8220C3F160087124C /* Hello.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE4220C3F160087124C /* Hello.storyboard */; };
@@ -135,6 +136,7 @@
 		9E80137F223756470074729C /* NotificationsDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsDetailTableViewController.swift; sourceTree = "<group>"; };
 		9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		EF1D333C2232510D002376A3 /* NumberKeyBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeyBoard.swift; sourceTree = "<group>"; };
+		EF1D33402238F4C6002376A3 /* HealthCustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCustomViewCell.swift; sourceTree = "<group>"; };
 		EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF2B9DE3220C3F160087124C /* Customer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
 		EF2B9DE4220C3F160087124C /* Hello.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hello.storyboard; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		933AD02B2206F66700952615 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EF1D33402238F4C6002376A3 /* HealthCustomViewCell.swift */,
 				9E80137F223756470074729C /* NotificationsDetailTableViewController.swift */,
 				0DA2061F222E9A770068704D /* Config */,
 				9E761D2D222F69FC00690580 /* Customer_DogViewController.swift */,
@@ -411,6 +414,7 @@
 				EF2B9DF6220C3F4C0087124C /* MapViewController.swift in Sources */,
 				0D401DF6221577EF00FA3F22 /* Reading_results+CoreDataProperties.swift in Sources */,
 				9E50A17E221BFB5000100525 /* NotificationsClass.swift in Sources */,
+				EF1D33412238F4C6002376A3 /* HealthCustomViewCell.swift in Sources */,
 				9E0DA634222E475800FEA70F /* InitCustomers.swift in Sources */,
 				734689052215887F00D10124 /* Notifications+CoreDataClass.swift in Sources */,
 				0DA20621222E9AE50068704D /* FAQViewController.swift in Sources */,
