@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Customer-->
+        <scene sceneID="rxs-3x-ECw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Customer" id="B2V-W6-9f1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nlB-rV-q78" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="74"/>
+        </scene>
         <!--Kenshin Report View Controller-->
         <scene sceneID="vGr-IX-MjP">
             <objects>
@@ -145,6 +153,9 @@
                                 <rect key="frame" x="246" y="583" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="＞次のお客さま"/>
+                                <connections>
+                                    <segue destination="B2V-W6-9f1" kind="show" id="UuB-q8-Ht0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0n-Qh-Kd3">
                                 <rect key="frame" x="246" y="631" width="92" height="30"/>

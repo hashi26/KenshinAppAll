@@ -33,7 +33,6 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     //var customerData:KenshinData?   // お客さま情報詳細を確認する＆検針をするお客さまデータ
     //var adrs:(gyo:Int, retsu:Int)?  // 検針データリストから特定のお客さまを選択するために使用するアドレスを格納する
     var kaikiFlg:Int? = 0           //回帰フラグ
-    //var countMax:Int? //対象号の配列のMAX値
     var cameraLightStatus:Bool = true   // カメラのライト状態
     
     //テスト用に1ペケをベタ書き
@@ -41,11 +40,11 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     
     /*
     必要なデータ操作。
-     ・お客様テーブルの参照・・・起動時画面表示→途中　
-     ・結果テーブルの参照・・・起動時画面表示→途中
+     ・お客様テーブルの参照・・・起動時画面表示→途中
+     ・結果テーブルの参照・・・起動時画面表示→多分できてる
      ・結果テーブルのレコード挿入・・・検針結果登録→むずずずずずずずず
      ・結果テーブルのレコード削除・・・検針結果取消→未
-     ・号の最後のお客様かチェック・・・画面遷移先の変更→未
+     ・次のメーターへの遷移・・・マイさん画面へのセグエ貼り→未
     */
 
     override func viewDidLoad() {
@@ -59,8 +58,6 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         // テスト　ガスメータ設置場所番号：10010010010　の各情報を取得して表示(お客さまテーブル)
         customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: gmtSetNo)
-        // テスト　ガスメータ設置場所番号：10010010010　の各情報を取得して表示（結果テーブル）
-        //results = self.result_instance.selectReadingResultByGmtSetNo(gmt_set_no: gmtSetNo)
         
         //ラベル初期値設定
         meterNo.text = customers[0].meter_no
@@ -72,6 +69,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         gasUsage.text   = "0" // 今回使用量　descriptionでStringに変換
         
         
+        //配列に値入ってるかな？
         print("結果テーブルの値",results)
         print(customers[0].adrs_banchi)
         print(customers[0].adrs_chou)
@@ -229,6 +227,9 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     
     //検針済かチェックし、各処理を行う。
     func checkResult(){
+        
+        //対象のメーターの情報取得
+        results = self.result_instance.selectReadingResultByGmtSetNo(gmt_set_no: gmtSetNo)
 
         //検針済なら・・・
         if (results != []) {
@@ -337,9 +338,16 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         f.dateFormat = "yyyyMMdd"
         print("日付：",f.string(from: Date()))
         
-        /*
-         results[0].knsn_ymd = knsn_ymd
-         results[0].gmt_sizi_su = gmt_sizi_su
+        //配列の要素定義
+        results.append(Reading_results())
+        
+        //結果テーブルにインサートしたい
+        print("代入前")
+        results[0].gmt_set_no = self.gmtSetNo
+        print("代入後")
+        
+         /*
+         results[0].knsn_ymd = f.string(from: Date())
          results[0].is_opend = is_opend
          results[0].gas_usage = gas_usage
          results[0].knsn_tnt_emp_no = knsn_tnt_emp_no
@@ -349,13 +357,11 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
          results[0].created_at = created_at
          results[0].updated_at = updated_at
          */
-        
-        //結果テーブルインサートしたい
-        results[0].gmt_set_no = self.gmtSetNo
+
         self.result_instance.insertReadingResult(otifications: results[0])
         
 
-        /*
+        /* 参考。統合前の結果登録処理
         KenshinInfoController.setKenshinResult(kenshinData: self.customerData!, nowGasShiji: Int(self.gmtSijiSu.text!)!,kaikiFlg:self.kaikiFlg!, gyo: self.adrs!.gyo, retsu: self.adrs!.retsu)
         self.gasUsage.text   = self.customerData?.getNowGasRyo().description
         self.checkResult()
