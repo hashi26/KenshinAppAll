@@ -17,6 +17,10 @@ class HelloViewController: UIViewController,UITableViewDelegate, UITableViewData
   
   var motion = [Motion]()
   var reading_person:[Reading_person] = []
+    
+  //Loginより受け取ったreadingPerson
+  //使用例：recievedPerson?.knsn_tnt_name
+  var recievedPerson:Reading_person?
   
   // 他クラスインスタンス用変数
   var person_instance: ReadingPersonClass!
@@ -49,7 +53,7 @@ class HelloViewController: UIViewController,UITableViewDelegate, UITableViewData
     // テスト　検針担当者：10010010010　の氏名を取得して表示
     reading_person = self.person_instance.selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no: "2010123")//★将来的に渡された値を代入
     UserName.text = reading_person[0].knsn_tnt_name
-    
+  
     //motionに初期値を格納
     motion.append(Motion(category: "歩数", result1: 0, result2: 0.0)) //motion[0]に歩数を登録
     motion.append(Motion(category: "距離", result1: 0, result2: 0.0)) //motion[1]に距離を登録
