@@ -19,13 +19,12 @@ class Motion: Codable{
   var result2: Double
   
   //項目値（TimeInterval)
-  var result3: TimeInterval
+  //var result3: TimeInterval
   
-  init(category: String, result1: Int, result2: Double, result3: TimeInterval){
+  init(category: String, result1: Int, result2: Double){
     self.category = category
     self.result1 = result1
     self.result2 = result2
-    self.result3 = result3
   }
 }
 
