@@ -28,7 +28,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eOp-BX-5jZ" userLabel="pass" customClass="NumberKeyBoard" customModule="KenshinAppAll" customModuleProvider="target">
                                 <rect key="frame" x="74" y="272" width="227" height="40"/>
@@ -37,14 +37,14 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzt-oB-28z">
                                 <rect key="frame" x="161" y="431" width="52" height="30"/>
                                 <state key="normal" title="ToHello"/>
                                 <connections>
                                     <action selector="login:" destination="NjL-xU-7Uq" eventType="touchUpInside" id="OkF-Gf-IbH"/>
-                                    <segue destination="MoV-Hg-DhP" kind="show" id="Dhi-Jr-Tmq"/>
+                                    <segue destination="MoV-Hg-DhP" kind="show" identifier="toHello" id="Dhi-Jr-Tmq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="検針アプリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbT-7a-ehq">

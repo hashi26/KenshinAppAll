@@ -17,6 +17,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var readingPerson_instance: ReadingPersonClass!
     var readingPerson:[Reading_person] = []
+    //var sendData:Reading_person!
 
     var alert:UIAlertController!
     var alert2:UIAlertController!
@@ -98,45 +99,39 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         else{
             //入力されたIDで検索
             readingPerson = self.readingPerson_instance.selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no: id)
-            //passチェック
+            //IDでマッチングなし
             if readingPerson.isEmpty {
                 self.present(alert2, animated: true, completion:nil)
                 print("ログイン失敗（ID対象なし）")
                 return
             }
+            //一致するIDありかつPassも一致
             else if readingPerson[0].knsn_tnt_pass == pass{
-                let storyboard: UIStoryboard = UIStoryboard(name: "Hello", bundle: nil)
-                let nextView = storyboard.instantiateInitialViewController()
+                //let storyboard: UIStoryboard = UIStoryboard(name: "Hello", bundle: nil)
+                //let nextView = storyboard.instantiateInitialViewController()
                 
                 //Helloが画面への受け渡し
-                /*
-                let next = storyboard!.instantiateViewController(withIdentifier: "Hello") as? NextViewController
-                let _ = next?.view // ** hack code **
-                next?.textField1.text = textField.text
-                */
-                present(nextView!, animated: true, completion: nil)
+                
+                //let next = storyboard.instantiateViewController(withIdentifier: "Hello") as? HelloViewController
+                //let _ = next?.view // ** hack code **
+                //let sendObj:Reading_person = readingPerson[0]
+                //next?.readingPerson = readingPerson[0]
+ 
                 print("ログイン成功")
+                //print(next?.readingPerson[0].knsn_tnt_emp_no)
+                
+                //present(next!, animated: true, completion: nil)
             }
+                //ID一致するもPass不一致
             else {
                 self.present(alert2, animated: true, completion:nil)
                 print("ログイン失敗（PASS誤り）")
                 return
             }
             
-            /*
-            if readingPerson[0].knsn_tnt_pass == pass{
-                let storyboard: UIStoryboard = UIStoryboard(name: "Hello", bundle: nil)
-                let nextView = storyboard.instantiateInitialViewController()
-                present(nextView!, animated: true, completion: nil)
-            }
-            else{
-                self.present(alert2, animated: true, completion:nil)
-                return
-            }
- */
         }
         
-        print(readingPerson[0].knsn_tnt_emp_no)
+        //print(readingPerson[0].knsn_tnt_emp_no)
         
     }
     
@@ -161,6 +156,16 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
  */
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toHello" {
+                //let sendObj:Notifications = notificationsList[(indexPath as NSIndexPath).row]
+            //(segue.destination as! NotificationsDetailTableViewController).receiveData = sendObj
+            //ユーティリティエリアで設定したStoryBoardIDをwithIdentifierに設定
+            let next = segue.destination as! HelloViewController
+            //next.readingPerson = self.readingPerson[0]
+            
+            }
+        }
 }
 
 
