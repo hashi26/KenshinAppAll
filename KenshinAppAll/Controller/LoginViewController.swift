@@ -107,16 +107,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             }
             //一致するIDありかつPassも一致
             else if readingPerson[0].knsn_tnt_pass == pass{
-                //let storyboard: UIStoryboard = UIStoryboard(name: "Hello", bundle: nil)
-                //let nextView = storyboard.instantiateInitialViewController()
-                
-                //Helloが画面への受け渡し
-                
-                //let next = storyboard.instantiateViewController(withIdentifier: "Hello") as? HelloViewController
-                //let _ = next?.view // ** hack code **
-                //let sendObj:Reading_person = readingPerson[0]
-                //next?.readingPerson = readingPerson[0]
- 
                 print("ログイン成功")
                 //print(next?.readingPerson[0].knsn_tnt_emp_no)
                 
@@ -162,7 +152,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             //(segue.destination as! NotificationsDetailTableViewController).receiveData = sendObj
             //ユーティリティエリアで設定したStoryBoardIDをwithIdentifierに設定
             let next = segue.destination as! HelloViewController
-            //next.readingPerson = self.readingPerson[0]
+            next.recievedPerson = self.readingPerson[0]
             
             }
         }
