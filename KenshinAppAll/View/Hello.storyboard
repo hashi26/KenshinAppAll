@@ -107,6 +107,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CB9-zB-Mt4">
                                 <rect key="frame" x="100" y="570" width="175" height="30"/>
                                 <state key="normal" title="ログアウト"/>
+                                <connections>
+                                    <segue destination="C4O-eo-HGC" kind="unwind" unwindAction="returnToLoginWithSegue:" id="rPh-eH-yTY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,6 +141,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6A-2G-7Y1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="C4O-eo-HGC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-45.600000000000001" y="-59.820089955022496"/>
         </scene>
