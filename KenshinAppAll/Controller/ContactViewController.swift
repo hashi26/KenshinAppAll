@@ -20,8 +20,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //担当者の取得
         readingPersons = readingPerson.selectReadingPerson()
-        print("readingPersonsの件数",readingPersons.count)
-        print("名前：",readingPersons[0].knsn_tnt_emp_no)
+       // print("readingPersonsの件数",readingPersons.count)
+       // print("名前：",readingPersons[0].knsn_tnt_emp_no)
         
         //セルのサイズ変更
         self.contactTableView.rowHeight = 100.0

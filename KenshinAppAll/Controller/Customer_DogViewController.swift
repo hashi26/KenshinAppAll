@@ -12,6 +12,7 @@ import UIKit
 class Customer_DogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let service = ["犬情報1","犬情報2","犬情報3"]
+    @IBOutlet weak var dogView: UITableView!
     
     //セルの個数を指定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +35,8 @@ class Customer_DogViewController: UIViewController, UITableViewDelegate, UITable
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func reloadTable(){ dogView.reloadData()}
     
 }
 

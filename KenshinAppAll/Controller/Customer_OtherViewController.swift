@@ -12,6 +12,8 @@ class Customer_OtherViewController: UIViewController, UITableViewDelegate, UITab
     
     let service = ["その他情報1","その他情報2","その他情報3"]
     
+    @IBOutlet weak var otherView: UITableView!
+    
     //セルの個数を指定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return service.count
@@ -34,5 +36,6 @@ class Customer_OtherViewController: UIViewController, UITableViewDelegate, UITab
         super.didReceiveMemoryWarning()
     }
     
+    func reloadTable(){ otherView.reloadData()}
 }
 

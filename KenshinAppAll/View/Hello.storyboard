@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hello View Controller-->
+        <!--Hello-->
         <scene sceneID="TjO-vw-n8X">
             <objects>
                 <viewController storyboardIdentifier="Hello" id="j4Y-78-7ko" customClass="HelloViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,6 +107,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CB9-zB-Mt4">
                                 <rect key="frame" x="100" y="570" width="175" height="30"/>
                                 <state key="normal" title="ログアウト"/>
+                                <connections>
+                                    <segue destination="C4O-eo-HGC" kind="unwind" unwindAction="returnToLoginWithSegue:" id="rPh-eH-yTY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,6 +134,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="99V-XG-YzR"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Hello" image="notifications" id="vNT-vv-fEW"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="UserImage" destination="hc2-0m-0Kl" id="NPJ-QW-Wic"/>
                         <outlet property="UserName" destination="ie7-vk-qZj" id="Vw6-Bs-RcA"/>
@@ -138,16 +143,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6A-2G-7Y1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="C4O-eo-HGC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-45.600000000000001" y="-59.820089955022496"/>
         </scene>
-        <!--Tab-->
-        <scene sceneID="jUv-9f-EtT">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Tab" id="xQV-c8-oEc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5d0-Yg-FuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="640" y="100"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="notifications" width="10" height="10"/>
+    </resources>
 </document>
