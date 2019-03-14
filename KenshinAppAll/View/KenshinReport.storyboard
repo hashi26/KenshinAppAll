@@ -18,6 +18,14 @@
             </objects>
             <point key="canvasLocation" x="872" y="74"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="vxZ-1R-gNq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="zDi-Nk-elt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcX-lb-kQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="219"/>
+        </scene>
         <!--Kenshin Report View Controller-->
         <scene sceneID="vGr-IX-MjP">
             <objects>
@@ -149,18 +157,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Els-nh-dex">
-                                <rect key="frame" x="246" y="583" width="108" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="＞次のお客さま"/>
-                                <connections>
-                                    <segue destination="B2V-W6-9f1" kind="show" id="UuB-q8-Ht0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0n-Qh-Kd3">
-                                <rect key="frame" x="246" y="631" width="92" height="30"/>
+                                <rect key="frame" x="239" y="630" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="＞号選択画面"/>
+                                <state key="normal" title="＞お客さま一覧"/>
+                                <connections>
+                                    <segue destination="zDi-Nk-elt" kind="show" id="hrI-Zc-R8A"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSe-Jk-3cI">
                                 <rect key="frame" x="-1" y="44" width="375" height="44"/>
@@ -175,6 +178,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Els-nh-dex">
+                                <rect key="frame" x="239" y="581" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="＞次のお客さま"/>
+                                <connections>
+                                    <segue destination="B2V-W6-9f1" kind="show" id="UuB-q8-Ht0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GZu-xz-drc"/>
