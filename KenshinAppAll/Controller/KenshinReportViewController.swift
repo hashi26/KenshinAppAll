@@ -30,8 +30,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     var result_instance: ReadingResultClass!
     var results:[Reading_results] = []
     
-    //var customerData:KenshinData?   // お客さま情報詳細を確認する＆検針をするお客さまデータ
-    //var adrs:(gyo:Int, retsu:Int)?  // 検針データリストから特定のお客さまを選択するために使用するアドレスを格納する
+    
     var kaikiFlg:Int? = 0           //回帰フラグ
     var cameraLightStatus:Bool = true   // カメラのライト状態
     
@@ -42,8 +41,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
      必要なデータ操作。
      ・お客様テーブルの参照・・・起動時画面表示→途中
      ・結果テーブルの参照・・・起動時画面表示→多分できてる
-     ・結果テーブルのレコード挿入・・・検針結果登録→むずずずずずずずず
-     ・結果テーブルのレコード削除・・・検針結果取消→未
+     ・結果テーブルのレコード挿入・・・検針結果登録→一応できた。はず。
+     ・結果テーブルのレコード削除・・・検針結果取消→一応できた。はず。
      ・次のメーターへの遷移・・・カスタマー画面への遷移→とりあえず遷移はする。いずれは、次メーターの配列番号渡す。
      */
     
@@ -62,7 +61,6 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         meterNo.text = customers[0].meter_no
         oldGasSiji.text = customers[0].old_gas_siji.description
         b1Ryo.text = customers[0].b1_ryo.description
-        //gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数
         gasUsage.text   = "0" // 今回使用量　descriptionでStringに変換
         
         self.gmtSijiSu.keyboardType = UIKeyboardType.numberPad//キーボードは数字入力固定
@@ -78,6 +76,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         //今回指示数の文字数チェック
         NotificationCenter.default.addObserver(self,selector: #selector(textFieldDidChange),
                                                name: UITextField.textDidChangeNotification,object: gmtSijiSu)
+
         //検針済かチェックして各処理行う。
         self.checkResult()
         
@@ -175,20 +174,15 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     //検針済かチェックし、各処理を行う。
     func checkResult(){
         
-        print("results取得前",results)
-        print("gmtSetNo",gmtSetNo)
-        
         //対象のメーターの情報取得
-        //results = self.result_instance.selectReadingResultByGmtSetNo(gmt_set_no: gmtSetNo)
-        //↑resultがnullになってしまう。coredateにインサートされていない模様。
-        
-        
-        print("results取得前",results)
+        results = self.result_instance.selectReadingResultByGmtSetNo(gmt_set_no: gmtSetNo)
 
         //検針済なら・・・
         if (results != []) {
             //指示数入力欄を灰色にして非活性化
             print("結果テーブル対象あり")
+            self.gmtSijiSu.text = results[0].gmt_sizi_su.description // 今回指示数
+            self.gasUsage.text = results[0].gas_usage.description // 今回使用量
             self.gmtSijiSu.isEnabled = false
             self.gmtSijiSu.backgroundColor = UIColor.lightGray
             //取消ボタンを赤色にして活性化
@@ -265,7 +259,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         //アラートキャンセルボタン押下時の処理
         resultCancelAlert.addAction(UIAlertAction(title:"キャンセル",style:.cancel,handler:nil))
         //アラートOKボタン押下時の処理
-        resultCancelAlert.addAction(UIAlertAction(title:"OK",style:.default,handler: { action in self.reset()}))
+        resultCancelAlert.addAction(UIAlertAction(title:"OK",style:.default,handler: { action in self.resetResult()}))
         //指示数確認アラートの出力
         self.present(resultCancelAlert, animated: true, completion: nil)
     }
@@ -294,7 +288,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
         let Reading_results = NSEntityDescription.insertNewObject(forEntityName: "Reading_results", into: managedObjectContext) as! Reading_results
-        
+ 
         //配列の要素定義
         Reading_results.gmt_set_no = self.gmtSetNo
         Reading_results.constract_started_at = "19891104"
@@ -315,7 +309,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
 
     }
     
-    //リセット(キャンセルした時とかに呼ばれる)
+    //リセット(キャンセルした時)
     func reset(){
         self.gmtSijiSu.text = nil // 今回指示数をブランクに。
         self.gasUsage.text = String(0)   // 今回使用量を0に。
@@ -325,7 +319,29 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         */
         //検針済かチェックして各処理行う。
         self.checkResult()
+    }
+    
+    //検針結果取消(検針済の結果を取り消すとき時)
+    func resetResult(){
+        self.gmtSijiSu.text = nil // 今回指示数をブランクに。
+        self.gasUsage.text = String(0)   // 今回使用量を0に。
+        kaikiFlg = 0                           //回帰フラグを初期値に変更
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext = appDelegate.managedObjectContext
+        let Reading_results = NSEntityDescription.insertNewObject(forEntityName: "Reading_results", into: managedObjectContext) as! Reading_results
+        
+        Reading_results.gmt_set_no = self.gmtSetNo
+        
+        print("deleteReadingResult前")
+        self.result_instance.deleteReadingResult(delObj: Reading_results)
+        print("deleteReadingResult後")
+        
+        /* 統合前の処理
+         KenshinInfoController.setKenshinresultCancel(kenshinData: self.customerData!, gyo: self.adrs!.gyo, retsu: self.adrs!.retsu)
+         */
+        //検針済かチェックして各処理行う。
+        self.checkResult()
     }
     
     /*
