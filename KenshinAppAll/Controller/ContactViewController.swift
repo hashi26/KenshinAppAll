@@ -28,16 +28,6 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         //readingPersons = readingPerson.selectReadingPersonExclusionSelf(knsn_tnt_emp_no: loginPerson.knsn_tnt_emp_no!)
         readingPersons = readingPerson.selectReadingPerson()
         
-        print("base_code: \(loginPerson.base_code)")
-        print("knsn_tnt_emp_no: \(loginPerson.knsn_tnt_emp_no)")
-        print("knsn_tnt_name: \(loginPerson.knsn_tnt_name)")
-        print("knsn_tnt_tel_no: \(loginPerson.knsn_tnt_tel_no)")
-        print("knsn_tnt_pass: \(loginPerson.knsn_tnt_pass)")
-        print("branch_office_code: \(loginPerson.branch_office_code)")
-        print("sales_office_code: \(loginPerson.sales_office_code)")
-        print("base_code: \(loginPerson.base_code)")
-        print("created_at: \(loginPerson.created_at)")
-        print("updated_at: \(loginPerson.updated_at)")
         
         //セルのサイズ変更
         self.contactTableView.rowHeight = 100.0
