@@ -63,4 +63,6 @@ class Customer_ServiceViewController: UIViewController, UITableViewDelegate, UIT
         item.append(String(service.memo!))
         serviceItem = item
     }
+    
+    func reloadTable(){ serviceTable.reloadData()}
 }
