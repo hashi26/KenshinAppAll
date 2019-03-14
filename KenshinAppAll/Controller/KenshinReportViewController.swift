@@ -285,6 +285,28 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         print("日付：",f.string(from: Date()))
         var date = f.string(from: Date())
         
+        //let Reading_results:Reading_results
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext = appDelegate.managedObjectContext
+        let Reading_results = NSEntityDescription.insertNewObject(forEntityName: "Reading_results", into: managedObjectContext) as! Reading_results
+        
+        
+        var datedate:NSDate = NSDate();
+        Reading_results.gmt_set_no = "1"
+        Reading_results.constract_started_at = "1"
+        Reading_results.gas_usage = 1
+        Reading_results.gmt_sizi_su = 1
+        Reading_results.is_opend = "1"
+        Reading_results.knsn_method = "1"
+        Reading_results.knsn_tnt_emp_no = "1"
+        Reading_results.knsn_ymd = "1"
+        Reading_results.readed_at = datedate
+        Reading_results.updated_at = datedate
+        Reading_results.created_at = datedate
+
+        results.append(Reading_results)
+        
         //配列の要素定義
         print("results.count",results.count)
         //results.append(
