@@ -147,14 +147,6 @@
             </objects>
             <point key="canvasLocation" x="-45.600000000000001" y="-59.820089955022496"/>
         </scene>
-        <!--Tab-->
-        <scene sceneID="jUv-9f-EtT">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Tab" id="xQV-c8-oEc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5d0-Yg-FuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="640" y="100"/>
-        </scene>
     </scenes>
     <resources>
         <image name="notifications" width="10" height="10"/>
