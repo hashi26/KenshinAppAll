@@ -57,7 +57,49 @@ class ReadingResultClass {
     
     // 追加
     func insertReadingResult(otifications : Reading_results) {
-        NSEntityDescription.insertNewObject(forEntityName: "Reading_results", into: context)
+        //NSEntityDescription.insertNewObject(forEntityName: "Reading_results", into: context) 変更前
+        
+        let insertEntity = NSEntityDescription.insertNewObject(forEntityName: "Reading_results", into: context) as! Reading_results
+        
+        insertEntity.setValue(otifications.gmt_set_no, forKey: "gmt_set_no")
+        insertEntity.setValue(otifications.constract_started_at, forKey: "constract_started_at")
+        insertEntity.setValue(otifications.gas_usage, forKey: "gas_usage")
+        insertEntity.setValue(otifications.gmt_sizi_su, forKey: "gmt_sizi_su")
+        insertEntity.setValue(otifications.is_opend, forKey: "is_opend")
+        insertEntity.setValue(otifications.knsn_method, forKey: "knsn_method")
+        insertEntity.setValue(otifications.knsn_tnt_emp_no, forKey: "knsn_tnt_emp_no")
+        insertEntity.setValue(otifications.knsn_ymd, forKey: "knsn_ymd")
+        insertEntity.setValue(otifications.readed_at, forKey: "readed_at")
+        insertEntity.setValue(otifications.updated_at, forKey: "updated_at")
+        insertEntity.setValue(otifications.updated_at, forKey: "updated_at")
+        
+        /*
+        insertEntity.gmt_set_no = otifications.gmt_set_no
+        insertEntity.constract_started_at = otifications.constract_started_at
+        insertEntity.gas_usage = otifications.gas_usage
+        insertEntity.gmt_sizi_su = otifications.gmt_sizi_su
+        insertEntity.is_opend = otifications.is_opend
+        insertEntity.knsn_method = otifications.knsn_method
+        insertEntity.knsn_tnt_emp_no = otifications.knsn_tnt_emp_no
+        insertEntity.knsn_ymd = otifications.knsn_ymd
+        insertEntity.readed_at = otifications.readed_at
+        insertEntity.updated_at = otifications.updated_at
+        insertEntity.created_at = otifications.created_at
+        //値は入ってるかな？
+        print("↓↓↓coredata登録前の変数に値は入ってる？")
+        print("insertEntity.gmt_set_no",insertEntity.gmt_set_no)
+        print("insertEntity.constract_started_at",insertEntity.constract_started_at)
+        print("insertEntity.gas_usage",insertEntity.gas_usage)
+        print("insertEntity.gmt_sizi_su",insertEntity.gmt_sizi_su)
+        print("insertEntity.is_opend",insertEntity.is_opend)
+        print("insertEntity.knsn_method",insertEntity.knsn_method)
+        print("insertEntity.knsn_tnt_emp_no",insertEntity.knsn_tnt_emp_no)
+        print("insertEntity.knsn_ymd",insertEntity.knsn_ymd)
+        print("insertEntity.readed_at",insertEntity.readed_at)
+        print("insertEntity.updated_at",insertEntity.updated_at)
+        print("insertEntity.created_at",insertEntity.created_at)
+        */
+        
         saveReadingResult()
     }
     
