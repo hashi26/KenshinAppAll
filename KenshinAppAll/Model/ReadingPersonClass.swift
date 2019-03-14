@@ -113,7 +113,7 @@ class ReadingPersonClass {
                     insertEntity.setValue(obj.knsn_tnt_pass, forKey: "knsn_tnt_pass")
                     insertEntity.setValue(obj.knsn_tnt_tel_no, forKey: "knsn_tnt_tel_no")
                     insertEntity.setValue(obj.sales_office_code, forKey: "sales_office_code")
-
+                    insertEntity.setValue(obj.base_code, forKey: "base_code")
                     insertEntity.setValue(dateFromString(date: obj.created_at)! as NSDate, forKey: "created_at")
                     if (obj.updated_at != "") {
                         insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "updated_at")
