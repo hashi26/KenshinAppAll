@@ -24,12 +24,14 @@ class CustomerViewController: UIViewController{
     var containers: Array<UIView> = []
     
     var customers:[Customers] = []
-    var selectionNumver: Int = 0
+    var selectionNumber: Int = 0
     var viewCount: Int = 0
     
     // 他クラスインスタンス用変数
     var customer_instance: CustomersClass!
     var servise_instance: Customer_ServiceViewController!
+    var other_instance  : Customer_OtherViewController!
+    var dog_instance    : Customer_DogViewController!
     
     
     // 画面上部表示項目
@@ -62,13 +64,14 @@ class CustomerViewController: UIViewController{
         */
         
         self.customer_instance = CustomersClass()
-        self.servise_instance = Customer_ServiceViewController()
+        //self.servise_instance = Customer_ServiceViewController()
         customers = self.customer_instance.selectCustomers() //前画面からObject受け取り実装完了次第不要
         
-        customerName.text = customers[selectionNumver].name_j
-        meterNo.text = customers[selectionNumver].gmt_set_no
-        knsnHhCd.text = checkKensnMethod(String(customers[selectionNumver].knsn_method_code!))
-        khsnJtCd.text = checkKaihei(String(customers[selectionNumver].kaiheisen_code!))
+        customerName.text = customers[selectionNumber].name_j
+        meterNo.text = customers[selectionNumber].gmt_set_no
+        knsnHhCd.text = checkKensnMethod(String(customers[selectionNumber].knsn_method_code!))
+        khsnJtCd.text = checkKaihei(String(customers[selectionNumber].kaiheisen_code!))
+        
     }
     
     @IBAction func changeContainerView(_ sender: UISegmentedControl) {
@@ -109,21 +112,39 @@ class CustomerViewController: UIViewController{
         switch sender.direction{
             case .right:
                 print("前のお客さま")
-                selectionNumver = selectionNumver - 1
-                //　画面上部
-                viewDidLoad() //画面上部しか変わらない
+                selectionNumber = selectionNumber - 1
                 
-                // 画面下部。動かない！
-                viewWillAppear(true)
+                if selectionNumber >= 0 {
+                    //　画面上部
+                    viewDidLoad() //画面上部しか変わらない
+                    
+                    // 画面下部。動かない！
+                    viewWillAppear(true)
+                    self.servise_instance.reloadTable()
+                    self.dog_instance.reloadTable()
+                    self.other_instance.reloadTable()
+                } else {
+                    selectionNumber = 0
+                    
+                    /* 最初のお客様である処理を追加する */
+                }
             case .left:
                 print("次のお客さま")
-                selectionNumver = selectionNumver + 1
+                selectionNumber = selectionNumber + 1
                 
-                //　画面上部
-                viewDidLoad()
-                
-                // 画面下部。動かない！
-                viewWillAppear(true)
+                if selectionNumber < customers.count {
+                    //　画面上部
+                    viewDidLoad()
+                    
+                    // 画面下部。動かない！
+                    viewWillAppear(true)
+                    self.servise_instance.reloadTable()
+                    self.dog_instance.reloadTable()
+                    self.other_instance.reloadTable()
+                } else {
+                    selectionNumber = customers.count-2
+                    /* 最後のお客様である処理を追加する */
+                }
             default:
                 break
         }
@@ -133,12 +154,12 @@ class CustomerViewController: UIViewController{
         print("viewWillAppearの実行")
         super.viewWillAppear(animated)
         let appDelegagte = UIApplication.shared.delegate as! AppDelegate
-        appDelegagte.customerInfo = customers[selectionNumver]
+        appDelegagte.customerInfo = customers[selectionNumber]
         /*
          画面フリック時にテーブルの再読み込みが必要。この辺りが必要かも？
          */
         print("viewWillAppear動いているか")
-        print(selectionNumver)
+        print(selectionNumber)
         //self.servise_instance = Customer_ServiceViewController()
         
         if viewCount > 0 {
@@ -149,5 +170,17 @@ class CustomerViewController: UIViewController{
         }
         viewCount = viewCount + 1
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+       // (segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let C_SVC = segue.destination as? Customer_ServiceViewController { self.servise_instance = C_SVC }
+        if let C_OVC = segue.destination as? Customer_OtherViewController   { self.other_instance   = C_OVC }
+        if let C_DVC = segue.destination as? Customer_DogViewController     { self.dog_instance     = C_DVC }
+        
+    
+    }
+    
 }
 
