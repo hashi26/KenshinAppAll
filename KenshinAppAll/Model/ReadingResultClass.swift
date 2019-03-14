@@ -57,7 +57,7 @@ class ReadingResultClass {
     
     // 追加
     func insertReadingResult(otifications : Reading_results) {
-        NSEntityDescription.insertNewObject(forEntityName: "ReadingResult", into: context)
+        NSEntityDescription.insertNewObject(forEntityName: "Reading_results", into: context)
         saveReadingResult()
     }
     

@@ -39,13 +39,14 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     var gmtSetNo:String = "10010010010"
     
     /*
-    必要なデータ操作。
+     必要なデータ操作。
      ・お客様テーブルの参照・・・起動時画面表示→途中
      ・結果テーブルの参照・・・起動時画面表示→多分できてる
      ・結果テーブルのレコード挿入・・・検針結果登録→むずずずずずずずず
      ・結果テーブルのレコード削除・・・検針結果取消→未
-     ・次のメーターへの遷移・・・マイさん画面へのセグエ貼り→未
-    */
+     ・次のメーターへの遷移・・・カスタマー画面への遷移→とりあえず遷移はする。いずれは、次メーターの配列番号渡す。
+     */
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,69 +55,15 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         self.customer_instance = CustomersClass()
         self.result_instance = ReadingResultClass()
         
-        //テスト用データ
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        // テスト　ガスメータ設置場所番号：10010010010　の各情報を取得して表示(お客さまテーブル)
+        // ガスメータ設置場所番号を引数に各情報を取得して表示(お客さまテーブル)
         customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: gmtSetNo)
         
         //ラベル初期値設定
         meterNo.text = customers[0].meter_no
-        //oldGasSiji.text = customers[0].old_gas_shizi.description //0になっちゃう。。。。
-        oldGasSiji.text = "5811"  //↑テーブルに値が格納されていないので、一旦ベタ書きする。
-        //b1Ryo.text = customers[0].b1_ryo.description //0になっちゃう。。。。
-        b1Ryo.text = "30"  //↑テーブルに値が格納されていないので、一旦ベタ書きする。
-        //gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数　descriptionでStringに変換
+        oldGasSiji.text = customers[0].old_gas_siji.description
+        b1Ryo.text = customers[0].b1_ryo.description
+        //gmtSijiSu.text   = customerData?.getNowGasShiji().description // 今回指示数
         gasUsage.text   = "0" // 今回使用量　descriptionでStringに変換
-        
-        
-        //配列に値入ってるかな？
-        print("結果テーブルの値",results)
-        print(customers[0].adrs_banchi)
-        print(customers[0].adrs_chou)
-        print(customers[0].adrs_goh)
-        print(customers[0].apart_heya_ban_cana)
-        print(customers[0].b1_kikan)
-        print("前回使用量",customers[0].b1_ryo)
-        print(customers[0].bb1_kikan)
-        print(customers[0].bb1_ryo.description)
-        print(customers[0].bb2_kikan)
-        print(customers[0].bb2_ryo.description)
-        print(customers[0].constract_started_at)
-        print(customers[0].created_at)
-        print(customers[0].customer_name_cana)
-        print(customers[0].customer_name_kanzi)
-        print(customers[0].flyer_refused)
-        print(customers[0].gmt_set_no)
-        print(customers[0].goh_ban)
-        print(customers[0].heya_ban_cana)
-        print(customers[0].ichi_code)
-        print(customers[0].in_dog)
-        print(customers[0].in_dog_code)
-        print(customers[0].kaiheisen_code)
-        print(customers[0].ken_seq)
-        print(customers[0].knsn_method_code)
-        print(customers[0].knsn_tnt_emp_no)
-        print(customers[0].memo)
-        print(customers[0].meter_no)
-        print(customers[0].mune_ban_cana)
-        print(customers[0].name_j)
-        print(customers[0].next_date)
-        print("前回指示数",customers[0].old_gas_siji)
-        print(customers[0].opened_at)
-        print(customers[0].out_dog)
-        print(customers[0].out_dog_code)
-        print(customers[0].service_info)
-        print(customers[0].tatemono_cana)
-        print(customers[0].tatemono_kanzi)
-        print(customers[0].teirei_date)
-        print(customers[0].tel_no)
-        print(customers[0].updated_at)
-        print(customers[0].wireless_used)
-        print(customers[0].yago_cana)
-        print(customers[0].yago_kanzi)
-        print(customers[0].yuso_setted)
-        
-        
         
         self.gmtSijiSu.keyboardType = UIKeyboardType.numberPad//キーボードは数字入力固定
         resultCancel.layer.cornerRadius = 5  //取消ボタンを丸角にする
@@ -331,22 +278,55 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         }
         gasUsage.text   = tempGasUsage.description
         
-        print("temp今回使用量：",tempGasUsage)
         
         //　本日日付の取得
         let f = DateFormatter()
         f.dateFormat = "yyyyMMdd"
         print("日付：",f.string(from: Date()))
+        var date = f.string(from: Date())
+        
+        //let Reading_results:Reading_results
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext = appDelegate.managedObjectContext
+        let Reading_results = NSEntityDescription.insertNewObject(forEntityName: "Reading_results", into: managedObjectContext) as! Reading_results
+        
+        
+        var datedate:NSDate = NSDate();
+        Reading_results.gmt_set_no = "1"
+        Reading_results.constract_started_at = "1"
+        Reading_results.gas_usage = 1
+        Reading_results.gmt_sizi_su = 1
+        Reading_results.is_opend = "1"
+        Reading_results.knsn_method = "1"
+        Reading_results.knsn_tnt_emp_no = "1"
+        Reading_results.knsn_ymd = "1"
+        Reading_results.readed_at = datedate
+        Reading_results.updated_at = datedate
+        Reading_results.created_at = datedate
+
+        results.append(Reading_results)
         
         //配列の要素定義
-        results.append(Reading_results())
+        print("results.count",results.count)
+        //results.append(
+        
+        print("results.count",results.count)
+        print("results[0]",results[0])
+        
+        /*
+        results.append(:)
+        results.append(:)
+        results.append(:)
+        results.append(:)
+        results.append(:)
+        */
         
         //結果テーブルにインサートしたい
         print("代入前")
-        results[0].gmt_set_no = self.gmtSetNo
-        print("代入後")
         
          /*
+         results[0].gmt_set_no = self.gmtSetNo
          results[0].knsn_ymd = f.string(from: Date())
          results[0].is_opend = is_opend
          results[0].gas_usage = gas_usage
@@ -357,10 +337,12 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
          results[0].created_at = created_at
          results[0].updated_at = updated_at
          */
+        
 
         self.result_instance.insertReadingResult(otifications: results[0])
         
-
+        print("代入後")
+        
         /* 参考。統合前の結果登録処理
         KenshinInfoController.setKenshinResult(kenshinData: self.customerData!, nowGasShiji: Int(self.gmtSijiSu.text!)!,kaikiFlg:self.kaikiFlg!, gyo: self.adrs!.gyo, retsu: self.adrs!.retsu)
         self.gasUsage.text   = self.customerData?.getNowGasRyo().description
