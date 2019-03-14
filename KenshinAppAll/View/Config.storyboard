@@ -165,9 +165,11 @@
                             <outlet property="delegate" destination="LZ8-OU-ZT3" id="tI3-jF-IFJ"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Config" image="notifications" id="4kK-t2-sTL"/>
                     <navigationItem key="navigationItem" title="設定" id="ADS-BB-lNP">
                         <barButtonItem key="backBarButtonItem" title="back" id="gqw-kH-eHs"/>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="fontLabel" destination="myR-BM-o9f" id="xoY-bs-TMl"/>
                         <outlet property="fqLabel" destination="32b-VQ-tbi" id="WGr-5H-Oht"/>
@@ -365,4 +367,7 @@
             <point key="canvasLocation" x="992.79999999999995" y="27.436281859070466"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="notifications" width="10" height="10"/>
+    </resources>
 </document>

@@ -63,6 +63,7 @@
 		9EC38188222CE96800ECEDFD /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */; };
 		EF1D333D2232510D002376A3 /* NumberKeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D333C2232510D002376A3 /* NumberKeyBoard.swift */; };
 		EF1D33412238F4C6002376A3 /* HealthCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D33402238F4C6002376A3 /* HealthCustomViewCell.swift */; };
+		EF1D3343223A0B48002376A3 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1D3342223A0B48002376A3 /* Contact.storyboard */; };
 		EF2B9DE2220C3F090087124C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */; };
 		EF2B9DE7220C3F160087124C /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE3220C3F160087124C /* Customer.storyboard */; };
 		EF2B9DE8220C3F160087124C /* Hello.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2B9DE4220C3F160087124C /* Hello.storyboard */; };
@@ -137,6 +138,7 @@
 		9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		EF1D333C2232510D002376A3 /* NumberKeyBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeyBoard.swift; sourceTree = "<group>"; };
 		EF1D33402238F4C6002376A3 /* HealthCustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCustomViewCell.swift; sourceTree = "<group>"; };
+		EF1D3342223A0B48002376A3 /* Contact.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
 		EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF2B9DE3220C3F160087124C /* Customer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
 		EF2B9DE4220C3F160087124C /* Hello.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hello.storyboard; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				EF2B9DE6220C3F160087124C /* Login.storyboard */,
 				EF2B9DE1220C3F090087124C /* LaunchScreen.storyboard */,
 				9E22532A22228E1000EA166C /* Notifications.storyboard */,
+				EF1D3342223A0B48002376A3 /* Contact.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				EF2B9DE7220C3F160087124C /* Customer.storyboard in Resources */,
 				EF2B9DEA220C3F160087124C /* Login.storyboard in Resources */,
 				934D061A21E83E96002EF183 /* Assets.xcassets in Resources */,
+				EF1D3343223A0B48002376A3 /* Contact.storyboard in Resources */,
 				733E40E4222F53790069FC8E /* CustomerTableViewCell.xib in Resources */,
 				9E4485B422237C0400E74FD4 /* customers.json in Resources */,
 				0DA2062D222E9B1F0068704D /* kensin_handbook.pdf in Resources */,

@@ -1,126 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1fM-bF-yYQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bps-XR-RB0">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Customer-->
-        <scene sceneID="yQO-Di-Mn7">
+        <scene sceneID="wze-j5-vTG">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="KenshinReport" storyboardName="Customer" id="rIg-n8-NfU" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U5R-hY-LZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Customer" id="LO1-et-z7M" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="NjD-SS-YfI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CUC-5C-Nrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2237" y="-1769"/>
-        </scene>
-        <!--Map-->
-        <scene sceneID="1LB-Ou-iq2">
-            <objects>
-                <viewController id="XBZ-4T-MnY" customClass="MapViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lc4-db-N2g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXJ-fT-rl1">
-                                <rect key="frame" x="146" y="512" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="ToCustomer"/>
-                                <connections>
-                                    <segue destination="rIg-n8-NfU" kind="show" identifier="ToCustomer" id="Hho-S7-Lll"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="BEU-N2-UoS"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="5KX-7k-i2V"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Xx-jl-U6y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1433" y="-1709"/>
-        </scene>
-        <!--Contact View Controller-->
-        <scene sceneID="i82-AS-fnK">
-            <objects>
-                <viewController storyboardIdentifier="Constract" id="5va-0b-UAN" customClass="ContactViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="djt-pe-bBo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EYD-L4-WH9">
-                                <rect key="frame" x="0.0" y="85" width="375" height="644"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="5va-0b-UAN" id="AY4-eu-6Pn"/>
-                                    <outlet property="delegate" destination="5va-0b-UAN" id="xvo-vT-fvm"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="qVk-x7-wVn"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="O18-Dt-qDr"/>
-                    <connections>
-                        <outlet property="contactTableView" destination="EYD-L4-WH9" id="y5Q-fg-rbd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Am5-jj-xcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-482.39999999999998" y="-1708.3743842364534"/>
+            <point key="canvasLocation" x="-1994" y="-1568"/>
         </scene>
         <!--Tab Bar Controller-->
-        <scene sceneID="813-dr-cQk">
+        <scene sceneID="TRd-0s-Gry">
             <objects>
-                <tabBarController storyboardIdentifier="Tab" id="1fM-bF-yYQ" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f6r-8Y-W4S">
+                <tabBarController id="Bps-XR-RB0" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oVQ-M3-NRR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="XBZ-4T-MnY" kind="relationship" relationship="viewControllers" id="ebe-Yj-LiV"/>
-                        <segue destination="5va-0b-UAN" kind="relationship" relationship="viewControllers" id="6xT-mo-xxi"/>
-                        <segue destination="nPl-BM-Kit" kind="relationship" relationship="viewControllers" id="q7B-zm-ifX"/>
-                        <segue destination="e48-ME-YKA" kind="relationship" relationship="viewControllers" id="a6o-qy-lLI"/>
+                        <segue destination="5Tp-Cp-MMI" kind="relationship" relationship="viewControllers" id="G95-ZO-JxM"/>
+                        <segue destination="LO1-et-z7M" kind="relationship" relationship="viewControllers" id="B0i-0p-CeI"/>
+                        <segue destination="nPl-BM-Kit" kind="relationship" relationship="viewControllers" id="xqu-eh-plg"/>
+                        <segue destination="e48-ME-YKA" kind="relationship" relationship="viewControllers" id="ahJ-PP-hL1"/>
+                        <segue destination="9iQ-Ga-IQz" kind="relationship" relationship="viewControllers" id="UBl-ex-wrl"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q3y-VV-mih" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yba-Xn-wKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1410" y="-962"/>
+            <point key="canvasLocation" x="-2664" y="-1440"/>
         </scene>
-        <!--Notifications-->
+        <!--Contact-->
         <scene sceneID="Wix-EI-pTw">
             <objects>
-                <viewControllerPlaceholder storyboardName="Notifications" id="nPl-BM-Kit" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Contact" id="nPl-BM-Kit" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="通知一覧" id="sEe-qL-gkA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96G-zh-BUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-651" y="-1130"/>
+            <point key="canvasLocation" x="-2003" y="-1501"/>
         </scene>
-        <!--Config-->
+        <!--Notifications-->
         <scene sceneID="NRo-9G-ooU">
             <objects>
-                <viewControllerPlaceholder storyboardName="Config" id="e48-ME-YKA" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Notifications" id="e48-ME-YKA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="設定" id="gz9-1Y-Esr"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJx-Tj-NcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-747" y="-778"/>
+            <point key="canvasLocation" x="-1979" y="-1440"/>
         </scene>
-        <!--Map-->
+        <!--Config-->
+        <scene sceneID="e5P-Ap-ToR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Config" id="9iQ-Ga-IQz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="URJ-6p-6Gt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ya-QD-Owx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2010" y="-1380"/>
+        </scene>
+        <!--Hello-->
         <scene sceneID="8iq-XO-VvA">
             <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="5Tp-Cp-MMI" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Hello" id="5Tp-Cp-MMI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ga3-XH-8gQ"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3i5-3p-0vM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637" y="243"/>
+            <point key="canvasLocation" x="-2016" y="-1633"/>
         </scene>
     </scenes>
 </document>
