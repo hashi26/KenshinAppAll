@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var readingPerson:ReadingPersonClass = ReadingPersonClass()
     var customerInfo:Customers = Customers()
     var customers:CustomersClass = CustomersClass()
+    var loginReadingPerson:Reading_person!
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.

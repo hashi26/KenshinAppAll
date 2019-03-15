@@ -44,7 +44,7 @@
                                 <state key="normal" title="ToHello"/>
                                 <connections>
                                     <action selector="login:" destination="NjL-xU-7Uq" eventType="touchUpInside" id="OkF-Gf-IbH"/>
-                                    <segue destination="MoV-Hg-DhP" kind="show" identifier="toHello" id="Dhi-Jr-Tmq"/>
+                                    <segue destination="K2E-fF-kTI" kind="show" id="rtV-u3-ixH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="検針アプリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbT-7a-ehq">
@@ -105,6 +105,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Zl-PG-qoe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1350" y="94"/>
+        </scene>
+        <!--Tab-->
+        <scene sceneID="H32-v8-F39">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tab" id="K2E-fF-kTI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7IQ-qL-2Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1927" y="11"/>
         </scene>
         <!--Hello-->
         <scene sceneID="MXg-EM-sCn">

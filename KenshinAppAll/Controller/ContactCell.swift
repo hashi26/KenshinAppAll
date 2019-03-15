@@ -15,10 +15,10 @@ class ContactCell: UITableViewCell {
     func setupCell(model:Reading_person ) {
         print("setupCell関数の呼び出し")
         //名前
-        name.text = model.knsn_tnt_emp_no
+        name.text = model.knsn_tnt_name
         
         //拠点
-        base.text = model.knsn_tnt_emp_no
+        base.text = model.knsn_tnt_tel_no
         
     }
 
