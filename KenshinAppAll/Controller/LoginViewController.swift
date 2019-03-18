@@ -70,6 +70,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             //一致するIDありかつPassも一致
             else if readingPerson[0].knsn_tnt_pass == pass{
                 print("ログイン成功")
+                (UIApplication.shared.delegate as! AppDelegate).loginReadingPerson = self.readingPerson[0]
                 //print(next?.readingPerson[0].knsn_tnt_emp_no)
                 
                 //present(next!, animated: true, completion: nil)
