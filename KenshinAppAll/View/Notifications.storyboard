@@ -99,6 +99,8 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="通知一覧" image="notifications" selectedImage="notifications" id="BEb-Zk-eV3"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableview" destination="5a2-oA-ebd" id="rim-G4-dsq"/>
                     </connections>
@@ -126,6 +128,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="notifications" width="20" height="20"/>
+        <image name="notifications" width="32" height="32"/>
     </resources>
 </document>

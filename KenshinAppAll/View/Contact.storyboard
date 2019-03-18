@@ -48,7 +48,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gw5-SH-Ysy"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="コンタクト" image="notifications" id="7XO-Zv-u4d"/>
+                    <tabBarItem key="tabBarItem" title="コンタクト" id="7XO-Zv-u4d"/>
                     <navigationItem key="navigationItem" title="コンタクト一覧" id="dGC-e2-mGH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -61,7 +61,4 @@
             <point key="canvasLocation" x="952.79999999999995" y="12.561576354679804"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="notifications" width="20" height="20"/>
-    </resources>
 </document>

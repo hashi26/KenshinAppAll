@@ -55,7 +55,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="KgB-PQ-bqo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="notifications" id="VEq-Xb-3Y5"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="VEq-Xb-3Y5"/>
                     <navigationItem key="navigationItem" id="v0y-CJ-fGL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -78,7 +78,4 @@
             <point key="canvasLocation" x="369" y="-238"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="notifications" width="20" height="20"/>
-    </resources>
 </document>
