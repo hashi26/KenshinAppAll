@@ -33,7 +33,6 @@ class CustomerViewController: UIViewController{
     var other_instance  : Customer_OtherViewController!
     var dog_instance    : Customer_DogViewController!
     
-    
     // 画面上部表示項目
     @IBOutlet weak var customerName: UILabel!
     @IBOutlet weak var meterNo: UILabel!
@@ -173,13 +172,18 @@ class CustomerViewController: UIViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-       // (segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if let C_SVC = segue.destination as? Customer_ServiceViewController { self.servise_instance = C_SVC }
-        if let C_OVC = segue.destination as? Customer_OtherViewController   { self.other_instance   = C_OVC }
-        if let C_DVC = segue.destination as? Customer_DogViewController     { self.dog_instance     = C_DVC }
-        
-    
+         if segue.identifier == "toKenshinReport" {
+            
+            let viewController = segue.destination as! KenshinReportViewController
+            viewController.customers = self.customers
+            viewController.selectionNumber = self.selectionNumber
+            print("検針画面への値渡し")
+            print(viewController.selectionNumber)
+         }else{
+            if let C_SVC = segue.destination as? Customer_ServiceViewController { self.servise_instance = C_SVC }
+            if let C_OVC = segue.destination as? Customer_OtherViewController   { self.other_instance   = C_OVC }
+            if let C_DVC = segue.destination as? Customer_DogViewController     { self.dog_instance     = C_DVC }
+        }
     }
     
 }
