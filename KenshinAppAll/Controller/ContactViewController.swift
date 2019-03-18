@@ -17,6 +17,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     var readingPersons:[Reading_person] = []
     let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     var loginPerson:Reading_person!
+    var knsn_tnt_emp_no:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,12 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         ContactSearchBar.placeholder = "氏名で検索ができます"
 
         //担当者の取得
-        appDelegate.loginReadingPerson = readingPerson.selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no: "2059066")[0]
         loginPerson = appDelegate.loginReadingPerson
         
-        // 担当者を除いた他メンバー一覧を取得
-        readingPersons = readingPerson.selectReadingPersonExclusionSelf(knsn_tnt_emp_no: loginPerson.knsn_tnt_emp_no!)
+        if let knsn_tnt_emp_no = loginPerson.knsn_tnt_emp_no {
+            // 担当者を除いた他メンバー一覧を取得
+            readingPersons = readingPerson.selectReadingPersonExclusionSelf(knsn_tnt_emp_no:  knsn_tnt_emp_no)
+        }
         //readingPersons = readingPerson.selectReadingPerson()
         
         self.contactTableView.allowsSelection = false
