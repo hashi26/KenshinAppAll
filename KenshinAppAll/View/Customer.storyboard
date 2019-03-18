@@ -106,7 +106,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="To検針"/>
                                         <connections>
-                                            <segue destination="q7v-M0-GcX" kind="show" id="XmO-4t-ED6"/>
+                                            <segue destination="q7v-M0-GcX" kind="show" identifier="toKenshinReport" id="XmO-4t-ED6"/>
                                         </connections>
                                     </button>
                                 </subviews>

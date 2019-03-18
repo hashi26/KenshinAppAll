@@ -48,7 +48,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Toお客さま"/>
                                 <connections>
-                                    <segue destination="6Li-78-bY2" kind="show" id="Scn-3E-yg2"/>
+                                    <segue destination="6Li-78-bY2" kind="show" identifier="toCustomerSegue" id="Scn-3E-yg2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,6 +79,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="notifications" width="10" height="10"/>
+        <image name="notifications" width="20" height="20"/>
     </resources>
 </document>
