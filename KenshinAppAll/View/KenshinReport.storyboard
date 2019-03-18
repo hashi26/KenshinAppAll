@@ -165,7 +165,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="＞お客さま一覧"/>
                                 <connections>
-                                    <segue destination="zDi-Nk-elt" kind="show" id="hrI-Zc-R8A"/>
+                                    <segue destination="zDi-Nk-elt" kind="show" identifier="toMap" id="hrI-Zc-R8A"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSe-Jk-3cI">
@@ -186,7 +186,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="＞次のお客さま"/>
                                 <connections>
-                                    <segue destination="B2V-W6-9f1" kind="show" id="UuB-q8-Ht0"/>
+                                    <segue destination="B2V-W6-9f1" kind="show" identifier="toNextCustomer" id="UuB-q8-Ht0"/>
                                 </connections>
                             </button>
                         </subviews>

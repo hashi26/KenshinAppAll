@@ -24,8 +24,11 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     @IBOutlet weak var gouSelect: UIButton!
     @IBOutlet weak var cameraLightButton: UIBarButtonItem!
     
+    var gmtSetNo:String = ""
+    
     var customer_instance: CustomersClass!
     var customers:[Customers] = []
+    var selectionNumber: Int = 0
     
     var result_instance: ReadingResultClass!
     var results:[Reading_results] = []
@@ -33,20 +36,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     
     var kaikiFlg:Int? = 0           //回帰フラグ
     var cameraLightStatus:Bool = true   // カメラのライト状態
-    
-    //テスト用に1ペケをベタ書き
-    var gmtSetNo:String = "10010010010"
-    
-    /*
-     必要なデータ操作。
-     ・お客様テーブルの参照・・・起動時画面表示→途中
-     ・結果テーブルの参照・・・起動時画面表示→多分できてる
-     ・結果テーブルのレコード挿入・・・検針結果登録→一応できた。はず。
-     ・結果テーブルのレコード削除・・・検針結果取消→一応できた。はず。
-     ・次のメーターへの遷移・・・カスタマー画面への遷移→とりあえず遷移はする。いずれは、次メーターの配列番号渡す。
-     */
-    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
@@ -55,13 +46,16 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         self.result_instance = ReadingResultClass()
         
         // ガスメータ設置場所番号を引数に各情報を取得して表示(お客さまテーブル)
-        customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: gmtSetNo)
+        //customers = self.customer_instance.selectCustomersByGmtSetNo(gmt_set_no: gmtSetNo)
+        customers = self.customer_instance.selectCustomers() //前画面からObject受け取り実装完了次第不要
+        
         
         //ラベル初期値設定
-        meterNo.text = customers[0].meter_no
-        oldGasSiji.text = customers[0].old_gas_siji.description
-        b1Ryo.text = customers[0].b1_ryo.description
+        meterNo.text = customers[selectionNumber].meter_no
+        oldGasSiji.text = customers[selectionNumber].old_gas_siji.description
+        b1Ryo.text = customers[selectionNumber].b1_ryo.description
         gasUsage.text   = "0" // 今回使用量　descriptionでStringに変換
+        self.gmtSetNo = customers[selectionNumber].gmt_set_no!.description
         
         self.gmtSijiSu.keyboardType = UIKeyboardType.numberPad//キーボードは数字入力固定
         resultCancel.layer.cornerRadius = 5  //取消ボタンを丸角にする
@@ -282,8 +276,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         let f = DateFormatter()
         f.dateFormat = "yyyyMMdd"
         print("日付：",f.string(from: Date()))
-        var date = f.string(from: Date())
-        var datedate:NSDate = NSDate();
+        let date = f.string(from: Date())
+        let datedate:NSDate = NSDate();
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
@@ -291,12 +285,12 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
  
         //配列の要素定義
         Reading_results.gmt_set_no = self.gmtSetNo
-        Reading_results.constract_started_at = "19891104"
+        Reading_results.constract_started_at = customers[selectionNumber].constract_started_at
         Reading_results.gas_usage = Int16(tempGasUsage)
         Reading_results.gmt_sizi_su = Int16(self.gmtSijiSu.text!)!
-        Reading_results.is_opend = "1"
-        Reading_results.knsn_method = "21"
-        Reading_results.knsn_tnt_emp_no = "2010123"
+        Reading_results.is_opend = customers[selectionNumber].kaiheisen_code
+        Reading_results.knsn_method = customers[selectionNumber].knsn_method_code
+        Reading_results.knsn_tnt_emp_no = customers[selectionNumber].knsn_tnt_emp_no
         Reading_results.knsn_ymd = date
         Reading_results.readed_at = datedate
         Reading_results.updated_at = datedate
@@ -355,28 +349,22 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
     }
     */
     
-    
-    /*
-    //次のお客様に遷移
-    @IBAction func nextMetr(_ sender: Any) {
-        print("nextMetr()も呼ばれてる。")//後で消す
-        
-    }
-    */
-    
-    
-    /*
-    //「次のお客様」or「号選択」に遷移
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "nextJizenInfoTsuti" {
-            self.adrs!.retsu = adrs!.retsu + 1 //列番号をカウントアップして、次のメーターの番号を設定前
-            (segue.destination as! JizenInfoTsutiViewController).adrs = adrs
-            (segue.destination as! JizenInfoTsutiViewController).countMax = self.countMax
-        }else if segue.identifier == "toGouSelect" {//号選択に遷移
+    //「次のお客さま」or「お客さま一覧（MAP）」に遷移
+    override func prepare(for segue:UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "toNextCustomer"{
+            print("toNextCustomer呼び出し")
+            
+            let nav = segue.destination as! UINavigationController
+            let customerView = nav.topViewController as! CustomerViewController
+            customerView.customers = self.customers
+            customerView.selectionNumber = self.selectionNumber + 1
+            
+        }else if segue.identifier == "toMap"{
+            print("toMap呼び出し")
+            //map画面に何か渡すなら記述。
         }
     }
-    */
-    
+
     // カメラのライトボタンを押された時の動作
     @IBAction func cameraLight(_ sender: Any) {
         if(cameraLightStatus){
