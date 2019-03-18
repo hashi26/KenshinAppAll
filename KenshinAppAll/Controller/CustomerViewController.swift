@@ -33,7 +33,6 @@ class CustomerViewController: UIViewController{
     var other_instance  : Customer_OtherViewController!
     var dog_instance    : Customer_DogViewController!
     
-    
     // 画面上部表示項目
     @IBOutlet weak var customerName: UILabel!
     @IBOutlet weak var meterNo: UILabel!
