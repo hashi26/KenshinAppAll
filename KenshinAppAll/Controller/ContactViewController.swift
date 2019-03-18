@@ -39,6 +39,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         readingPersons = readingPerson.selectReadingPersonExclusionSelf(knsn_tnt_emp_no: loginPerson.knsn_tnt_emp_no!)
         //readingPersons = readingPerson.selectReadingPerson()
         
+        self.contactTableView.allowsSelection = false
+        
         //セルのサイズ変更
         self.contactTableView.rowHeight = 75.0
         
