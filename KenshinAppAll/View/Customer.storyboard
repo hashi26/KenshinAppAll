@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Customer Navigation Controller-->
         <scene sceneID="EFW-oX-ht1">
             <objects>
-                <navigationController id="EMr-uj-LWD" sceneMemberID="viewController">
+                <navigationController id="EMr-uj-LWD" customClass="CustomerNavigationController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ztO-oU-LAb">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -106,7 +106,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="To検針"/>
                                         <connections>
-                                            <segue destination="q7v-M0-GcX" kind="show" id="XmO-4t-ED6"/>
+                                            <segue destination="q7v-M0-GcX" kind="show" identifier="toKenshinReport" id="XmO-4t-ED6"/>
                                         </connections>
                                     </button>
                                 </subviews>
