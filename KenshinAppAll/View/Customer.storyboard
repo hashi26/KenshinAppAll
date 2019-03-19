@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-385" y="-235"/>
         </scene>
-        <!--Customer View Controller-->
+        <!--お客さま-->
         <scene sceneID="BJh-Fx-glt">
             <objects>
                 <viewController storyboardIdentifier="Customer" id="QHP-lf-R1c" customClass="CustomerViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="24" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="お客さま" id="Qlh-Ff-NoT"/>
+                                    <navigationItem title="Title" id="DZ6-Xi-jTv"/>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-g3-yRh">
@@ -163,7 +163,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="F4F-ub-fH0"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ihS-UR-TeJ"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="qfS-66-RUW"/>
+                    <navigationItem key="navigationItem" title="お客さま" id="6zk-uN-ncj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="ZdT-QC-Xrv" id="nPt-vZ-3BE"/>
