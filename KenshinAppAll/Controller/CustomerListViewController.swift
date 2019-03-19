@@ -331,8 +331,7 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         print("次画面呼び出し実行 MAP→お客さま")
         //次の画面を取り出す
-        let navigationViewController = segue.destination as! CustomerNavigationController
-        let viewController = navigationViewController.topViewController as! CustomerViewController
+        let viewController = segue.destination as! CustomerViewController
         viewController.customers = self.customers
         viewController.selectionNumber = self.selectedNumber
         print(viewController.selectionNumber)
