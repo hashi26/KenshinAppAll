@@ -61,12 +61,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLo-RN-fkz">
-                                <rect key="frame" x="0.0" y="88" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="ログイン" id="tMA-5C-QcJ"/>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattyo" translatesAutoresizingMaskIntoConstraints="NO" id="j3V-pI-Za6">
                                 <rect key="frame" x="232.66666666666666" y="591.66666666666663" width="112.33333333333334" height="146.33333333333337"/>
                                 <constraints>
@@ -107,12 +101,9 @@
                             <constraint firstItem="jem-HG-mhL" firstAttribute="top" secondItem="eOp-BX-5jZ" secondAttribute="bottom" constant="15" id="ExU-U5-Ze1"/>
                             <constraint firstItem="ZbT-7a-ehq" firstAttribute="width" relation="lessThanOrEqual" secondItem="Bfh-Qe-IVZ" secondAttribute="width" multiplier="0.5" id="K1v-Tg-F7z"/>
                             <constraint firstItem="bzt-oB-28z" firstAttribute="width" relation="lessThanOrEqual" secondItem="Bfh-Qe-IVZ" secondAttribute="width" multiplier="0.3" id="QH4-N5-YU6"/>
-                            <constraint firstItem="CLo-RN-fkz" firstAttribute="trailing" secondItem="VmK-l3-6nt" secondAttribute="trailing" id="Rxe-EB-0qd"/>
                             <constraint firstItem="j3V-pI-Za6" firstAttribute="bottom" secondItem="VmK-l3-6nt" secondAttribute="bottom" constant="-40" id="S1y-6T-q1s"/>
-                            <constraint firstItem="CLo-RN-fkz" firstAttribute="top" secondItem="VmK-l3-6nt" secondAttribute="top" id="TqJ-D1-pbB"/>
                             <constraint firstItem="jem-HG-mhL" firstAttribute="leading" secondItem="eOp-BX-5jZ" secondAttribute="leading" id="VyA-jZ-Pse"/>
                             <constraint firstItem="ZbT-7a-ehq" firstAttribute="centerY" secondItem="Bfh-Qe-IVZ" secondAttribute="centerY" multiplier="1:2.5" id="b5i-eZ-24y"/>
-                            <constraint firstItem="CLo-RN-fkz" firstAttribute="leading" secondItem="VmK-l3-6nt" secondAttribute="leading" id="caL-gN-xhs"/>
                             <constraint firstItem="tbL-Y0-WZz" firstAttribute="centerX" secondItem="Bfh-Qe-IVZ" secondAttribute="centerX" id="e49-6A-q5P"/>
                             <constraint firstItem="eOp-BX-5jZ" firstAttribute="top" secondItem="tbL-Y0-WZz" secondAttribute="bottom" constant="10" id="kUo-CY-zFn"/>
                             <constraint firstItem="j3V-pI-Za6" firstAttribute="width" relation="lessThanOrEqual" secondItem="Bfh-Qe-IVZ" secondAttribute="width" multiplier="0.3" id="ogL-LT-VBO"/>
