@@ -91,7 +91,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
                                                 //今回指示数が前回指示数未満の時
                                                 if(Int(self.gmtSijiSu.text!)! < Int(self.oldGasSiji.text!)!){
                                                     self.checkKaiki()
-                                                    self.kenshinResult()
+                                                    //self.kenshinResult()
                                                     //今回指示数が前回指示数以上の時
                                                 }else{
                                                     self.kenshinResult()
@@ -182,7 +182,10 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
             self.kenshinResult()
         }))
         //マイナス使用量が押された場合
-        kaikiAlert.addAction(UIAlertAction(title:"マイナス使用量",style:.destructive,handler: { action in self.kaikiFlg = 0}))
+        kaikiAlert.addAction(UIAlertAction(title:"マイナス使用量",style:.destructive,handler: { action in
+            self.kaikiFlg = 0
+            self.kenshinResult()
+        }))
         //キャンセルが押された時
         kaikiAlert.addAction(UIAlertAction(title:"キャンセル",style:.cancel,handler: { action in self.reset()}))
         
@@ -247,6 +250,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
             tempGasUsage = Int(gmtSijiSu.text!)! - Int(oldGasSiji.text!)!
         }
         gasUsage.text   = tempGasUsage.description
+        print("gasUsage.text:",gasUsage.text)
         
         //　本日日付の取得
         let f = DateFormatter()
@@ -299,10 +303,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         
         Reading_results.gmt_set_no = self.gmtSetNo
         
-        print("deleteReadingResult前")
         self.result_instance.deleteReadingResult(delObj: Reading_results)
-        print("deleteReadingResult後")
-        
+    
         //検針済かチェックして各処理行う。
         self.checkResult()
     }
