@@ -302,7 +302,6 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="2lc-lg-WhY" id="ZfR-7e-G6P"/>
-                                    <outlet property="delegate" destination="2lc-lg-WhY" id="4yn-nk-olg"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -310,7 +309,7 @@
                         <viewLayoutGuide key="safeArea" id="mwa-Mj-cbc"/>
                     </view>
                     <connections>
-                        <outlet property="otherView" destination="qcC-n7-8Pf" id="6bT-hE-HyS"/>
+                        <outlet property="otherTable" destination="qcC-n7-8Pf" id="Egu-qT-LZS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5x-9o-eZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
