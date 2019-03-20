@@ -77,6 +77,7 @@ class ReadingPersonClass {
         return []
     }
     
+    // ログインしている検針担当者を除いて検索
     func selectReadingPersonExclusionSelf(knsn_tnt_emp_no:String) -> [Reading_person] {
         let readingPersonFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Reading_person")
         
@@ -92,6 +93,21 @@ class ReadingPersonClass {
         return []
     }
     
+    func selectReadingPersonByName(name:String, knsn_tnt_emp_no:String) -> [Reading_person] {
+        let searchName:String = "*" + name + "*"
+        
+        let readingPersonFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Reading_person")
+        readingPersonFetch.predicate =
+            NSPredicate(format: "knsn_tnt_name LIKE %@ and knsn_tnt_emp_no != %@", searchName, knsn_tnt_emp_no)
+        do {
+            /// 氏名あいまい検索
+            let fetchedReadingPerson = try context.fetch(readingPersonFetch) as! [Reading_person]
+            return fetchedReadingPerson
+        } catch {
+        fatalError("selectReadingPersonExclusionSelf()が失敗しました: \(error)")
+        }
+        return []
+    }
     
     // 初期データ追加
     // アプリ起動時にjsonからお知らせ一覧を作成し、CoreDataにinsertする
@@ -113,7 +129,7 @@ class ReadingPersonClass {
                     insertEntity.setValue(obj.knsn_tnt_pass, forKey: "knsn_tnt_pass")
                     insertEntity.setValue(obj.knsn_tnt_tel_no, forKey: "knsn_tnt_tel_no")
                     insertEntity.setValue(obj.sales_office_code, forKey: "sales_office_code")
-
+                    insertEntity.setValue(obj.base_code, forKey: "base_code")
                     insertEntity.setValue(dateFromString(date: obj.created_at)! as NSDate, forKey: "created_at")
                     if (obj.updated_at != "") {
                         insertEntity.setValue(dateFromString(date: obj.updated_at)! as NSDate, forKey: "updated_at")

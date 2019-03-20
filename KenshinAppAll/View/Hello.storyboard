@@ -134,7 +134,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="99V-XG-YzR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Hello" image="notifications" id="vNT-vv-fEW"/>
+                    <tabBarItem key="tabBarItem" title="Hello" image="user" id="vNT-vv-fEW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="UserImage" destination="hc2-0m-0Kl" id="NPJ-QW-Wic"/>
@@ -149,6 +149,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="notifications" width="10" height="10"/>
+        <image name="user" width="32" height="32"/>
     </resources>
 </document>

@@ -58,8 +58,8 @@
 		9E761D32222F69FC00690580 /* Customer_DogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D2D222F69FC00690580 /* Customer_DogViewController.swift */; };
 		9E761D33222F69FC00690580 /* Customer_OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D2E222F69FC00690580 /* Customer_OtherViewController.swift */; };
 		9E761D34222F69FC00690580 /* CustomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D2F222F69FC00690580 /* CustomerListViewController.swift */; };
-		9E761D35222F69FC00690580 /* Customer_ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E761D30222F69FC00690580 /* Customer_ServiceViewController.swift */; };
 		9E801380223756470074729C /* NotificationsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E80137F223756470074729C /* NotificationsDetailTableViewController.swift */; };
+		9E86AB822241FF8F0059AB02 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86AB812241FF8F0059AB02 /* TabController.swift */; };
 		9EC38188222CE96800ECEDFD /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */; };
 		EF1D333D2232510D002376A3 /* NumberKeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D333C2232510D002376A3 /* NumberKeyBoard.swift */; };
 		EF1D33412238F4C6002376A3 /* HealthCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D33402238F4C6002376A3 /* HealthCustomViewCell.swift */; };
@@ -134,8 +134,8 @@
 		9E761D2D222F69FC00690580 /* Customer_DogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer_DogViewController.swift; sourceTree = "<group>"; };
 		9E761D2E222F69FC00690580 /* Customer_OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer_OtherViewController.swift; sourceTree = "<group>"; };
 		9E761D2F222F69FC00690580 /* CustomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerListViewController.swift; sourceTree = "<group>"; };
-		9E761D30222F69FC00690580 /* Customer_ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer_ServiceViewController.swift; sourceTree = "<group>"; };
 		9E80137F223756470074729C /* NotificationsDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsDetailTableViewController.swift; sourceTree = "<group>"; };
+		9E86AB812241FF8F0059AB02 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		EF1D333C2232510D002376A3 /* NumberKeyBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeyBoard.swift; sourceTree = "<group>"; };
 		EF1D33402238F4C6002376A3 /* HealthCustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCustomViewCell.swift; sourceTree = "<group>"; };
@@ -227,13 +227,12 @@
 				9E761D2D222F69FC00690580 /* Customer_DogViewController.swift */,
 				9E761D2E222F69FC00690580 /* Customer_OtherViewController.swift */,
 				9E761D2C222F69FC00690580 /* Customer_ServiceViewController.swift */,
-				9E761D30222F69FC00690580 /* Customer_ServiceViewController.swift */,
+				73445109223128A70065247A /* ContactCell.swift */,
 				9E761D2F222F69FC00690580 /* CustomerListViewController.swift */,
 				934D061421E83E95002EF183 /* ViewController.swift */,
 				EF2B9DEE220C3F3E0087124C /* CustomerViewController.swift */,
 				733E40DF222F49ED0069FC8E /* CustomerListViewController.swift */,
 				EF2B9DFE220C3F5F0087124C /* ContactViewController.swift */,
-				73445109223128A70065247A /* ContactCell.swift */,
 				7344510A223128A70065247A /* ContactCell.xib */,
 				9EC38187222CE96800ECEDFD /* NotificationsTableViewController.swift */,
 				EF2B9DFF220C3F5F0087124C /* SettingViewController.swift */,
@@ -244,6 +243,7 @@
 				733E40E1222F53790069FC8E /* CustomerTableViewCell.swift */,
 				733E40E2222F53790069FC8E /* CustomerTableViewCell.xib */,
 				73EFCEDE223236F6002DC295 /* PinObjectAnnotation.swift */,
+				9E86AB812241FF8F0059AB02 /* TabController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -381,7 +381,6 @@
 			files = (
 				7344510E22313A410065247A /* ContactCell.xib in Sources */,
 				7344510D223139F10065247A /* ContactCell.swift in Sources */,
-				9E761D35222F69FC00690580 /* Customer_ServiceViewController.swift in Sources */,
 				7346890B2215895D00D10124 /* Customers+CoreDataProperties.swift in Sources */,
 				EF1D333D2232510D002376A3 /* NumberKeyBoard.swift in Sources */,
 				739C07F7220C4BDB008697C1 /* KenshinCD.xcdatamodeld in Sources */,
@@ -427,6 +426,7 @@
 				734689052215887F00D10124 /* Notifications+CoreDataClass.swift in Sources */,
 				0DA20621222E9AE50068704D /* FAQViewController.swift in Sources */,
 				0DA20623222E9AF20068704D /* FontSettingViewController.swift in Sources */,
+				9E86AB822241FF8F0059AB02 /* TabController.swift in Sources */,
 				0DA2062B222E9B110068704D /* SettingsTableViewController.swift in Sources */,
 				733E40E3222F53790069FC8E /* CustomerTableViewCell.swift in Sources */,
 				EF2B9E01220C3F5F0087124C /* ContactViewController.swift in Sources */,
@@ -560,13 +560,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9BBR3Z47MG;
+				DEVELOPMENT_TEAM = J7G7DZ397S;
 				INFOPLIST_FILE = KenshinAppAll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KenshinT.KenshinAppAll;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.KenshinT.KenshinAppAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -578,13 +578,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9BBR3Z47MG;
+				DEVELOPMENT_TEAM = J7G7DZ397S;
 				INFOPLIST_FILE = KenshinAppAll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KenshinT.KenshinAppAll;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.KenshinT.KenshinAppAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

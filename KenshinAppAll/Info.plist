@@ -24,10 +24,14 @@
 	<string>許可しないとカメラ使えませんで</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>許可しないとカメラ使えませんで</string>
+	<key>NSMotionUsageDescription</key>
+	<string>加速度センサーを使用します</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>Customer</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Tab</string>
+	<string>Login</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

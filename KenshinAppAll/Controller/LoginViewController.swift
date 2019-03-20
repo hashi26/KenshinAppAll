@@ -42,9 +42,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         alert2.addAction(alertAction)
     }
     
-    
-    
-    
     @IBAction func login(_ sender: Any) {
         
         let id : String = self.id.text ?? ""
@@ -70,6 +67,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             //一致するIDありかつPassも一致
             else if readingPerson[0].knsn_tnt_pass == pass{
                 print("ログイン成功")
+                (UIApplication.shared.delegate as! AppDelegate).loginReadingPerson = self.readingPerson[0]
                 //print(next?.readingPerson[0].knsn_tnt_emp_no)
                 
                 //present(next!, animated: true, completion: nil)
@@ -89,26 +87,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         id.text = ""
         pass.text = ""
     }
- 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    /*
-    // GohInfo.json変換用
-    func getJSONData1() throws -> Data? {
-        guard let path = Bundle.main.path(forResource: "goh", ofType: "json") else { return nil }
-        let url = URL(fileURLWithPath: path)
-        
-        return try Data(contentsOf: url)
-    }
- */
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toHello" {
