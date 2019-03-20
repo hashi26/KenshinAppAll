@@ -68,14 +68,8 @@
                                     <constraint firstAttribute="width" secondItem="j3V-pI-Za6" secondAttribute="height" multiplier="100:130" id="kSy-eH-30G"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワードを忘れた方へ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jem-HG-mhL">
-                                <rect key="frame" x="93.666666666666686" y="304" width="146" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzt-oB-28z">
-                                <rect key="frame" x="137.66666666666666" y="330" width="100" height="30"/>
+                                <rect key="frame" x="137.66666666666666" y="350.33333333333331" width="100" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bzt-oB-28z" secondAttribute="height" multiplier="50:15" id="dKA-BP-ZGa"/>
@@ -96,13 +90,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="j3V-pI-Za6" firstAttribute="trailing" secondItem="VmK-l3-6nt" secondAttribute="trailing" constant="-30" id="382-MS-im6"/>
-                            <constraint firstItem="bzt-oB-28z" firstAttribute="top" secondItem="jem-HG-mhL" secondAttribute="bottom" constant="10" id="BmT-0a-S3k"/>
                             <constraint firstItem="eOp-BX-5jZ" firstAttribute="width" relation="lessThanOrEqual" secondItem="Bfh-Qe-IVZ" secondAttribute="width" multiplier="0.5" id="EQN-BO-Aoe"/>
-                            <constraint firstItem="jem-HG-mhL" firstAttribute="top" secondItem="eOp-BX-5jZ" secondAttribute="bottom" constant="15" id="ExU-U5-Ze1"/>
                             <constraint firstItem="ZbT-7a-ehq" firstAttribute="width" relation="lessThanOrEqual" secondItem="Bfh-Qe-IVZ" secondAttribute="width" multiplier="0.5" id="K1v-Tg-F7z"/>
                             <constraint firstItem="bzt-oB-28z" firstAttribute="width" relation="lessThanOrEqual" secondItem="Bfh-Qe-IVZ" secondAttribute="width" multiplier="0.3" id="QH4-N5-YU6"/>
                             <constraint firstItem="j3V-pI-Za6" firstAttribute="bottom" secondItem="VmK-l3-6nt" secondAttribute="bottom" constant="-40" id="S1y-6T-q1s"/>
-                            <constraint firstItem="jem-HG-mhL" firstAttribute="leading" secondItem="eOp-BX-5jZ" secondAttribute="leading" id="VyA-jZ-Pse"/>
+                            <constraint firstItem="bzt-oB-28z" firstAttribute="centerY" secondItem="Bfh-Qe-IVZ" secondAttribute="centerY" multiplier="0.9" id="XfX-6o-3yT"/>
                             <constraint firstItem="ZbT-7a-ehq" firstAttribute="centerY" secondItem="Bfh-Qe-IVZ" secondAttribute="centerY" multiplier="1:2.5" id="b5i-eZ-24y"/>
                             <constraint firstItem="tbL-Y0-WZz" firstAttribute="centerX" secondItem="Bfh-Qe-IVZ" secondAttribute="centerX" id="e49-6A-q5P"/>
                             <constraint firstItem="eOp-BX-5jZ" firstAttribute="top" secondItem="tbL-Y0-WZz" secondAttribute="bottom" constant="10" id="kUo-CY-zFn"/>
