@@ -14,7 +14,7 @@ class Customer_DogViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var dogTable: UITableView!
     var customer:Customers = Customers()
     var dogItem:[String] = []
-    let sectionName:[String] = ["屋内","屋外"]
+    let sectionName:[String] = ["屋外犬数","屋内犬数"]
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -57,8 +57,8 @@ class Customer_DogViewController: UIViewController, UITableViewDelegate, UITable
     // サービスに表示する項目
     func insertItem(){
         var item: [String] = []
-        item.append(String(customer.customer_name_cana!))
-        item.append(String(customer.meter_no!))
+        item.append(String(customer.out_dog!))
+        item.append(String(customer.in_dog!))
         dogItem = item
     }
     
