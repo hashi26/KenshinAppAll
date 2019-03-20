@@ -262,7 +262,7 @@
                         <viewLayoutGuide key="safeArea" id="DXJ-Ag-qKU"/>
                     </view>
                     <connections>
-                        <outlet property="dogView" destination="V5B-XP-dER" id="1wW-1F-Glr"/>
+                        <outlet property="dogTable" destination="V5B-XP-dER" id="ueb-xF-jdV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBE-nJ-8qe" userLabel="First Responder" sceneMemberID="firstResponder"/>

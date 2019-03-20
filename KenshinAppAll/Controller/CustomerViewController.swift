@@ -63,7 +63,6 @@ class CustomerViewController: UIViewController{
         */
         
         self.customer_instance = CustomersClass()
-        //self.servise_instance = Customer_ServiceViewController()
         customers = self.customer_instance.selectCustomers() //前画面からObject受け取り実装完了次第不要
         
         customerName.text = customers[selectionNumber].name_j
@@ -185,6 +184,4 @@ class CustomerViewController: UIViewController{
             if let C_DVC = segue.destination as? Customer_DogViewController     { self.dog_instance     = C_DVC }
         }
     }
-    
 }
-
