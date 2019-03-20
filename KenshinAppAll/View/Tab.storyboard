@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="-1994" y="-1568"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Controller-->
         <scene sceneID="TRd-0s-Gry">
             <objects>
-                <tabBarController id="Bps-XR-RB0" sceneMemberID="viewController">
+                <tabBarController id="Bps-XR-RB0" customClass="TabController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oVQ-M3-NRR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
