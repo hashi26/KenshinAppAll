@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="24" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="DZ6-Xi-jTv"/>
+                                    <navigationItem title="お客さま" id="DZ6-Xi-jTv"/>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-g3-yRh">
@@ -88,7 +88,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIG-ce-EeR">
                                         <rect key="frame" x="51" y="137" width="245" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="To検針"/>
+                                        <state key="normal" title="検針"/>
                                         <connections>
                                             <segue destination="q7v-M0-GcX" kind="show" identifier="toKenshinReport" id="XmO-4t-ED6"/>
                                         </connections>
