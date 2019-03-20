@@ -288,8 +288,8 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         let f = DateFormatter()
         f.dateFormat = "yyyyMMdd"
         print("日付：",f.string(from: Date()))
-        var date = f.string(from: Date())
-        var datedate:NSDate = NSDate();
+        let date = f.string(from: Date())
+        let datedate:NSDate = NSDate();
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
