@@ -150,7 +150,6 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         //検針済なら・・・
         if (results != []) {
             //指示数入力欄を灰色にして非活性化
-            print("結果テーブル対象あり")
             self.gmtSijiSu.text = results[0].gmt_sizi_su.description // 今回指示数
             self.gasUsage.text = results[0].gas_usage.description // 今回使用量
             self.gmtSijiSu.isEnabled = false
@@ -161,7 +160,6 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
             self.cameraLightButton.isEnabled = false
         }else{
             //未検針なら
-            print("結果テーブル対象なし")
             //指示数入力欄を白色にして活性化
             self.gmtSijiSu.isEnabled = true
             self.gmtSijiSu.backgroundColor = UIColor.white
@@ -314,10 +312,9 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         if segue.identifier == "toNextCustomer"{
             print("toNextCustomer呼び出し")
             
-            let nav = segue.destination as! UINavigationController
-            let customerView = nav.topViewController as! CustomerViewController
-            customerView.customers = self.customers
-            customerView.selectionNumber = self.selectionNumber + 1
+            let viewController = segue.destination as! CustomerViewController
+            viewController.customers = self.customers
+            viewController.selectionNumber = self.selectionNumber + 1
             
         }else if segue.identifier == "toMap"{
             print("toMap呼び出し")
