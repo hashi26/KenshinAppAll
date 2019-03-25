@@ -25,7 +25,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>許可しないとカメラ使えませんで</string>
 	<key>NSMotionUsageDescription</key>
-	<string>加速度センサーを使用します</string>
+	<string>歩数のカウント</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>許可しないとカメラ使えませんで</string>
 	<key>UILaunchStoryboardName</key>
