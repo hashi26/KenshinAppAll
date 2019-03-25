@@ -16,7 +16,9 @@ class HelloViewController: UIViewController,UITableViewDelegate, UITableViewData
   @IBOutlet weak var UserName: UILabel!
   
   var motion = [Motion]()
-  var reading_person:[Reading_person] = []
+  //var reading_person:[Reading_person] = []
+  var reading_person:Reading_person!
+  let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
   //Loginより受け取ったreadingPerson
   //使用例：recievedPerson?.knsn_tnt_name
@@ -50,9 +52,11 @@ class HelloViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     // ReadingPersonClassインスタンス生成
     self.person_instance = ReadingPersonClass()
+    //担当者の取得
+    reading_person = appDelegate.loginReadingPerson
     // テスト　検針担当者：10010010010　の氏名を取得して表示
-    reading_person = self.person_instance.selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no: "2010123")//★将来的に渡された値を代入
-    UserName.text = reading_person[0].knsn_tnt_name
+    //self.person_instance.selectReadingPersonByKnsnTntEmpNo(knsn_tnt_emp_no: "2010123")//★将来的に渡された値を代入
+    UserName.text = reading_person.knsn_tnt_name
   
     //motionに初期値を格納
     motion.append(Motion(category: "歩数", result1: 0, result2: 0.0)) //motion[0]に歩数を登録
