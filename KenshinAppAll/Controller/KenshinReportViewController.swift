@@ -46,8 +46,7 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         self.result_instance = ReadingResultClass()
         
         // ガスメータ設置場所番号を引数に各情報を取得して表示(お客さまテーブル)
-        customers = self.customer_instance.selectCustomers() //前画面からObject受け取り実装完了次第不要
-        
+        customers = self.customer_instance.selectCustomers()
         
         //ラベル初期値設定
         meterNo.text = customers[selectionNumber].meter_no
@@ -61,6 +60,9 @@ class KenshinReportViewController: UIViewController,UINavigationControllerDelega
         
         //今回指示数が初期値なら、入力欄をブランク
         if( gmtSijiSu.text == "0" ){ gmtSijiSu.text = nil }
+        
+        //最後のお客さまなら「次のお客さま」を非活性にする。
+        if( customers.count == selectionNumber + 1){ self.nextMetr.isEnabled = false}
         
         //キーボードを開く
         self.openCancelBar()
