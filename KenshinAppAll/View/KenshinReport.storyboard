@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="894" y="219"/>
         </scene>
-        <!--検針-->
+        <!--Kenshin Report View Controller-->
         <scene sceneID="vGr-IX-MjP">
             <objects>
                 <viewController storyboardIdentifier="KenshinReport" id="RhP-4o-i5R" customClass="KenshinReportViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
@@ -180,25 +180,24 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="検針" id="JOj-gb-kA9" userLabel="検針"/>
+                                    <navigationItem title="検針" id="zOO-gA-7zw">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="NIe-BZ-rTE" userLabel="Camera Light Button">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DoO-HR-lnq">
+                                                <rect key="frame" x="313" y="7" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="ライト"/>
+                                                <connections>
+                                                    <action selector="cameraLight:" destination="RhP-4o-i5R" eventType="touchUpInside" id="3pj-yX-BzS"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GZu-xz-drc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="検針" id="zOO-gA-7zw">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="NIe-BZ-rTE" userLabel="Camera Light Button">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DoO-HR-lnq">
-                                <rect key="frame" x="313" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="ライト"/>
-                                <connections>
-                                    <action selector="cameraLight:" destination="RhP-4o-i5R" eventType="touchUpInside" id="3pj-yX-BzS"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="b1Ryo" destination="WF1-fq-Tws" id="M8L-4z-3eN"/>
                         <outlet property="cameraLightButton" destination="DoO-HR-lnq" id="Srv-y7-0gW"/>
