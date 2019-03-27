@@ -336,4 +336,13 @@ class CustomerListViewController: UIViewController,UITableViewDelegate,UITableVi
         viewController.selectionNumber = self.selectedNumber
         print(viewController.selectionNumber)
     }
+    
+    @IBAction func backToMap(segue: UIStoryboardSegue){
+        
+    }
+    
+    // NavigationControllerの左上戻るボタンを非表示
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 }

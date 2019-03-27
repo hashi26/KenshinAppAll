@@ -157,7 +157,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="F4F-ub-fH0"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="qfS-66-RUW"/>
+                    <tabBarItem key="tabBarItem" title="検針" image="meter2" selectedImage="meter2" id="qfS-66-RUW"/>
                     <navigationItem key="navigationItem" title="お客さま" id="6zk-uN-ncj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -168,12 +168,13 @@
                         <outlet property="knsnHhCd" destination="FxQ-9Z-Oth" id="bMG-fa-sPs"/>
                         <outlet property="meterNo" destination="h2f-B9-3Pg" id="gsp-Ij-DZU"/>
                         <outlet property="otherContainer" destination="Yzu-EH-OEc" id="x51-r1-fhY"/>
+                        <outlet property="segmentedController" destination="CbG-AJ-Gxz" id="4Kh-uA-Y4T"/>
                         <outlet property="serviceContainer" destination="uPJ-ZO-hgt" id="4ku-9h-7TF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHv-qP-Ymb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592.79999999999995" y="-234.33283358320841"/>
+            <point key="canvasLocation" x="592.79999999999995" y="-234.97536945812809"/>
         </scene>
         <!--KenshinReport-->
         <scene sceneID="oFv-ls-mgT">
@@ -327,4 +328,7 @@
             <point key="canvasLocation" x="1672.8" y="84.236453201970448"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="meter2" width="40" height="40"/>
+    </resources>
 </document>

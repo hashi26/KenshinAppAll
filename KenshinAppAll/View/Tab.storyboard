@@ -13,7 +13,7 @@
         <scene sceneID="wze-j5-vTG">
             <objects>
                 <viewControllerPlaceholder storyboardName="Map" id="LO1-et-z7M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="NjD-SS-YfI"/>
+                    <tabBarItem key="tabBarItem" title="検針" image="meter2" selectedImage="meter2" id="NjD-SS-YfI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUC-5C-Nrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +44,7 @@
         <scene sceneID="Wix-EI-pTw">
             <objects>
                 <viewControllerPlaceholder storyboardName="Contact" id="nPl-BM-Kit" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="通知一覧" id="sEe-qL-gkA"/>
+                    <tabBarItem key="tabBarItem" title="コンタクト" image="contact" selectedImage="contact" id="sEe-qL-gkA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96G-zh-BUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -54,7 +54,7 @@
         <scene sceneID="NRo-9G-ooU">
             <objects>
                 <viewControllerPlaceholder storyboardName="Notifications" id="e48-ME-YKA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="設定" id="gz9-1Y-Esr"/>
+                    <tabBarItem key="tabBarItem" title="通知一覧" image="notifications" selectedImage="notifications" id="gz9-1Y-Esr"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJx-Tj-NcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,7 +64,7 @@
         <scene sceneID="e5P-Ap-ToR">
             <objects>
                 <viewControllerPlaceholder storyboardName="Config" id="9iQ-Ga-IQz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="URJ-6p-6Gt"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="config" selectedImage="config" id="URJ-6p-6Gt"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ya-QD-Owx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,11 +74,18 @@
         <scene sceneID="8iq-XO-VvA">
             <objects>
                 <viewControllerPlaceholder storyboardName="Hello" id="5Tp-Cp-MMI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ga3-XH-8gQ"/>
+                    <tabBarItem key="tabBarItem" title="Hello" image="user" selectedImage="user" id="ga3-XH-8gQ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3i5-3p-0vM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2016" y="-1633"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="config" width="25" height="25"/>
+        <image name="contact" width="32" height="32"/>
+        <image name="meter2" width="40" height="40"/>
+        <image name="notifications" width="32" height="32"/>
+        <image name="user" width="32" height="32"/>
+    </resources>
 </document>
