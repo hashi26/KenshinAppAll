@@ -165,7 +165,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="＞お客さま一覧"/>
                                 <connections>
-                                    <segue destination="zDi-Nk-elt" kind="show" identifier="toMap" id="hrI-Zc-R8A"/>
+                                    <segue destination="3bn-Mg-El7" kind="unwind" unwindAction="backToMapWithSegue:" id="BcE-Vm-KZ6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Els-nh-dex">
@@ -211,6 +211,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bdo-J3-2ME" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3bn-Mg-El7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="148" y="74"/>
         </scene>

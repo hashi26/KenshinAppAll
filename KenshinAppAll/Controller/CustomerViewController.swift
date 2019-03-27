@@ -21,6 +21,7 @@ class CustomerViewController: UIViewController{
     @IBOutlet weak var serviceContainer: UIView!
     @IBOutlet weak var dogContainer: UIView!
     @IBOutlet weak var otherContainer: UIView!
+    @IBOutlet weak var segmentedController: UISegmentedControl!
     var containers: Array<UIView> = []
     
     var customers:[Customers] = []
@@ -121,6 +122,7 @@ class CustomerViewController: UIViewController{
                     self.servise_instance.reloadTable()
                     self.dog_instance.reloadTable()
                     self.other_instance.reloadTable()
+                    segmentedController.selectedSegmentIndex = 0
                 } else {
                     selectionNumber = 0
                     
@@ -139,6 +141,7 @@ class CustomerViewController: UIViewController{
                     self.servise_instance.reloadTable()
                     self.dog_instance.reloadTable()
                     self.other_instance.reloadTable()
+                    segmentedController.selectedSegmentIndex = 0
                 } else {
                     selectionNumber = customers.count-2
                     /* 最後のお客様である処理を追加する */

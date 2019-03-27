@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mWN-4x-wWu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4xJ-O9-RzL">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--検針-->
+        <!--Navigation Controller-->
+        <scene sceneID="3GZ-Qo-kpf">
+            <objects>
+                <navigationController id="4xJ-O9-RzL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ER7-ik-BSY">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mWN-4x-wWu" kind="relationship" relationship="rootViewController" id="pI2-EK-e6R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wtr-xD-YDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1231" y="-235"/>
+        </scene>
+        <!--お客さま一覧-->
         <scene sceneID="yAG-0t-tXG">
             <objects>
                 <viewController storyboardIdentifier="CustomerList" id="mWN-4x-wWu" customClass="CustomerListViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,8 +78,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="KgB-PQ-bqo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="検針" image="meter2" id="VEq-Xb-3Y5"/>
-                    <navigationItem key="navigationItem" id="v0y-CJ-fGL"/>
+                    <tabBarItem key="tabBarItem" title="検針" image="meter2" selectedImage="meter2" id="VEq-Xb-3Y5"/>
+                    <navigationItem key="navigationItem" title="お客さま一覧" id="v0y-CJ-fGL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="AreaMapView" destination="1j7-VB-MFj" id="WAp-4i-Hzf"/>
@@ -86,6 +102,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="meter2" width="9.6000003814697266" height="9.6000003814697266"/>
+        <image name="meter2" width="40" height="40"/>
     </resources>
 </document>
