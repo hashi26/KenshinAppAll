@@ -24,7 +24,15 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //フォーカスをidへ
+        //self.id.becomeFirstResponder()
+    }
+    
+    @IBAction func login(_ sender: Any) {
         
+        let id : String = self.id.text ?? ""
+        let pass : String = self.pass.text ?? ""
+
         //アラートコントローラーを作成する。
         alert = UIAlertController(title: "注意！！", message: "ID,またはPassが入力されていません", preferredStyle: UIAlertController.Style.alert)
         
@@ -36,16 +44,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             style: UIAlertAction.Style.default,
             handler: nil
         )
-
+        
         //アラートアクションを追加する。
         alert.addAction(alertAction)
         alert2.addAction(alertAction)
-    }
-    
-    @IBAction func login(_ sender: Any) {
-        
-        let id : String = self.id.text ?? ""
-        let pass : String = self.pass.text ?? ""
 
         self.readingPerson_instance = ReadingPersonClass()
         
@@ -53,6 +55,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         if id == "" || pass == ""{
             //アラートコントローラーを表示する。
             self.present(alert, animated: true, completion:nil)
+            self.id.text = ""
+            self.pass.text = ""
+        
+
             return
         }
         else{
@@ -62,25 +68,27 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             if readingPerson.isEmpty {
                 self.present(alert2, animated: true, completion:nil)
                 print("ログイン失敗（ID対象なし）")
+                self.id.text = ""
+                self.pass.text = ""
+                
                 return
             }
             //一致するIDありかつPassも一致
             else if readingPerson[0].knsn_tnt_pass == pass{
                 print("ログイン成功")
                 (UIApplication.shared.delegate as! AppDelegate).loginReadingPerson = self.readingPerson[0]
-                //print(next?.readingPerson[0].knsn_tnt_emp_no)
                 
-                //present(next!, animated: true, completion: nil)
-            }
+              }
                 //ID一致するもPass不一致
             else {
                 self.present(alert2, animated: true, completion:nil)
                 print("ログイン失敗（PASS誤り）")
+                //self.id.text = ""
+                self.pass.text = ""
+                
                 return
             }
-            
         }
-        
     }
     
     @IBAction func returnToLogin(segue: UIStoryboardSegue) {
