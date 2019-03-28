@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hello-->
+        <!--ハロー-->
         <scene sceneID="TjO-vw-n8X">
             <objects>
                 <viewController storyboardIdentifier="Hello" id="j4Y-78-7ko" customClass="HelloViewController" customModule="KenshinAppAll" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,7 +134,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="99V-XG-YzR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Hello" image="user" id="vNT-vv-fEW"/>
+                    <tabBarItem key="tabBarItem" title="ハロー" image="user" id="vNT-vv-fEW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="UserImage" destination="hc2-0m-0Kl" id="NPJ-QW-Wic"/>
