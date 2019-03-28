@@ -165,7 +165,7 @@
                             <outlet property="delegate" destination="LZ8-OU-ZT3" id="tI3-jF-IFJ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Config" image="config" id="4kK-t2-sTL"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="config" id="4kK-t2-sTL"/>
                     <navigationItem key="navigationItem" title="設定" id="ADS-BB-lNP">
                         <barButtonItem key="backBarButtonItem" title="back" id="gqw-kH-eHs"/>
                     </navigationItem>
